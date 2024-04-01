@@ -43,7 +43,6 @@ export function esbuildLambdaPlugin(opts: EsbuildLambdaPluginOptions = {}) {
         // console.log("Build finished. Uploading to localstack...");
       });
 
-      // build.initialOptions.target = "es5"
       build.initialOptions.format = "esm";
       build.initialOptions.inject = [`@project/esbuild-lambda-plugin/cjsShim.js`];
       // If identifiers are minified `handler` will be, and will break the function
@@ -54,23 +53,6 @@ export function esbuildLambdaPlugin(opts: EsbuildLambdaPluginOptions = {}) {
         build.initialOptions.minifyWhitespace = true;
         build.initialOptions.minifySyntax = true;
       }
-
-      // build.initialOptions.supported = {
-      //   // The ES 7 exponentiation operator (**) is supported.
-      //   "exponent-operator": true,
-      //   // ES 6 template literals are supported: multiline strings, expression interpolation, and nesting templates.
-      //   "template-literal": true,
-      //   // ES 6 arrow functions are supported, and ES 6 rest parameter syntax is supported.
-      //   arrow: true,
-      //   "rest-argument": true,
-      //   // ES 9 named capture groups are supported.
-      //   "regexp-named-capture-groups": true,
-      //   // Const and let statements are supported in v2.
-      //   "const-and-let": true,
-      //   // ES 6 await expressions are supported in v2.
-      //   "async-await": true,
-      //   ...build.initialOptions.supported
-      // };
     }
   };
 }

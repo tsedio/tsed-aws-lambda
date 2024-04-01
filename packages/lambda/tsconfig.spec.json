@@ -8,18 +8,8 @@
     "moduleResolution": "nodeNext",
     "noEmit": true,
     "declaration": false,
-    "types": [
-      "vitest/globals",
-      "vitest/importMeta",
-      "node",
-      "esbuild",
-      "vitest"
-    ]
+    "types": ["vitest/globals", "vitest/importMeta", "node", "esbuild", "vitest"]
   },
-  "include": [
-    "esbuild.config.js",
-    "vitest.config.ts",
-    "src/**/*.spec.ts"
-  ],
-  "exclude": ["dist",".esbuild"]
+  "include": ["esbuild.config.mjs", "tsup.config.ts", "vitest.config.ts", "src/**/*.spec.ts"],
+  "exclude": ["dist", ".esbuild"]
 }

@@ -52,8 +52,7 @@ $ yarn start:lambda
 ```
 
 > - It builds all lambda and create Zip file in the `dist` folder.
-> - It also generates a basic terraform file to deploy the lambda function.
-> - It deploys the lambda function on localstack (on start and on file change)
+> - It deploys the lambda function on localstack (on start and on file change) (TODO)
 
 ### Full Express.js server
 

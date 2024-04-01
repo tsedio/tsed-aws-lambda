@@ -5,9 +5,11 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "build": "node esbuild.config.js",
-    "watch": "node esbuild.config.js --watch",
-    "localstack:check": "localstack config validate"
+    "build": "tsup --config tsup.config.ts",
+    "watch": "tsup --config tsup.config.ts --watch",
+    "start": "concurrently \"yarn localstack:start\" \"yarn watch\" --names docker,esbuild -c green,blue",
+    "localstack:check": "localstack config validate",
+    "localstack:start": "docker compose up"
   },
   "dependencies": {
     "@project/controllers": "workspace:*",
@@ -31,13 +33,14 @@
   "devDependencies": {
     "@project/esbuild-lambda-plugin": "workspace:*",
     "@types/aws-lambda": "^8.10.136",
+    "concurrently": "8.2.2",
     "cross-env": "^7.0.3",
     "cross-zip": "4.0.1",
     "esbuild": "0.20.2",
     "esbuild-plugin-tsc": "^0.4.0",
     "globby": "14.0.1",
-    "ts-node": "^10.9.2",
     "tslib": "2.6.2",
+    "tsup": "8.0.2",
     "typescript": "5.4.2",
     "vitest": "^1.4.0"
   }
