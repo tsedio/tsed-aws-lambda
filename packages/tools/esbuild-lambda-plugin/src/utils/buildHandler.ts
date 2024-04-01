@@ -1,11 +1,14 @@
 import path from "node:path";
 
+import { snakeCase } from "change-case";
 import type { BuildOptions, ImportKind } from "esbuild";
 
 import { writePackageJson } from "./writePackageJson.js";
 import { zipAll } from "./zipAll.js";
 
-export interface EsbuildLambdaPluginOptions {}
+export interface EsbuildLambdaPluginOptions {
+  delay?: number;
+}
 export interface BuildHandlerOptions {
   lambda: EsbuildLambdaPluginOptions;
   build: BuildOptions;
@@ -60,5 +63,12 @@ export async function buildHandler(file: string, options: BuildHandlerOptions) {
 
     await writePackageJson(context);
     await zipAll(context);
+
+    return {
+      functionNames: options.meta.exports.map((func) => {
+        return snakeCase(func);
+      }),
+      context
+    };
   }
 }

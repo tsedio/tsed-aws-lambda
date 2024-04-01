@@ -48,3 +48,33 @@ resource "aws_lambda_function" "get_timeslots" {
   }
 }
 
+resource "aws_lambda_function" "get_timeslot_by_id" {
+  function_name = "get_timeslot_by_id"
+  filename      = "dist/timeslots/handler.zip"
+  role          = aws_iam_role.iam_for_lambda_tf.arn
+  handler       = "handler.getTimeslotById"
+  runtime       = "nodejs20.x"
+  timeout       = 30
+
+  environment {
+    variables = {
+      NODE_ENV = "development"
+    }
+  }
+}
+
+resource "aws_lambda_function" "handler" {
+  function_name = "handler"
+  filename      = "dist/simple-example/handler.zip"
+  role          = aws_iam_role.iam_for_lambda_tf.arn
+  handler       = "handler.handler"
+  runtime       = "nodejs20.x"
+  timeout       = 30
+
+  environment {
+    variables = {
+      NODE_ENV = "development"
+    }
+  }
+}
+

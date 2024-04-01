@@ -1,6 +1,7 @@
 import type { PluginBuild } from "esbuild";
 
 import { buildHandler, EsbuildLambdaPluginOptions } from "./utils/buildHandler.js";
+import { runTerraform } from "./utils/runTerraform.js";
 
 export function esbuildLambdaPlugin(opts: EsbuildLambdaPluginOptions = {}) {
   return {
@@ -28,19 +29,22 @@ export function esbuildLambdaPlugin(opts: EsbuildLambdaPluginOptions = {}) {
 
       build.onEnd(async (result) => {
         if (result.metafile) {
-          Object.entries(result.metafile.outputs)
+          const promises = Object.entries(result.metafile.outputs)
             .filter(([key]) => key.endsWith(".js"))
-            .forEach(([output, options]) => {
-              buildHandler(output, {
+            .map(([output, options]) => {
+              return buildHandler(output, {
                 build: build.initialOptions,
                 lambda: opts || {},
                 meta: options
               });
             });
-        }
 
-        // run localstack to upload the lambda function
-        // console.log("Build finished. Uploading to localstack...");
+          const results = await Promise.all(promises);
+
+          setTimeout(async () => {
+            await runTerraform(results.filter(Boolean) as { functionNames: string[] }[]);
+          }, opts.delay || 1000);
+        }
       });
 
       build.initialOptions.format = "esm";

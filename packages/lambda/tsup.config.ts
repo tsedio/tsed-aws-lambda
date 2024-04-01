@@ -17,6 +17,7 @@ export default defineConfig((options) => ({
   keepNames: true,
   shims: true,
   format: "esm",
+  incremental: options.watch,
   esbuildPlugins: [
     eslintPluginTsc({
       tsconfigPath: path.join(process.cwd(), "tsconfig.node.json")
