@@ -6,6 +6,7 @@
   },
   "parser": "@typescript-eslint/parser",
   "extends": [
+    "plugin:@tsed/recommended",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:vitest/recommended"

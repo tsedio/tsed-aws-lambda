@@ -73,8 +73,17 @@ This command use the `packages/www` to generate documentation
 
 ### Run tests
 
+To run all tests over the workspace:
+
 ```batch
 $ yarn test
+```
+
+To run tests for a specific package:
+
+```batch
+$ yarn test:lambda
+$ yarn test:controllers
 ```
 
 ### Deployment
