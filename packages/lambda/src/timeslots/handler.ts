@@ -5,3 +5,4 @@ import { PlatformServerless } from "@tsed/platform-serverless";
 
 export const getTimeslots = PlatformServerless.callback(TimeslotsController, "getTimeslots");
 export const getTimeslotById = PlatformServerless.callback(TimeslotsController, "getTimeslotById");
+console.log("===>", getTimeslots, getTimeslotById);

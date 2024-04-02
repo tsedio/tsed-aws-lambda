@@ -10,6 +10,12 @@
     "declaration": false,
     "types": ["vitest/globals", "vitest/importMeta", "node", "esbuild", "vitest"]
   },
-  "include": ["esbuild.config.mjs", "tsup.config.ts", "vitest.config.ts", "src/**/*.spec.ts"],
+  "include": [
+    "tsup.config.ts",
+    "vitest.config.ts",
+    "vitest.config.e2e.mts",
+    "src/**/*.spec.ts",
+    "src/**/*.e2e.ts"
+  ],
   "exclude": ["dist", ".esbuild"]
 }

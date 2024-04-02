@@ -4,65 +4,6 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
 {
   "components": {
     "schemas": {
-      "GenericError": {
-        "additionalProperties": true,
-        "properties": {
-          "message": {
-            "description": "An error message",
-            "minLength": 1,
-            "type": "string",
-          },
-          "name": {
-            "description": "The error name",
-            "minLength": 1,
-            "type": "string",
-          },
-        },
-        "required": [
-          "name",
-          "message",
-        ],
-        "type": "object",
-      },
-      "NotFound": {
-        "properties": {
-          "errors": {
-            "description": "A list of related errors",
-            "items": {
-              "$ref": "#/components/schemas/GenericError",
-            },
-            "type": "array",
-          },
-          "message": {
-            "description": "An error message",
-            "minLength": 1,
-            "type": "string",
-          },
-          "name": {
-            "default": "NOT_FOUND",
-            "description": "The error name",
-            "example": "NOT_FOUND",
-            "minLength": 1,
-            "type": "string",
-          },
-          "stack": {
-            "description": "The stack trace (only in development mode)",
-            "type": "string",
-          },
-          "status": {
-            "default": 404,
-            "description": "The status code of the exception",
-            "example": 404,
-            "type": "number",
-          },
-        },
-        "required": [
-          "name",
-          "message",
-          "status",
-        ],
-        "type": "object",
-      },
       "Timeslot": {
         "properties": {
           "created_at": {
@@ -274,9 +215,9 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
           },
           "404": {
             "content": {
-              "application/json": {
+              "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotFound",
+                  "type": "object",
                 },
               },
             },
@@ -323,9 +264,9 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
           },
           "404": {
             "content": {
-              "application/json": {
+              "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotFound",
+                  "type": "object",
                 },
               },
             },
