@@ -1,0 +1,10 @@
+{
+  "name": "@project/vitest",
+  "version": "1.0.0",
+  "description": "Vitest utilities for project",
+  "main": "src/index.ts",
+  "typings": "src/index.ts",
+  "devDependencies": {
+    "@aws-sdk/client-lambda": "^3.540.0"
+  }
+}

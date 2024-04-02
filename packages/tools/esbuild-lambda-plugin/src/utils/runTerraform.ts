@@ -13,6 +13,12 @@ function plan() {
   });
 }
 
+function apply() {
+  return execa("terraform", ["apply", "-auto-approve"], {
+    cwd: process.cwd()
+  });
+}
+
 function init() {
   return execa("terraform", ["init"], {
     cwd: process.cwd()
@@ -37,26 +43,33 @@ export async function runTerraform(options: { functionNames: string[] }[]) {
       },
       {
         title: "Deploy all functions",
-        task: (ctx, task) =>
-          task.newListr(
-            functionNames.map((functionName) => {
-              return {
-                title: `Deploy function ${functionName}`,
-                task: async () => deploy(functionName),
-                exitOnError: false
-              };
-            }),
-            {
-              concurrent: true,
-              rendererOptions: {
-                collapseSubtasks: true
-              }
-            }
-          )
+        task: (ctx, task) => {
+          return process.env.CI !== "true"
+            ? task.newListr(
+                functionNames.map((functionName) => {
+                  return {
+                    title: `Deploy function ${functionName}`,
+                    task: async () => deploy(functionName),
+                    exitOnError: false
+                  };
+                }),
+                {
+                  concurrent: true,
+                  rendererOptions: {
+                    collapseSubtasks: true
+                  }
+                }
+              )
+            : apply();
+        }
       }
     ],
     { concurrent: false }
   ).run();
 
-  console.log("🚀 Terraform deployment complete! Waiting changes to propagate...");
+  if (process.env.CI === "true") {
+    console.log("🚀 Terraform deployment complete!");
+  } else {
+    console.log("🚀 Terraform deployment complete! Waiting changes to propagate...");
+  }
 }

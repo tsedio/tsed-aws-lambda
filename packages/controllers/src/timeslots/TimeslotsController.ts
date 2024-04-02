@@ -1,10 +1,9 @@
 import { Timeslot } from "@project/domain/timeslots/Timeslot";
 import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository";
-import { BodyParams, Put } from "@tsed/common";
 import { Controller, Inject } from "@tsed/di";
 import { NotFound } from "@tsed/exceptions";
-import { PathParams } from "@tsed/platform-params";
-import { Format, Get, Groups, JsonFormatTypes, Post, Returns } from "@tsed/schema";
+import { BodyParams, PathParams } from "@tsed/platform-params";
+import { Format, Get, Groups, JsonFormatTypes, Post, Put, Returns } from "@tsed/schema";
 
 @Controller("/timeslots")
 export class TimeslotsController {

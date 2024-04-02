@@ -52,7 +52,7 @@ $ yarn start:lambda
 ```
 
 > - It builds all lambda and create Zip file in the `dist` folder.
-> - It deploys the lambda function on localstack (on start and on file change) (TODO)
+> - It deploys the lambda function on localstack (on start and on file change)
 
 ### Full Express.js server
 
@@ -84,6 +84,15 @@ To run tests for a specific package:
 ```batch
 $ yarn test:lambda
 $ yarn test:controllers
+```
+
+### Run E2E tests (dev)
+
+To run E2E tests:
+
+```batch
+yarn start:lambda
+yarn test:e2e
 ```
 
 ### Deployment
