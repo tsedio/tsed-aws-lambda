@@ -663,6 +663,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@project/domain@workspace:packages/domain":
+  version: 0.0.0-use.local
+  resolution: "@project/domain@workspace:packages/domain"
+  dependencies:
+    "@tsed/ajv": "npm:^7.67.0"
+    "@tsed/common": "npm:^7.67.0"
+    "@tsed/core": "npm:^7.67.0"
+    "@tsed/di": "npm:^7.67.0"
+    "@tsed/engines": "npm:^7.67.0"
+    "@tsed/exceptions": "npm:^7.67.0"
+    "@tsed/json-mapper": "npm:^7.67.0"
+    "@tsed/logger": "npm:^6.7.5"
+    "@tsed/openspec": "npm:^7.67.0"
+    "@tsed/schema": "npm:^7.67.0"
+    "@tsed/swagger": "npm:^7.67.0"
+    barrelsby: "npm:2.8.1"
+    tslib: "npm:2.6.2"
+    typescript: "npm:5.4.3"
+    vitest: "npm:^1.4.0"
+  languageName: unknown
+  linkType: soft
+
 "@project/esbuild-lambda-plugin@workspace:*, @project/esbuild-lambda-plugin@workspace:packages/tools/esbuild-lambda-plugin":
   version: 0.0.0-use.local
   resolution: "@project/esbuild-lambda-plugin@workspace:packages/tools/esbuild-lambda-plugin"
@@ -674,6 +696,30 @@ __metadata:
     execa: "npm:8.0.1"
     fs-extra: "npm:11.2.0"
     tsup: "npm:8.0.2"
+  languageName: unknown
+  linkType: soft
+
+"@project/infra@workspace:*, @project/infra@workspace:packages/infra":
+  version: 0.0.0-use.local
+  resolution: "@project/infra@workspace:packages/infra"
+  dependencies:
+    "@project/infra": "workspace:*"
+    "@tsed/ajv": "npm:^7.67.0"
+    "@tsed/common": "npm:^7.67.0"
+    "@tsed/core": "npm:^7.67.0"
+    "@tsed/di": "npm:^7.67.0"
+    "@tsed/engines": "npm:^7.67.0"
+    "@tsed/exceptions": "npm:^7.67.0"
+    "@tsed/json-mapper": "npm:^7.67.0"
+    "@tsed/logger": "npm:^6.7.5"
+    "@tsed/openspec": "npm:^7.67.0"
+    "@tsed/schema": "npm:^7.67.0"
+    "@tsed/swagger": "npm:^7.67.0"
+    barrelsby: "npm:2.8.1"
+    tslib: "npm:2.6.2"
+    typescript: "npm:5.4.3"
+    uuid: "npm:^9.0.1"
+    vitest: "npm:^1.4.0"
   languageName: unknown
   linkType: soft
 
@@ -722,6 +768,7 @@ __metadata:
     "@tsed/eslint-plugin": "npm:1.1.10"
     "@types/node": "npm:^20.11.30"
     "@types/supertest": "npm:^6.0.2"
+    "@types/uuid": "npm:^9"
     "@typescript-eslint/eslint-plugin": "npm:^7.3.1"
     "@typescript-eslint/parser": "npm:^7.3.1"
     barrelsby: "npm:^2.8.1"
@@ -742,6 +789,7 @@ __metadata:
     tslib: "npm:^2.6.2"
     typescript: "npm:^5.4.3"
     unplugin-swc: "npm:^1.4.4"
+    uuid: "npm:^9.0.1"
     vitest: "npm:^1.4.0"
   languageName: unknown
   linkType: soft
@@ -2186,6 +2234,13 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 10c0/6a8edd7f40cd7e197318e86310a40e568cddd380609dde59b30d5cc6c5f8276ddc698905eac4b3b429eb39f2e8ee326bc20dc6e95a2cdc41c4d3fc9a1ebd4929
+  languageName: node
+  linkType: hard
+
+"@types/uuid@npm:^9":
+  version: 9.0.8
+  resolution: "@types/uuid@npm:9.0.8"
+  checksum: 10c0/b411b93054cb1d4361919579ef3508a1f12bf15b5fdd97337d3d351bece6c921b52b6daeef89b62340fd73fd60da407878432a1af777f40648cbe53a01723489
   languageName: node
   linkType: hard
 
@@ -9528,6 +9583,15 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: 10c0/bcbb807a917d374a49f475fae2e87fdca7da5e5530820ef53f65ba1d12131bd81a92ecf259cc7ce317cbe0f289e7d79fdfebcef9bfa3087c8c8a2fa304c9be54
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "uuid@npm:9.0.1"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 10c0/1607dd32ac7fc22f2d8f77051e6a64845c9bce5cd3dd8aa0070c074ec73e666a1f63c7b4e0f4bf2bc8b9d59dc85a15e17807446d9d2b17c8485fbc2147b27f9b
   languageName: node
   linkType: hard
 

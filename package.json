@@ -9,6 +9,10 @@
     "start:lambda": "yarn workspace @project/lambda run start",
     "test": "vitest run",
     "test:watch": "vitest run",
+    "test:lambda": "yarn workspace @project/lambda run test",
+    "test:controllers": "yarn workspace @project/controllers run test",
+    "test:domain": "yarn workspace @project/domain run test",
+    "test:infra": "yarn workspace @project/infra run test",
     "lint": "eslint '**/*.{ts,js}'",
     "lint:fix": "eslint '**/*.{ts,js}' --fix",
     "prettier": "prettier '**/*.{ts,js,json,md,yml,yaml}' --write",
@@ -18,13 +22,15 @@
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "dotenv-expand": "^11.0.6",
-    "dotenv-flow": "^4.1.0"
+    "dotenv-flow": "^4.1.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@swc/core": "1.4.8",
     "@tsed/eslint-plugin": "1.1.10",
     "@types/node": "^20.11.30",
     "@types/supertest": "^6.0.2",
+    "@types/uuid": "^9",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
     "barrelsby": "^2.8.1",

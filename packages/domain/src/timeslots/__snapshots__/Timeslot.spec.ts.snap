@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Timeslot > json schema > should return the expected json schema 1`] = `
+{
+  "definitions": {
+    "Date": {
+      "type": "object",
+    },
+  },
+  "properties": {
+    "created_at": {
+      "$ref": "#/definitions/Date",
+      "minLength": 1,
+    },
+    "description": {
+      "default": "",
+      "description": "Activity or Dresscode in HTML format",
+      "maxLength": 500,
+      "minLength": 3,
+      "type": "string",
+    },
+    "end_date": {
+      "$ref": "#/definitions/Date",
+      "minLength": 1,
+    },
+    "id": {
+      "format": "uuid",
+      "type": "string",
+    },
+    "label": {
+      "examples": [
+        "Hiking",
+      ],
+      "maxLength": 100,
+      "minLength": 3,
+      "type": "string",
+    },
+    "start_date": {
+      "$ref": "#/definitions/Date",
+      "minLength": 1,
+    },
+    "updated_at": {
+      "$ref": "#/definitions/Date",
+      "minLength": 1,
+    },
+  },
+  "required": [
+    "start_date",
+    "end_date",
+    "label",
+    "description",
+    "created_at",
+    "updated_at",
+  ],
+  "type": "object",
+}
+`;

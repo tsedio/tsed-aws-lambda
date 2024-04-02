@@ -1,0 +1,41 @@
+{
+  "name": "@project/domain",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "source": "src/index.ts",
+  "exports": {
+    ".": {
+      "typings": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "source": "./src/*.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "barrels": "barrelsby --config .barrelsby.json",
+    "build": "tsc --build tsconfig.json"
+  },
+  "dependencies": {
+    "@tsed/ajv": "^7.67.0",
+    "@tsed/common": "^7.67.0",
+    "@tsed/core": "^7.67.0",
+    "@tsed/di": "^7.67.0",
+    "@tsed/engines": "^7.67.0",
+    "@tsed/exceptions": "^7.67.0",
+    "@tsed/json-mapper": "^7.67.0",
+    "@tsed/logger": "^6.7.5",
+    "@tsed/openspec": "^7.67.0",
+    "@tsed/schema": "^7.67.0",
+    "@tsed/swagger": "^7.67.0"
+  },
+  "devDependencies": {
+    "barrelsby": "2.8.1",
+    "tslib": "2.6.2",
+    "typescript": "5.4.3",
+    "vitest": "^1.4.0"
+  }
+}
