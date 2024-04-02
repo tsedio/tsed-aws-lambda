@@ -2,9 +2,9 @@ name: Build & Release
 
 on:
   push:
-    branches: [production, alpha, beta, rc]
+    branches: [master, alpha, beta, rc]
   pull_request:
-    branches: [production]
+    branches: [master]
     types: [opened, synchronize, closed]
 
 concurrency:
@@ -30,8 +30,7 @@ jobs:
         run: yarn lint
 
   test-lambda:
-    runs-on: ${{ matrix.os }}
-
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [20.x]
@@ -50,8 +49,7 @@ jobs:
         run: yarn test:lambda
 
   test-domain:
-    runs-on: ${{ matrix.os }}
-
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [20.x]
@@ -70,8 +68,7 @@ jobs:
         run: yarn test:domain
 
   test-controllers:
-    runs-on: ${{ matrix.os }}
-
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [20.x]
@@ -90,8 +87,7 @@ jobs:
         run: yarn test:controllers
 
   test-infra:
-    runs-on: ${{ matrix.os }}
-
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [20.x]
@@ -110,8 +106,7 @@ jobs:
         run: yarn test:infra
 
   test-e2e:
-    runs-on: ${{ matrix.os }}
-
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [20.x]
@@ -127,4 +122,4 @@ jobs:
       - name: Install dependencies 🚀
         run: yarn install --immutable --network-timeout 500000
       - name: Run test
-        run: yarn test:infra
+        run: yarn test:e2e
