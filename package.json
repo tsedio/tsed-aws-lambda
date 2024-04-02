@@ -5,8 +5,11 @@
   "scripts": {
     "build:barrels": "yarn workspace @project/controllers run barrels",
     "build:swagger": "yarn build:barrels && yarn workspace @project/www run build:swagger",
+    "build:lambda": "yarn workspace @project/lambda run build",
     "start:www": "yarn workspace @project/www run start",
     "start:lambda": "yarn workspace @project/lambda run start",
+    "start:localstack": "yarn workspace @project/lambda run start:localstack",
+    "stop:localstack": "yarn workspace @project/lambda run stop:localstack",
     "test": "vitest run",
     "test:watch": "vitest run",
     "test:lambda": "yarn workspace @project/lambda run test",

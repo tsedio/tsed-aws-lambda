@@ -26,7 +26,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies 🚀
         run: yarn install --immutable --network-timeout 500000
-      - name: Run lint
+      - name: Run lint 🔍
         run: yarn lint
 
   test-lambda:
@@ -45,7 +45,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies 🚀
         run: yarn install --immutable --network-timeout 500000
-      - name: Run test
+      - name: Run test 🔍
         run: yarn test:lambda
 
   test-domain:
@@ -64,7 +64,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies 🚀
         run: yarn install --immutable --network-timeout 500000
-      - name: Run test
+      - name: Run test 🔍
         run: yarn test:domain
 
   test-controllers:
@@ -83,7 +83,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies 🚀
         run: yarn install --immutable --network-timeout 500000
-      - name: Run test
+      - name: Run test 🔍
         run: yarn test:controllers
 
   test-infra:
@@ -102,7 +102,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies 🚀
         run: yarn install --immutable --network-timeout 500000
-      - name: Run test
+      - name: Run test 🔍
         run: yarn test:infra
 
   test-e2e:
@@ -121,5 +121,18 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies 🚀
         run: yarn install --immutable --network-timeout 500000
-      - name: Run test
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.7.5"
+      - name: Install dependencies 🚀
+        run: yarn install --immutable --network-timeout 500000
+      - uses: hashicorp/setup-terraform@v3
+      - name: Start localstack 🚧
+        run: yarn run start:localstack -d
+      - name: Build lambda 🚧
+        run: yarn build:lambda
+      - name: Run test 🔍
         run: yarn test:e2e
+      - name: Stop containers
+        if: always()
+        run: yarn stop:localstack
