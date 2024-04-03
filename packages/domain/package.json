@@ -19,9 +19,14 @@
     "barrels": "barrelsby --config .barrelsby.json",
     "build": "tsc --build tsconfig.json"
   },
-  "dependencies": {
+  "devDependencies": {
+    "barrelsby": "2.8.1",
+    "tslib": "2.6.2",
+    "typescript": "5.4.3",
+    "vitest": "^1.4.0"
+  },
+  "peerDependencies": {
     "@tsed/ajv": "^7.67.0",
-    "@tsed/common": "^7.67.0",
     "@tsed/core": "^7.67.0",
     "@tsed/di": "^7.67.0",
     "@tsed/engines": "^7.67.0",
@@ -31,11 +36,5 @@
     "@tsed/openspec": "^7.67.0",
     "@tsed/schema": "^7.67.0",
     "@tsed/swagger": "^7.67.0"
-  },
-  "devDependencies": {
-    "barrelsby": "2.8.1",
-    "tslib": "2.6.2",
-    "typescript": "5.4.3",
-    "vitest": "^1.4.0"
   }
 }

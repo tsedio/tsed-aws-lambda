@@ -19,9 +19,17 @@
     "build": "tsc --build tsconfig.json"
   },
   "dependencies": {
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "barrelsby": "2.8.1",
+    "tslib": "2.6.2",
+    "typescript": "5.4.3",
+    "vitest": "^1.4.0"
+  },
+  "peerDependencies": {
     "@project/infra": "workspace:*",
     "@tsed/ajv": "^7.67.0",
-    "@tsed/common": "^7.67.0",
     "@tsed/core": "^7.67.0",
     "@tsed/di": "^7.67.0",
     "@tsed/engines": "^7.67.0",
@@ -30,13 +38,6 @@
     "@tsed/logger": "^6.7.5",
     "@tsed/openspec": "^7.67.0",
     "@tsed/schema": "^7.67.0",
-    "@tsed/swagger": "^7.67.0",
-    "uuid": "^9.0.1"
-  },
-  "devDependencies": {
-    "barrelsby": "2.8.1",
-    "tslib": "2.6.2",
-    "typescript": "5.4.3",
-    "vitest": "^1.4.0"
+    "@tsed/swagger": "^7.67.0"
   }
 }

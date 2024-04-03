@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "clean": "rimraf packages/*/dist",
     "build:barrels": "yarn workspace @project/controllers run barrels",
     "build:swagger": "yarn build:barrels && yarn workspace @project/www run build:swagger",
     "build:lambda": "yarn workspace @project/lambda run build",
@@ -19,7 +20,6 @@
     "test:e2e": "yarn workspace @project/lambda run test:e2e",
     "lint": "eslint '**/*.{ts,js}'",
     "lint:fix": "eslint '**/*.{ts,js}' --fix",
-    "prettier": "prettier '**/*.{ts,js,json,md,yml,yaml}' --write",
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
@@ -30,7 +30,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@swc/core": "1.4.8",
+    "@swc/core": "1.4.11",
     "@tsed/eslint-plugin": "1.1.10",
     "@types/node": "^20.11.30",
     "@types/supertest": "^6.0.2",
@@ -48,7 +48,9 @@
     "is-ci": "^3.0.1",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
     "tslib": "^2.6.2",
+    "tsup": "8.0.2",
     "typescript": "^5.4.3",
     "unplugin-swc": "^1.4.4",
     "vitest": "^1.4.0"
