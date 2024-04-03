@@ -7,9 +7,9 @@
   "parser": "@typescript-eslint/parser",
   "extends": [
     "plugin:@tsed/recommended",
-    "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:vitest/recommended"
+    "plugin:vitest/recommended",
+      "plugin:prettier/recommended"
   ],
   "plugins": [
     "workspaces",
@@ -23,6 +23,19 @@
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "workspaces/no-absolute-imports": "error",
-    "prettier/prettier": "error"
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 140,
+        "singleQuote": false,
+        "jsxSingleQuote": true,
+        "semi": false,
+        "tabWidth": 2,
+        "bracketSpacing": true,
+        "arrowParens": "always",
+        "trailingComma": "none",
+        "endOfLine":"auto"
+      }
+    ]
   }
 }

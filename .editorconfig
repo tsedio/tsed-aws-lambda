@@ -1,0 +1,4 @@
+root = true
+
+[*.ts]
+ij_typescript_use_semicolon_after_statement = false
