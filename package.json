@@ -4,8 +4,7 @@
   "description": "",
   "scripts": {
     "clean": "rimraf packages/*/dist",
-    "build:barrels": "yarn workspace @project/controllers run barrels",
-    "build:swagger": "yarn build:barrels && yarn workspace @project/www run build:swagger",
+    "build:swagger": "yarn workspace @project/www run build:swagger",
     "build:lambda": "yarn workspace @project/lambda run build",
     "start:www": "yarn workspace @project/www run start",
     "start:lambda": "yarn workspace @project/lambda run start",
@@ -37,7 +36,6 @@
     "@types/uuid": "^9",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
-    "barrelsby": "^2.8.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",

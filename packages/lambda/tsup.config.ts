@@ -22,6 +22,8 @@ export default defineConfig((options) => ({
     eslintPluginTsc({
       tsconfigPath: path.join(process.cwd(), "tsconfig.node.json")
     }),
-    esbuildLambdaPlugin({})
+    esbuildLambdaPlugin({
+      terraformDir: path.join(process.cwd(), "terraform")
+    })
   ]
 }))

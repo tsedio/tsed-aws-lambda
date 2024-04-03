@@ -4,19 +4,10 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "NodeNext",
     "moduleResolution": "nodeNext",
-    "types": [
-      "node",
-      "vitest",
-      "vitest/globals",
-      "vitest/importMeta"
-    ]
+    "types": ["node", "vitest", "vitest/globals", "vitest/importMeta"]
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/**/*.spec.ts"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.spec.ts"]
 }
