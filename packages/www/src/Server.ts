@@ -44,5 +44,4 @@ import * as pages from "./controllers/pages/index"
   },
   exclude: ["**/*.spec.ts"]
 })
-export class Server {
-}
+export class Server {}

@@ -1,15 +1,4 @@
-import {
-  Description,
-  Example,
-  Format,
-  Groups,
-  JsonFormatTypes,
-  MaxLength,
-  MinLength,
-  Name,
-  Required,
-  RequiredGroups
-} from "@tsed/schema"
+import { Description, Example, Format, Groups, JsonFormatTypes, MaxLength, MinLength, Name, Required, RequiredGroups } from "@tsed/schema"
 
 import { AllowEmpty } from "../decorators/AllowEmpty.js"
 
