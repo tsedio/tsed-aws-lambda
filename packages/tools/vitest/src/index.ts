@@ -1,1 +1,1 @@
-export * from "./lambda/invokeLambda";
+export * from "./lambda/invokeLambda"

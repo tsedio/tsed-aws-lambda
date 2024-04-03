@@ -11,5 +11,5 @@ export function handler(event: unknown, context: unknown, callback: (response: u
       message: "Hello, world!",
       input: event
     })
-  });
+  })
 }
