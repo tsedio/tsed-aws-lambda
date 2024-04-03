@@ -12,7 +12,7 @@ services:
       - DEBUG=${DEBUG:-0}
       - LOCALSTACK_PERSISTENCE=${LOCALSTACK_PERSISTENCE:-1}
     volumes:
-      - "${LOCALSTACK_VOLUME_DIR:-./node_modules/.volume}:/var/lib/localstack"
+      - "${LOCALSTACK_VOLUME_DIR:-./.volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
       - localstack

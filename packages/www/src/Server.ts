@@ -6,8 +6,8 @@ import * as controllers from "@project/controllers"
 import { Configuration } from "@tsed/di"
 import { join } from "path"
 
-import { config } from "./config"
-import * as pages from "./controllers/pages/index"
+import { config } from "./config/index.js"
+import * as pages from "./controllers/pages/index.js"
 
 @Configuration({
   ...config,

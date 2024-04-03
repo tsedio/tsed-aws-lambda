@@ -2,12 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "esnext",
-    "module": "commonjs",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "moduleResolution": "node",
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "isolatedModules": false,
@@ -24,13 +24,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "useDefineForClassFields": true,
-    "lib": [
-      "ESNext",
-      "dom",
-      "ESNext.AsyncIterable"
-    ]
+    "lib": ["ESNext", "dom", "ESNext.AsyncIterable"]
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

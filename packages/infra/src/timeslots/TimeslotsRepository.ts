@@ -1,4 +1,4 @@
-import { Timeslot } from "@project/domain/timeslots/Timeslot" // use absolute import to optimize the bundle tree shaking
+import { Timeslot } from "@project/domain/timeslots/Timeslot.js" // use absolute import to optimize the bundle tree shaking
 import { Injectable } from "@tsed/di"
 import { v4 } from "uuid"
 
