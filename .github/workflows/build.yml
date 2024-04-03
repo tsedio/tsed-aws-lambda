@@ -106,11 +106,12 @@ jobs:
         run: yarn test:infra
 
   test-e2e:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [20.x]
+        os: [ubuntu-latest, macos-latest, windows-latest]
 
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
         with:
