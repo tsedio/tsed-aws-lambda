@@ -36,9 +36,9 @@ This project requires some tools to be installed on your machine. Here is a list
 
 ## Installation
 
-```batch
+```sh
 # install dependencies
-$ yarn install
+yarn install
 ```
 
 ## Development
@@ -47,8 +47,8 @@ $ yarn install
 
 This command start the lambda function locally.
 
-```batch
-$ yarn start:lambda
+```sh
+yarn start:lambda
 ```
 
 > - It builds all lambda and create Zip file in the `dist` folder.
@@ -58,15 +58,15 @@ $ yarn start:lambda
 
 Start full Express.js server:
 
-```batch
+```sh
 # start web server
-$ yarn start:www
+yarn start:www
 ```
 
 ### Generate Swagger API documentation
 
-```batch
-$ yarn build:swagger
+```sh
+yarn build:swagger
 ```
 
 This command use the `packages/www` to generate documentation
@@ -75,22 +75,22 @@ This command use the `packages/www` to generate documentation
 
 To run all tests over the workspace:
 
-```batch
-$ yarn test
+```sh
+yarn test
 ```
 
 To run tests for a specific package:
 
-```batch
-$ yarn test:lambda
-$ yarn test:controllers
+```sh
+yarn test:lambda
+yarn test:controllers
 ```
 
 ### Run E2E tests (dev)
 
 To run E2E tests:
 
-```batch
+```sh
 yarn start:lambda
 yarn test:e2e
 ```
@@ -99,6 +99,6 @@ yarn test:e2e
 
 Use terraform to deploy the lambda function on AWS.
 
-```batch
+```sh
 TBD
 ```
