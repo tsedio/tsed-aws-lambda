@@ -1,35 +1,35 @@
-import { execa } from "execa";
-import { Listr } from "listr2";
+import { execa } from "execa"
+import { Listr } from "listr2"
 
 function deploy(functionName: string) {
   return execa("terraform", ["apply", "-lock=false", "-auto-approve", `-replace=aws_lambda_function.${functionName}`], {
     cwd: process.cwd()
-  });
+  })
 }
 
 function plan() {
   return execa("terraform", ["plan"], {
     cwd: process.cwd()
-  });
+  })
 }
 
 function apply() {
   return execa("terraform", ["apply", "-auto-approve"], {
     cwd: process.cwd()
-  });
+  })
 }
 
 function init() {
   return execa("terraform", ["init"], {
     cwd: process.cwd()
-  });
+  })
 }
 
 export async function runTerraform(options: { functionNames: string[] }[]) {
   // get all changed functions
-  const functionNames = options.flatMap(({ functionNames }) => functionNames, []);
+  const functionNames = options.flatMap(({ functionNames }) => functionNames, [])
 
-  console.log("⚡️Running terraform for functions: ");
+  console.log("⚡️Running terraform for functions: ")
 
   await new Listr(
     [
@@ -51,7 +51,7 @@ export async function runTerraform(options: { functionNames: string[] }[]) {
                     title: `Deploy function ${functionName}`,
                     task: async () => deploy(functionName),
                     exitOnError: false
-                  };
+                  }
                 }),
                 {
                   concurrent: true,
@@ -60,16 +60,16 @@ export async function runTerraform(options: { functionNames: string[] }[]) {
                   }
                 }
               )
-            : apply();
+            : apply()
         }
       }
     ],
     { concurrent: false }
-  ).run();
+  ).run()
 
   if (process.env.CI === "true") {
-    console.log("🚀 Terraform deployment complete!");
+    console.log("🚀 Terraform deployment complete!")
   } else {
-    console.log("🚀 Terraform deployment complete! Waiting changes to propagate...");
+    console.log("🚀 Terraform deployment complete! Waiting changes to propagate...")
   }
 }

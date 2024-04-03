@@ -1,7 +1,7 @@
-import { esbuildLambdaPlugin } from "@project/esbuild-lambda-plugin";
-import eslintPluginTsc from "esbuild-plugin-tsc";
-import * as path from "path";
-import { defineConfig } from "tsup";
+import { esbuildLambdaPlugin } from "@project/esbuild-lambda-plugin"
+import eslintPluginTsc from "esbuild-plugin-tsc"
+import * as path from "path"
+import { defineConfig } from "tsup"
 
 export default defineConfig((options) => ({
   entry: ["src/**/handler.ts"],
@@ -24,4 +24,4 @@ export default defineConfig((options) => ({
     }),
     esbuildLambdaPlugin({})
   ]
-}));
+}))
