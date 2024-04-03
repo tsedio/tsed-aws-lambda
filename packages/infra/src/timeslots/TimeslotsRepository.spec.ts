@@ -1,4 +1,4 @@
-import { Timeslot } from "@project/domain/timeslots/Timeslot"
+import { Timeslot } from "@project/domain/timeslots/Timeslot.js"
 import { DITest } from "@tsed/di"
 import { beforeEach } from "vitest"
 

@@ -8,7 +8,7 @@ export default defineConfig((options) => ({
   splitting: false,
   sourcemap: true,
   clean: true,
-  minify: !options.watch,
+  minify: false, //!options.watch,
   platform: "node",
   target: "node20",
   external: ["aws-sdk"],
@@ -18,11 +18,13 @@ export default defineConfig((options) => ({
   shims: true,
   format: "esm",
   incremental: options.watch,
+  mainFields: ["source", "main"],
   esbuildPlugins: [
     eslintPluginTsc({
       tsconfigPath: path.join(process.cwd(), "tsconfig.node.json")
     }),
     esbuildLambdaPlugin({
+      deploy: process.argv.includes("--deploy") || !!options.watch,
       terraformDir: path.join(process.cwd(), "terraform")
     })
   ]

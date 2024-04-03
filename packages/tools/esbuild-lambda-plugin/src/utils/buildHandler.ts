@@ -7,6 +7,7 @@ import { writePackageJson } from "./writePackageJson.js"
 
 export interface EsbuildLambdaPluginOptions {
   delay?: number
+  deploy?: boolean
   terraformDir?: string
 }
 

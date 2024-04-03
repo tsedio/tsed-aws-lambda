@@ -7,6 +7,7 @@
     "test:watch": "vitest",
     "test:e2e": "vitest --config vitest.config.e2e.mts run",
     "build": "tsup --config tsup.config.ts",
+    "build:deploy": "tsup --config tsup.config.ts -- --deploy",
     "watch": "tsup --config tsup.config.ts --watch",
     "start": "concurrently \"yarn start:localstack\" \"yarn watch\" --names docker,esbuild -c green,blue",
     "check:localstack": "localstack config validate",

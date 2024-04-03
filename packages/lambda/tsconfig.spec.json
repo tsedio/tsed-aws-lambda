@@ -3,12 +3,18 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "dist",
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "nodeNext",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "Bundler",
     "noEmit": true,
     "declaration": false,
-    "types": ["vitest/globals", "vitest/importMeta", "node", "esbuild", "vitest"]
+    "types": [
+      "vitest/globals",
+      "vitest/importMeta",
+      "node",
+      "esbuild",
+      "vitest"
+    ]
   },
   "include": [
     "tsup.config.ts",

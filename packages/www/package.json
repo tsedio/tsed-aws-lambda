@@ -2,12 +2,13 @@
   "name": "@project/www",
   "version": "1.0.0",
   "description": "Server to develop API locally and develop documentation",
+  "type": "module",
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "build": "tsc --build tsconfig.json",
-    "build:swagger": "yarn tsed run generate-swagger --output ./specs",
-    "start": "tsnd --inspect --exit-child --cls --ignore-watch node_modules --respawn --transpile-only src/index.ts"
+    "build": "tsc --project tsconfig.node.json",
+    "build:swagger": "yarn tsed run generate-swagger --production --output ./specs",
+    "start": "node --import @swc-node/register/esm-register src/index.ts"
   },
   "dependencies": {
     "@project/controllers": "workspace:*",
@@ -33,15 +34,19 @@
     "dotenv": "^16.4.5",
     "dotenv-expand": "^11.0.6",
     "dotenv-flow": "^4.1.0",
-    "express": "^4.19.1",
+    "express": "^4.19.2",
     "method-override": "^3.0.0"
   },
   "devDependencies": {
-    "@tsed/cli": "^5.1.1",
-    "@tsed/cli-core": "^5.1.1",
-    "@tsed/cli-generate-swagger": "^5.1.1",
-    "@tsed/cli-plugin-eslint": "5.1.1",
-    "@tsed/cli-plugin-vitest": "5.1.1",
+    "@swc-node/register": "^1.9.0",
+    "@swc/cli": "^0.3.12",
+    "@swc/core": "^1.4.11",
+    "@swc/helpers": "^0.5.8",
+    "@tsed/cli": "^5.1.2",
+    "@tsed/cli-core": "5.1.2",
+    "@tsed/cli-generate-swagger": "^5.1.2",
+    "@tsed/cli-plugin-eslint": "5.1.2",
+    "@tsed/cli-plugin-vitest": "5.1.2",
     "@tsed/platform-express": "^7.67.4",
     "@tsed/platform-views": "^7.67.4",
     "@types/compression": "^1.7.5",
@@ -50,9 +55,11 @@
     "@types/express": "^4.17.21",
     "@types/method-override": "^0.0.35",
     "@types/multer": "^1.4.11",
+    "node-dev": "8.0.0",
     "supertest": "^6.3.4",
     "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "5.4.3"
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "5.4.3",
+    "vitest": "1.4.0"
   }
 }

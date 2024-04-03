@@ -39,13 +39,15 @@ export function esbuildLambdaPlugin(opts: EsbuildLambdaPluginOptions = {}) {
               })
             })
 
-          const contexts = (await Promise.all(promises)).filter(Boolean) as {
-            functionNames: string[]
-          }[]
+          if (opts.deploy) {
+            setTimeout(async () => {
+              const contexts = (await Promise.all(promises)).filter(Boolean) as {
+                functionNames: string[]
+              }[]
 
-          setTimeout(async () => {
-            await runTerraform({ contexts, cwd: opts.terraformDir })
-          }, opts.delay || 1000)
+              await runTerraform({ contexts, cwd: opts.terraformDir })
+            }, opts.delay || 1000)
+          }
         }
       })
 

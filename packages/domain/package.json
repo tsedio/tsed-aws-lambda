@@ -1,16 +1,12 @@
 {
   "name": "@project/domain",
   "version": "1.0.0",
-  "main": "src/index.ts",
-  "source": "src/index.ts",
+  "type": "module",
   "exports": {
-    ".": {
-      "typings": "./dist/index.d.ts",
-      "default": "./src/index.ts"
-    },
-    "./*": {
+    "./*.js": {
+      "types": "./dist/*.d.ts",
       "source": "./src/*.ts",
-      "default": "./src/*.ts"
+      "default": "./dist/*.js"
     }
   },
   "scripts": {

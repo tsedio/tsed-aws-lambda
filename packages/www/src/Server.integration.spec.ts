@@ -1,7 +1,7 @@
 import { PlatformTest } from "@tsed/common"
 import SuperTest from "supertest"
 
-import { Server } from "./Server"
+import { Server } from "./Server.js"
 
 describe("Server", () => {
   beforeEach(PlatformTest.bootstrap(Server))

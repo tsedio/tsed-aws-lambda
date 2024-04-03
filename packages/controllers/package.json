@@ -1,22 +1,23 @@
 {
   "name": "@project/controllers",
   "version": "1.0.0",
-  "main": "src/index.ts",
-  "source": "src/index.ts",
+  "type": "module",
   "exports": {
     ".": {
-      "typings": "./dist/index.d.ts",
-      "default": "./src/index.ts"
+      "types": "./dist/index.d.ts",
+      "source": "./src/index.ts",
+      "default": "./dist/index.js"
     },
-    "./*": {
+    "./*.js": {
+      "types": "./dist/*.d.ts",
       "source": "./src/*.ts",
-      "default": "./src/*.ts"
+      "default": "./dist/*.js"
     }
   },
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "build": "tsc --build tsconfig.json"
+    "build": "tsc --build tsconfig.node.json"
   },
   "devDependencies": {
     "tslib": "2.6.2",

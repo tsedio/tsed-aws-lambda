@@ -1,12 +1,12 @@
-import { Timeslot } from "@project/domain/timeslots/Timeslot"
-import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository"
+import { Timeslot } from "@project/domain/timeslots/Timeslot.js"
+import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
 import { catchAsyncError } from "@tsed/core"
 import { DITest } from "@tsed/di" // we use DITest to be agnostic with the Serverless/Web platform as much is possible
 import { NotFound } from "@tsed/exceptions"
 import { deserialize } from "@tsed/json-mapper"
 import { getSpec, SpecTypes } from "@tsed/schema"
 
-import { TimeslotsController } from "./TimeslotsController"
+import { TimeslotsController } from "./TimeslotsController.js"
 
 async function getControllerFixture() {
   const timeslot = deserialize<Timeslot>(

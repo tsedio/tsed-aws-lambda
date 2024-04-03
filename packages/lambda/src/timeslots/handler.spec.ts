@@ -1,4 +1,4 @@
-import { TimeslotsController } from "@project/controllers/timeslots/TimeslotsController"
+import { TimeslotsController } from "@project/controllers/timeslots/TimeslotsController.js"
 import { PlatformServerless } from "@tsed/platform-serverless"
 import { PlatformServerlessTest } from "@tsed/platform-serverless-testing"
 
