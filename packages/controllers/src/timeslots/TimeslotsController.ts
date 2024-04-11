@@ -1,5 +1,5 @@
-import { Timeslot } from "@project/domain/timeslots/Timeslot"
-import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository"
+import { Timeslot } from "@project/domain/timeslots/Timeslot.js"
+import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
 import { Controller, Inject } from "@tsed/di"
 import { NotFound } from "@tsed/exceptions"
 import { BodyParams, PathParams } from "@tsed/platform-params"

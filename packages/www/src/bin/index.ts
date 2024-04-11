@@ -2,8 +2,8 @@
 import { CliCore } from "@tsed/cli-core"
 import { GenerateSwaggerCmd } from "@tsed/cli-generate-swagger"
 
-import { config } from "../config"
-import { Server } from "../Server"
+import { config } from "../config/index.js"
+import { Server } from "../Server.js"
 
 CliCore.bootstrap({
   ...config,

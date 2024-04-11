@@ -1,8 +1,7 @@
 import type { PluginBuild } from "esbuild"
 
-import { buildHandler, BuildHandlerContext, EsbuildLambdaPluginOptions } from "./utils/buildHandler.js"
+import { buildHandler, EsbuildLambdaPluginOptions } from "./utils/buildHandler.js"
 import { runTerraform } from "./utils/runTerraform.js"
-import { zipAll } from "./utils/zipAll.js"
 
 export function esbuildLambdaPlugin(opts: EsbuildLambdaPluginOptions = {}) {
   return {
@@ -40,16 +39,15 @@ export function esbuildLambdaPlugin(opts: EsbuildLambdaPluginOptions = {}) {
               })
             })
 
-          const results = await Promise.all(promises)
+          if (opts.deploy) {
+            setTimeout(async () => {
+              const contexts = (await Promise.all(promises)).filter(Boolean) as {
+                functionNames: string[]
+              }[]
 
-          setTimeout(async () => {
-            await Promise.all(
-              (results.filter(Boolean) as { context: BuildHandlerContext }[]).map(({ context }) => {
-                return zipAll(context)
-              })
-            )
-            await runTerraform(results.filter(Boolean) as { functionNames: string[] }[])
-          }, opts.delay || 1000)
+              await runTerraform({ contexts, cwd: opts.terraformDir })
+            }, opts.delay || 1000)
+          }
         }
       })
 

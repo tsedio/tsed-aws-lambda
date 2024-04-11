@@ -106,11 +106,12 @@ jobs:
         run: yarn test:infra
 
   test-e2e:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [20.x]
+        os: [ubuntu-latest]
 
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -129,8 +130,8 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
       - name: Start localstack 🚧
         run: yarn run start:localstack -d
-      - name: Build lambda 🚧
-        run: yarn build:lambda
+      - name: Build & Deploy lambda 🚧
+        run: yarn deploy:lambda
       - name: Run test 🔍
         run: yarn test:e2e
       - name: Stop containers

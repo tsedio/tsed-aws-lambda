@@ -1,33 +1,15 @@
-import { execa } from "execa"
 import { Listr } from "listr2"
 
-function deploy(functionName: string) {
-  return execa("terraform", ["apply", "-lock=false", "-auto-approve", `-replace=aws_lambda_function.${functionName}`], {
-    cwd: process.cwd()
-  })
+import { apply, deploy, init, plan } from "../clients/TerraformCli.js"
+
+export interface RunTerraformOptions {
+  cwd?: string
+  contexts: { functionNames: string[] }[]
 }
 
-function plan() {
-  return execa("terraform", ["plan"], {
-    cwd: process.cwd()
-  })
-}
-
-function apply() {
-  return execa("terraform", ["apply", "-auto-approve"], {
-    cwd: process.cwd()
-  })
-}
-
-function init() {
-  return execa("terraform", ["init"], {
-    cwd: process.cwd()
-  })
-}
-
-export async function runTerraform(options: { functionNames: string[] }[]) {
+export async function runTerraform({ cwd, contexts }: RunTerraformOptions) {
   // get all changed functions
-  const functionNames = options.flatMap(({ functionNames }) => functionNames, [])
+  const functionNames = contexts.flatMap(({ functionNames }) => functionNames, [])
 
   console.log("⚡️Running terraform for functions: ")
 
@@ -35,21 +17,21 @@ export async function runTerraform(options: { functionNames: string[] }[]) {
     [
       {
         title: "Initialize Terraform",
-        task: () => init()
+        task: () => init(cwd)
       },
       {
         title: "Terraform plan",
-        task: () => plan()
+        task: () => plan(cwd)
       },
       {
         title: "Deploy all functions",
-        task: (ctx, task) => {
+        task: (_, task) => {
           return process.env.CI !== "true"
             ? task.newListr(
                 functionNames.map((functionName) => {
                   return {
                     title: `Deploy function ${functionName}`,
-                    task: async () => deploy(functionName),
+                    task: async () => deploy(functionName, cwd),
                     exitOnError: false
                   }
                 }),
@@ -60,7 +42,7 @@ export async function runTerraform(options: { functionNames: string[] }[]) {
                   }
                 }
               )
-            : apply()
+            : apply(cwd)
         }
       }
     ],

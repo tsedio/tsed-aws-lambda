@@ -3,22 +3,11 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "esnext",
+    "module": "esnext",
     "moduleResolution": "nodeNext",
-    "types": [
-      "node",
-      "vitest",
-      "vitest/globals",
-      "vitest/importMeta"
-    ]
+    "types": ["node", "vitest", "vitest/globals", "vitest/importMeta"]
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "dist",
-    "src/**/*.spec.ts",
-    ".esbuild"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["dist", "src/**/*.spec.ts", ".esbuild"]
 }

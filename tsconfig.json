@@ -4,13 +4,13 @@
   "include": [],
   "references": [
     {
-      "path": "./packages/controllers/tsconfig.json"
+      "path": "./packages/domain/tsconfig.json"
     },
     {
       "path": "./packages/infra/tsconfig.json"
     },
     {
-      "path": "./packages/domain/tsconfig.json"
+      "path": "./packages/controllers/tsconfig.json"
     },
     {
       "path": "./packages/www/tsconfig.json"
