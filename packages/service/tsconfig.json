@@ -16,13 +16,10 @@
   "include": [],
   "references": [
     {
-      "path": "../infra"
+      "path": "../domain/tsconfig.json"
     },
     {
-      "path": "../service"
-    },
-    {
-      "path": "../domain"
+      "path": "../infra/tsconfig.json"
     },
     {
       "path": "./tsconfig.node.json"
