@@ -16,6 +16,9 @@
       "path": "./packages/www/tsconfig.json"
     },
     {
+      "path": "./packages/commands/tsconfig.json"
+    },
+    {
       "path": "./tsconfig.spec.json"
     }
   ]

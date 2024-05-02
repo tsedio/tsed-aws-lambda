@@ -1189,6 +1189,61 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@project/commands@workspace:packages/commands":
+  version: 0.0.0-use.local
+  resolution: "@project/commands@workspace:packages/commands"
+  dependencies:
+    "@project/controllers": "workspace:*"
+    "@swc-node/register": "npm:^1.9.0"
+    "@swc/cli": "npm:^0.3.12"
+    "@swc/core": "npm:^1.4.11"
+    "@swc/helpers": "npm:^0.5.8"
+    "@tsed/ajv": "npm:7.67.4"
+    "@tsed/cli": "npm:^5.1.2"
+    "@tsed/cli-core": "npm:5.1.2"
+    "@tsed/cli-generate-swagger": "npm:^5.1.2"
+    "@tsed/cli-plugin-eslint": "npm:5.1.2"
+    "@tsed/cli-plugin-vitest": "npm:5.1.2"
+    "@tsed/common": "npm:7.67.4"
+    "@tsed/core": "npm:7.67.4"
+    "@tsed/di": "npm:7.67.4"
+    "@tsed/engines": "npm:7.67.4"
+    "@tsed/exceptions": "npm:7.67.4"
+    "@tsed/json-mapper": "npm:7.67.4"
+    "@tsed/logger": "npm:6.7.5"
+    "@tsed/openspec": "npm:7.67.4"
+    "@tsed/platform-exceptions": "npm:7.67.4"
+    "@tsed/platform-express": "npm:^7.67.4"
+    "@tsed/platform-params": "npm:7.67.4"
+    "@tsed/platform-response-filter": "npm:7.67.4"
+    "@tsed/platform-views": "npm:^7.67.4"
+    "@tsed/schema": "npm:7.67.4"
+    "@tsed/swagger": "npm:7.67.4"
+    "@types/compression": "npm:^1.7.5"
+    "@types/cookie-parser": "npm:^1.4.7"
+    "@types/cors": "npm:^2.8.17"
+    "@types/express": "npm:^4.17.21"
+    "@types/method-override": "npm:^0.0.35"
+    "@types/multer": "npm:^1.4.11"
+    ajv: "npm:^8.12.0"
+    body-parser: "npm:^1.20.2"
+    compression: "npm:^1.7.4"
+    cookie-parser: "npm:^1.4.6"
+    cors: "npm:^2.8.5"
+    dotenv: "npm:^16.4.5"
+    dotenv-expand: "npm:^11.0.6"
+    dotenv-flow: "npm:^4.1.0"
+    express: "npm:^4.19.2"
+    method-override: "npm:^3.0.0"
+    nodemon: "npm:3.1.0"
+    supertest: "npm:^6.3.4"
+    ts-node: "npm:^10.9.2"
+    tsconfig-paths: "npm:^4.2.0"
+    typescript: "npm:5.4.3"
+    vitest: "npm:1.4.0"
+  languageName: unknown
+  linkType: soft
+
 "@project/controllers@workspace:*, @project/controllers@workspace:packages/controllers":
   version: 0.0.0-use.local
   resolution: "@project/controllers@workspace:packages/controllers"
