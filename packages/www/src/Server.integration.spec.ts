@@ -18,4 +18,11 @@ describe("Server", () => {
       status: 404
     })
   })
+
+  it("should generate swagger.json", async () => {
+    const request = SuperTest(PlatformTest.callback())
+    const response = await request.get("/doc/swagger.json").expect(200)
+
+    expect(response.body).toMatchSnapshot()
+  })
 })
