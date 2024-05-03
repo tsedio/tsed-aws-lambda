@@ -1206,27 +1206,27 @@ __metadata:
     "@swc/cli": "npm:^0.3.12"
     "@swc/core": "npm:^1.4.11"
     "@swc/helpers": "npm:^0.5.8"
-    "@tsed/ajv": "npm:7.68.3"
+    "@tsed/ajv": "npm:7.68.5"
     "@tsed/cli": "npm:^5.1.2"
     "@tsed/cli-core": "npm:5.1.2"
     "@tsed/cli-generate-swagger": "npm:^5.1.2"
     "@tsed/cli-plugin-eslint": "npm:5.1.2"
     "@tsed/cli-plugin-vitest": "npm:5.1.2"
-    "@tsed/common": "npm:7.68.3"
-    "@tsed/core": "npm:7.68.3"
-    "@tsed/di": "npm:7.68.3"
-    "@tsed/engines": "npm:7.68.3"
-    "@tsed/exceptions": "npm:7.68.3"
-    "@tsed/json-mapper": "npm:7.68.3"
+    "@tsed/common": "npm:7.68.5"
+    "@tsed/core": "npm:7.68.5"
+    "@tsed/di": "npm:7.68.5"
+    "@tsed/engines": "npm:7.68.5"
+    "@tsed/exceptions": "npm:7.68.5"
+    "@tsed/json-mapper": "npm:7.68.5"
     "@tsed/logger": "npm:6.7.5"
-    "@tsed/openspec": "npm:7.68.3"
-    "@tsed/platform-exceptions": "npm:7.68.3"
-    "@tsed/platform-express": "npm:^7.68.3"
-    "@tsed/platform-params": "npm:7.68.3"
-    "@tsed/platform-response-filter": "npm:7.68.3"
-    "@tsed/platform-views": "npm:^7.68.3"
-    "@tsed/schema": "npm:7.68.3"
-    "@tsed/swagger": "npm:7.68.3"
+    "@tsed/openspec": "npm:7.68.5"
+    "@tsed/platform-exceptions": "npm:7.68.5"
+    "@tsed/platform-express": "npm:^7.68.5"
+    "@tsed/platform-params": "npm:7.68.5"
+    "@tsed/platform-response-filter": "npm:7.68.5"
+    "@tsed/platform-views": "npm:^7.68.5"
+    "@tsed/schema": "npm:7.68.5"
+    "@tsed/swagger": "npm:7.68.5"
     "@types/compression": "npm:^1.7.5"
     "@types/cookie-parser": "npm:^1.4.7"
     "@types/cors": "npm:^2.8.17"
@@ -1248,7 +1248,7 @@ __metadata:
     ts-node: "npm:^10.9.2"
     tsconfig-paths: "npm:^4.2.0"
     typescript: "npm:5.4.3"
-    vitest: "npm:1.4.0"
+    vitest: "npm:1.6.0"
   languageName: unknown
   linkType: soft
 
@@ -1258,7 +1258,7 @@ __metadata:
   dependencies:
     tslib: "npm:2.6.2"
     typescript: "npm:5.4.3"
-    vitest: "npm:^1.4.0"
+    vitest: "npm:^1.6.0"
   peerDependencies:
     "@tsed/ajv": ^7.67.0
     "@tsed/core": ^7.67.0
@@ -1279,7 +1279,7 @@ __metadata:
   dependencies:
     tslib: "npm:2.6.2"
     typescript: "npm:5.4.3"
-    vitest: "npm:^1.4.0"
+    vitest: "npm:^1.6.0"
   peerDependencies:
     "@tsed/ajv": ^7.67.0
     "@tsed/core": ^7.67.0
@@ -1315,7 +1315,7 @@ __metadata:
     tslib: "npm:2.6.2"
     typescript: "npm:5.4.3"
     uuid: "npm:^9.0.1"
-    vitest: "npm:^1.4.0"
+    vitest: "npm:^1.6.0"
   peerDependencies:
     "@project/infra": "workspace:*"
     "@tsed/ajv": ^7.67.0
@@ -1337,20 +1337,20 @@ __metadata:
   dependencies:
     "@project/controllers": "workspace:*"
     "@project/esbuild-lambda-plugin": "workspace:*"
-    "@tsed/ajv": "npm:7.68.3"
-    "@tsed/core": "npm:7.68.3"
-    "@tsed/di": "npm:7.68.3"
-    "@tsed/engines": "npm:7.68.3"
-    "@tsed/exceptions": "npm:7.68.3"
-    "@tsed/json-mapper": "npm:7.68.3"
+    "@tsed/ajv": "npm:7.68.5"
+    "@tsed/core": "npm:7.68.5"
+    "@tsed/di": "npm:7.68.5"
+    "@tsed/engines": "npm:7.68.5"
+    "@tsed/exceptions": "npm:7.68.5"
+    "@tsed/json-mapper": "npm:7.68.5"
     "@tsed/logger": "npm:6.7.5"
     "@tsed/logger-file": "npm:6.7.5"
-    "@tsed/openspec": "npm:7.68.3"
-    "@tsed/platform-exceptions": "npm:7.68.3"
-    "@tsed/platform-params": "npm:7.68.3"
-    "@tsed/platform-response-filter": "npm:7.68.3"
-    "@tsed/platform-serverless": "npm:7.68.3"
-    "@tsed/platform-serverless-testing": "npm:^7.68.3"
+    "@tsed/openspec": "npm:7.68.5"
+    "@tsed/platform-exceptions": "npm:7.68.5"
+    "@tsed/platform-params": "npm:7.68.5"
+    "@tsed/platform-response-filter": "npm:7.68.5"
+    "@tsed/platform-serverless": "npm:7.68.5"
+    "@tsed/platform-serverless-testing": "npm:^7.68.5"
     "@types/aws-lambda": "npm:^8.10.136"
     "@types/supertest": "npm:6.0.2"
     ajv: "npm:^8.12.0"
@@ -1365,7 +1365,7 @@ __metadata:
     tslib: "npm:2.6.2"
     tsup: "npm:8.0.2"
     typescript: "npm:5.4.3"
-    vitest: "npm:^1.4.0"
+    vitest: "npm:^1.6.0"
   languageName: unknown
   linkType: soft
 
@@ -1400,7 +1400,7 @@ __metadata:
     typescript: "npm:^5.4.3"
     unplugin-swc: "npm:^1.4.4"
     uuid: "npm:^9.0.1"
-    vitest: "npm:^1.4.0"
+    vitest: "npm:^1.6.0"
   languageName: unknown
   linkType: soft
 
@@ -1421,27 +1421,27 @@ __metadata:
     "@swc/cli": "npm:^0.3.12"
     "@swc/core": "npm:^1.4.11"
     "@swc/helpers": "npm:^0.5.8"
-    "@tsed/ajv": "npm:7.68.3"
+    "@tsed/ajv": "npm:7.68.5"
     "@tsed/cli": "npm:^5.1.2"
     "@tsed/cli-core": "npm:5.1.2"
     "@tsed/cli-generate-swagger": "npm:^5.1.2"
     "@tsed/cli-plugin-eslint": "npm:5.1.2"
     "@tsed/cli-plugin-vitest": "npm:5.1.2"
-    "@tsed/common": "npm:7.68.3"
-    "@tsed/core": "npm:7.68.3"
-    "@tsed/di": "npm:7.68.3"
-    "@tsed/engines": "npm:7.68.3"
-    "@tsed/exceptions": "npm:7.68.3"
-    "@tsed/json-mapper": "npm:7.68.3"
+    "@tsed/common": "npm:7.68.5"
+    "@tsed/core": "npm:7.68.5"
+    "@tsed/di": "npm:7.68.5"
+    "@tsed/engines": "npm:7.68.5"
+    "@tsed/exceptions": "npm:7.68.5"
+    "@tsed/json-mapper": "npm:7.68.5"
     "@tsed/logger": "npm:6.7.5"
-    "@tsed/openspec": "npm:7.68.3"
-    "@tsed/platform-exceptions": "npm:7.68.3"
-    "@tsed/platform-express": "npm:^7.68.3"
-    "@tsed/platform-params": "npm:7.68.3"
-    "@tsed/platform-response-filter": "npm:7.68.3"
-    "@tsed/platform-views": "npm:^7.68.3"
-    "@tsed/schema": "npm:7.68.3"
-    "@tsed/swagger": "npm:7.68.3"
+    "@tsed/openspec": "npm:7.68.5"
+    "@tsed/platform-exceptions": "npm:7.68.5"
+    "@tsed/platform-express": "npm:^7.68.5"
+    "@tsed/platform-params": "npm:7.68.5"
+    "@tsed/platform-response-filter": "npm:7.68.5"
+    "@tsed/platform-views": "npm:^7.68.5"
+    "@tsed/schema": "npm:7.68.5"
+    "@tsed/swagger": "npm:7.68.5"
     "@types/compression": "npm:^1.7.5"
     "@types/cookie-parser": "npm:^1.4.7"
     "@types/cors": "npm:^2.8.17"
@@ -1463,7 +1463,7 @@ __metadata:
     ts-node: "npm:^10.9.2"
     tsconfig-paths: "npm:^4.2.0"
     typescript: "npm:5.4.3"
-    vitest: "npm:1.4.0"
+    vitest: "npm:1.6.0"
   languageName: unknown
   linkType: soft
 
@@ -2484,18 +2484,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsed/ajv@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/ajv@npm:7.68.3"
+"@tsed/ajv@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/ajv@npm:7.68.5"
   dependencies:
     ajv-errors: "npm:3.0.0"
     ajv-formats: "npm:2.1.1"
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/core": 7.68.3
-    "@tsed/di": 7.68.3
-    "@tsed/exceptions": 7.68.3
-    "@tsed/schema": 7.68.3
+    "@tsed/core": 7.68.5
+    "@tsed/di": 7.68.5
+    "@tsed/exceptions": 7.68.5
+    "@tsed/schema": 7.68.5
     ajv: ">=8.9.0"
     ajv-errors: ">=3.0.0"
   peerDependenciesMeta:
@@ -2507,7 +2507,7 @@ __metadata:
       optional: false
     "@tsed/schema":
       optional: false
-  checksum: 10c0/a8e39f83b0f1c232be31302f7107345adc69732267cf931fa19876d9dbf717a0170ef93a2f04d761bbd4a9914ba2b771be5da17e50fe782ec28f2bbbc8403010
+  checksum: 10c0/cdf58c37d619e09ddd77ec5e907737a9a291db5062cd51c7cf63792e46fe44b92edfd39b09c22d7e5b9d1c423b7e312d0481199c08b76b185e43e7066f0d85ab
   languageName: node
   linkType: hard
 
@@ -2626,24 +2626,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsed/common@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/common@npm:7.68.3"
+"@tsed/common@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/common@npm:7.68.5"
   dependencies:
-    "@tsed/core": "npm:7.68.3"
-    "@tsed/di": "npm:7.68.3"
-    "@tsed/exceptions": "npm:7.68.3"
-    "@tsed/json-mapper": "npm:7.68.3"
+    "@tsed/core": "npm:7.68.5"
+    "@tsed/di": "npm:7.68.5"
+    "@tsed/exceptions": "npm:7.68.5"
+    "@tsed/json-mapper": "npm:7.68.5"
     "@tsed/logger": "npm:>=6.7.5"
     "@tsed/logger-file": "npm:>=6.7.5"
-    "@tsed/platform-exceptions": "npm:7.68.3"
-    "@tsed/platform-log-middleware": "npm:7.68.3"
-    "@tsed/platform-middlewares": "npm:7.68.3"
-    "@tsed/platform-params": "npm:7.68.3"
-    "@tsed/platform-response-filter": "npm:7.68.3"
-    "@tsed/platform-router": "npm:7.68.3"
-    "@tsed/platform-views": "npm:7.68.3"
-    "@tsed/schema": "npm:7.68.3"
+    "@tsed/platform-exceptions": "npm:7.68.5"
+    "@tsed/platform-log-middleware": "npm:7.68.5"
+    "@tsed/platform-middlewares": "npm:7.68.5"
+    "@tsed/platform-params": "npm:7.68.5"
+    "@tsed/platform-response-filter": "npm:7.68.5"
+    "@tsed/platform-router": "npm:7.68.5"
+    "@tsed/platform-views": "npm:7.68.5"
+    "@tsed/schema": "npm:7.68.5"
     "@types/json-schema": "npm:7.0.15"
     accepts: "npm:^1.3.8"
     tslib: "npm:2.6.1"
@@ -2656,17 +2656,17 @@ __metadata:
       optional: false
     "@tsed/logger-file":
       optional: false
-  checksum: 10c0/5615c2a38a09cf928ff71ce68c35b237175687173e41e6acd93397061672e90023cf8066c3acc67c177d87cffdd2983e28b1cfc0fc21292f0ceea95652add6ed
+  checksum: 10c0/bc250149f8a97461803786168fbb53c29e97041ec3f76c7478c368e8c29cdc70e03dca23f6804b4f57f8e38b805531b623586126199c99a4d9937e80cc2d91e9
   languageName: node
   linkType: hard
 
-"@tsed/core@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/core@npm:7.68.3"
+"@tsed/core@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/core@npm:7.68.5"
   dependencies:
     reflect-metadata: "npm:^0.2.1"
     tslib: "npm:2.6.1"
-  checksum: 10c0/6b47ca8f89559989cc99ea99f901710f6bf0ea72c067e54d6d0e2357318110596685ef452c3a24dde67c1b23704423709fc9f18b5724dd39832f7f88fa148eac
+  checksum: 10c0/0b6b7d96db202131df46b9174477f5ba67d3f356d139799e5fe6931697ab8c0eaece4f212461cc5fdeabbb1fa30c552b35b2f3da831f7f0cf667fdb89b36b8ba
   languageName: node
   linkType: hard
 
@@ -2680,15 +2680,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsed/di@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/di@npm:7.68.3"
+"@tsed/di@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/di@npm:7.68.5"
   dependencies:
     tslib: "npm:2.6.2"
   peerDependencies:
-    "@tsed/core": 7.68.3
+    "@tsed/core": 7.68.5
     "@tsed/logger": ">=6.7.5"
-    "@tsed/schema": 7.68.3
+    "@tsed/schema": 7.68.5
   peerDependenciesMeta:
     "@tsed/core":
       optional: false
@@ -2696,7 +2696,7 @@ __metadata:
       optional: false
     "@tsed/schema":
       optional: false
-  checksum: 10c0/dd0f5fdb98bf9128b2953d71ae44e124bfa89c21d936908bfc8565c62b862e7d7440bdbf1d0faaa64cc452e17bcd106e1d806cd7c462843248b19d6b195119d2
+  checksum: 10c0/4d18ebe956d7706136029714c025bee14180514f6cd0f4accf7cde70a2a98cadc17a5141ca4fc1f1f6a351e395919c93bdeceb8f62fa33b33053a983c0712eac
   languageName: node
   linkType: hard
 
@@ -2720,12 +2720,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsed/engines@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/engines@npm:7.68.3"
+"@tsed/engines@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/engines@npm:7.68.5"
   dependencies:
     tslib: "npm:2.6.1"
-  checksum: 10c0/37e7573fb52d846c15498b67511af9f8da654b3fe8c626be1f2ff03a6ad72df31b85006023bc34c77d66d12f64c2cd8a49edfaca3d8d99fec86a0780bd63d82d
+  checksum: 10c0/fd569bd1c1647016a90c41d85c2f37d049aeea0ab391e0bfcda1b633c7f87cbda38ade0f17d79231819d0eb4e0e5a28c3d748b08f9768b4f7986f03cea291d97
   languageName: node
   linkType: hard
 
@@ -2743,33 +2743,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsed/exceptions@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/exceptions@npm:7.68.3"
+"@tsed/exceptions@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/exceptions@npm:7.68.5"
   dependencies:
     change-case: "npm:4.1.2"
     statuses: "npm:>=2.0.1"
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/core": 7.68.3
-  checksum: 10c0/4b98172ae7e12a5ee5bfc2b7d7f336494b677a143f6a0c65f6ed30e0e7eab05a912717ce0048c3092071e6e632cec8ea5ac30e7f2acb8c87454c21096328d2ba
+    "@tsed/core": 7.68.5
+  checksum: 10c0/3b91b86c7de0521528fab905a56e9e37cdf2a261a95f2f52be15166407c4df69995c84f504cd1ff9ced907630a01f47e6ad8b65bccae478c08ec8e587ed74936
   languageName: node
   linkType: hard
 
-"@tsed/json-mapper@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/json-mapper@npm:7.68.3"
+"@tsed/json-mapper@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/json-mapper@npm:7.68.5"
   dependencies:
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/core": 7.68.3
-    "@tsed/schema": 7.68.3
+    "@tsed/core": 7.68.5
+    "@tsed/schema": 7.68.5
   peerDependenciesMeta:
     "@tsed/core":
       optional: false
     "@tsed/schema":
       optional: false
-  checksum: 10c0/72e4d0f58b02b53350387d86a8ec1bcb21502bdcbd0922b3fd7e47fbcc34a854b358f65ad8a409bb4e562857ae12c70d291e19c260cb0908a50647fa2a90fb41
+  checksum: 10c0/2e3f934d2b6979dfbd8b33de629069b019de07b387d40a89d2575387f68012037bef9f959434b62d99986cb9b8c51121cc3ce84354374644648f2c1c4fbdb032
   languageName: node
   linkType: hard
 
@@ -2797,13 +2797,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsed/normalize-path@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/normalize-path@npm:7.68.3"
+"@tsed/normalize-path@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/normalize-path@npm:7.68.5"
   dependencies:
     normalize-path: "npm:3.0.0"
     tslib: "npm:2.6.1"
-  checksum: 10c0/f865a6f92ae0d599ecd678642c8d5374a9ac69b3e0b05b2b1b90c7f8bffc7e3d6a73f561b2379811c18cfbac022922fcc64bf336223efbc58e1f5ef21aaf58f4
+  checksum: 10c0/44a9ba3039f9879fccf0841ae3ea9cee2c9381a48d155218beb49feb4d70d60a7380577527f0a4d1edbb438a079d62204f81c826e8b48593a12b1465623252b3
   languageName: node
   linkType: hard
 
@@ -2824,23 +2824,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsed/openspec@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/openspec@npm:7.68.3"
-  checksum: 10c0/f1a5773189bf014ba475c830ec1bd3bea5c24b5b097e6cfced739528f09a112f0c41209a25e0f9d56c5d7eee42d0cc84658521537da0fe02c3a2bef95a2d3ccb
+"@tsed/openspec@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/openspec@npm:7.68.5"
+  checksum: 10c0/3c08ca648185b4e4ff5407abad2bf3fa2faf76f6f0d39843517963d7f48616b9d1412cfb199fa71cc06d5f18f77e027413c5e981c813422e81c192561365a96a
   languageName: node
   linkType: hard
 
-"@tsed/platform-exceptions@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/platform-exceptions@npm:7.68.3"
+"@tsed/platform-exceptions@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/platform-exceptions@npm:7.68.5"
   dependencies:
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/core": 7.68.3
-    "@tsed/di": 7.68.3
-    "@tsed/exceptions": 7.68.3
-    "@tsed/schema": 7.68.3
+    "@tsed/core": 7.68.5
+    "@tsed/di": 7.68.5
+    "@tsed/exceptions": 7.68.5
+    "@tsed/schema": 7.68.5
   peerDependenciesMeta:
     "@tsed/core":
       optional: false
@@ -2850,26 +2850,26 @@ __metadata:
       optional: false
     "@tsed/schema":
       optional: false
-  checksum: 10c0/414f77799761be347ec24281130bd5ca1810a0f68c9490cfa23c30f0a9c4b8970df7be1b5bf9f372fc3ab22b22e2a280f6c3be5f0e4ee554846e8ccdb1ea08f5
+  checksum: 10c0/5802a1b3738ca21e2816c4d439af08c9b094d290ad3ff0dfbf1bcf77c0135e55ea0eb6ca664c42606563773a1268441e967275b7d9d5606264d26b6f7aba7f2d
   languageName: node
   linkType: hard
 
-"@tsed/platform-express@npm:^7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/platform-express@npm:7.68.3"
+"@tsed/platform-express@npm:^7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/platform-express@npm:7.68.5"
   dependencies:
     express: "npm:^4.19.1"
     multer: "npm:^1.4.5-lts.1"
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/common": 7.68.3
-    "@tsed/core": 7.68.3
-    "@tsed/di": 7.68.3
-    "@tsed/json-mapper": 7.68.3
+    "@tsed/common": 7.68.5
+    "@tsed/core": 7.68.5
+    "@tsed/di": 7.68.5
+    "@tsed/json-mapper": 7.68.5
     "@tsed/logger": ">=6.7.5"
-    "@tsed/openspec": 7.68.3
-    "@tsed/platform-views": 7.68.3
-    "@tsed/schema": 7.68.3
+    "@tsed/openspec": 7.68.5
+    "@tsed/platform-views": 7.68.5
+    "@tsed/schema": 7.68.5
     "@types/multer": ^1.4.5
     body-parser: ^1.19.0
     cross-env: 7.0.3
@@ -2891,19 +2891,19 @@ __metadata:
       optional: false
     multer:
       optional: false
-  checksum: 10c0/26405d1eedf58bdd8082fc1aeb74234cd1a28fb3070c4522aca4006749f61f6235a1751be4067e27ad7a6366bdab502104d7ecf35366e4edf6214a93cff9368c
+  checksum: 10c0/11650581ca43ef61b536110101c062aaf9ff21485959b033c91bb3d8245bd5ebf31ff963051da8513b26a324bc8da753f48194958af68c4bb0a14bd999ed4229
   languageName: node
   linkType: hard
 
-"@tsed/platform-log-middleware@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/platform-log-middleware@npm:7.68.3"
+"@tsed/platform-log-middleware@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/platform-log-middleware@npm:7.68.5"
   dependencies:
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/di": 7.68.3
-    "@tsed/platform-middlewares": 7.68.3
-    "@tsed/platform-params": 7.68.3
+    "@tsed/di": 7.68.5
+    "@tsed/platform-middlewares": 7.68.5
+    "@tsed/platform-params": 7.68.5
   peerDependenciesMeta:
     "@tsed/di":
       optional: false
@@ -2911,19 +2911,19 @@ __metadata:
       optional: false
     "@tsed/platform-params":
       optional: false
-  checksum: 10c0/6b87571b157a98a19a0565f1d5d8f771fd5638e6ddc646ebd3ca1c17d4774cd9d440e5c663fd70ad1dbf36843cf8b8c5a9d28d3666c68f91ed718ffa47607022
+  checksum: 10c0/c8e0a4fe4313b02d7a18bed86e93de008bc3809c514938f61607a9ce89191e3308334002338c39d9b559f486ca7b97ca679832556b2c209f9d1325222f3a6ef7
   languageName: node
   linkType: hard
 
-"@tsed/platform-middlewares@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/platform-middlewares@npm:7.68.3"
+"@tsed/platform-middlewares@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/platform-middlewares@npm:7.68.5"
   dependencies:
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/core": 7.68.3
-    "@tsed/di": 7.68.3
-    "@tsed/schema": 7.68.3
+    "@tsed/core": 7.68.5
+    "@tsed/di": 7.68.5
+    "@tsed/schema": 7.68.5
   peerDependenciesMeta:
     "@tsed/core":
       optional: true
@@ -2931,47 +2931,21 @@ __metadata:
       optional: true
     "@tsed/schema":
       optional: true
-  checksum: 10c0/e10070580b58f006b362524aa2d2fc69742137a74babc9b728fb129c9b23215e76f0520718c478f855487784b1765361b9195496d0b0e3337751f63ed1229aa3
+  checksum: 10c0/2554b41296599513716c254ee0820147cedb320597caae246f0fb07f0568b9f9dada51719f2205dda43898be8d998ab6fe902a8fffd65f271a4b696cabceeb06
   languageName: node
   linkType: hard
 
-"@tsed/platform-params@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/platform-params@npm:7.68.3"
+"@tsed/platform-params@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/platform-params@npm:7.68.5"
   dependencies:
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/core": 7.68.3
-    "@tsed/di": 7.68.3
-    "@tsed/exceptions": 7.68.3
-    "@tsed/json-mapper": 7.68.3
-    "@tsed/schema": 7.68.3
-  peerDependenciesMeta:
-    "@tsed/core":
-      optional: false
-    "@tsed/di":
-      optional: false
-    "@tsed/exceptions":
-      optional: false
-    "@tsed/json-mapper":
-      optional: false
-    "@tsed/schema":
-      optional: false
-  checksum: 10c0/e310fbd1de4cbeb2eb74eb64fd1e36f29f39567b29bedce2f9f3f42f1baa2c2fc4a87126c3e6da1d7af441a769bb79a5abfdd5148cb41e3f88ff5d77736e9d44
-  languageName: node
-  linkType: hard
-
-"@tsed/platform-response-filter@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/platform-response-filter@npm:7.68.3"
-  dependencies:
-    tslib: "npm:2.6.1"
-  peerDependencies:
-    "@tsed/core": 7.68.3
-    "@tsed/di": 7.68.3
-    "@tsed/exceptions": 7.68.3
-    "@tsed/json-mapper": 7.68.3
-    "@tsed/schema": 7.68.3
+    "@tsed/core": 7.68.5
+    "@tsed/di": 7.68.5
+    "@tsed/exceptions": 7.68.5
+    "@tsed/json-mapper": 7.68.5
+    "@tsed/schema": 7.68.5
   peerDependenciesMeta:
     "@tsed/core":
       optional: false
@@ -2983,22 +2957,48 @@ __metadata:
       optional: false
     "@tsed/schema":
       optional: false
-  checksum: 10c0/5057841940df6ac6c0e590ccef399e2b546508dab6da03cc1aa6feeaf5ca0cdf974d20782a2104aed3e309d809213a45b137518683632713284caf5e815ddf13
+  checksum: 10c0/e1d643451aaad8c9b8a24182dfe09cca9a5a03793ac62eca28121fc5e98957cdd7071639c0cec89420bfee8ea8c2d73dfec99920b0c466d6e5b4b1d1fed2de45
   languageName: node
   linkType: hard
 
-"@tsed/platform-router@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/platform-router@npm:7.68.3"
+"@tsed/platform-response-filter@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/platform-response-filter@npm:7.68.5"
   dependencies:
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/core": 7.68.3
-    "@tsed/di": 7.68.3
-    "@tsed/exceptions": 7.68.3
-    "@tsed/json-mapper": 7.68.3
-    "@tsed/platform-params": 7.68.3
-    "@tsed/schema": 7.68.3
+    "@tsed/core": 7.68.5
+    "@tsed/di": 7.68.5
+    "@tsed/exceptions": 7.68.5
+    "@tsed/json-mapper": 7.68.5
+    "@tsed/schema": 7.68.5
+  peerDependenciesMeta:
+    "@tsed/core":
+      optional: false
+    "@tsed/di":
+      optional: false
+    "@tsed/exceptions":
+      optional: false
+    "@tsed/json-mapper":
+      optional: false
+    "@tsed/schema":
+      optional: false
+  checksum: 10c0/5ba84fbfcd0f0c6db640fb7519efbb13ded94c10a2269f944cc9429d3b3227b55b15eca8541802a653492adde08ee1bebc4bcc70df6e904b55c71a4b2221960e
+  languageName: node
+  linkType: hard
+
+"@tsed/platform-router@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/platform-router@npm:7.68.5"
+  dependencies:
+    tslib: "npm:2.6.1"
+  peerDependencies:
+    "@tsed/core": 7.68.5
+    "@tsed/di": 7.68.5
+    "@tsed/exceptions": 7.68.5
+    "@tsed/json-mapper": 7.68.5
+    "@tsed/platform-params": 7.68.5
+    "@tsed/schema": 7.68.5
   peerDependenciesMeta:
     "@tsed/core":
       optional: false
@@ -3012,43 +3012,43 @@ __metadata:
       optional: false
     "@tsed/schema":
       optional: false
-  checksum: 10c0/514ffd3c8d3452084ba9abc408e47c673e84b8f04d156581f97794ddc6e31d80ab649109d6b439108b3a291b067aa1a2097c24f0c38f0c0f1706f371af01901a
+  checksum: 10c0/6914e8b0d92e196e8a202b8532e157283bad7cc52d01643afc674d0170b4ee946d5bbdca3fde76c045c5b3ec09d93cb716b52f7eeeadd7a53fc46ef3e22d4b95
   languageName: node
   linkType: hard
 
-"@tsed/platform-serverless-testing@npm:^7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/platform-serverless-testing@npm:7.68.3"
+"@tsed/platform-serverless-testing@npm:^7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/platform-serverless-testing@npm:7.68.5"
   dependencies:
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/common": 7.68.3
-    "@tsed/core": 7.68.3
-    "@tsed/di": 7.68.3
-    "@tsed/json-mapper": 7.68.3
+    "@tsed/common": 7.68.5
+    "@tsed/core": 7.68.5
+    "@tsed/di": 7.68.5
+    "@tsed/json-mapper": 7.68.5
     "@tsed/logger": ">=6.7.5"
-    "@tsed/openspec": 7.68.3
-    "@tsed/schema": 7.68.3
-  checksum: 10c0/7446be50648c022a38685daa57aba9608dbb02319d51a7fddaed38d7b002f690f460326bbd32a3069f68499de73d5e9f233de3d79bf64d801517aec16ec4807b
+    "@tsed/openspec": 7.68.5
+    "@tsed/schema": 7.68.5
+  checksum: 10c0/cfa0af64f878bdc136fb5e636ae70956401ee417f6e29d5f706be8d2cb703dc8a1671a2780a19772b505b5ea25204d914c59dd704b3787abe7457e98c588e907
   languageName: node
   linkType: hard
 
-"@tsed/platform-serverless@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/platform-serverless@npm:7.68.3"
+"@tsed/platform-serverless@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/platform-serverless@npm:7.68.5"
   dependencies:
-    "@tsed/core": "npm:7.68.3"
-    "@tsed/exceptions": "npm:7.68.3"
-    "@tsed/json-mapper": "npm:7.68.3"
-    "@tsed/platform-exceptions": "npm:7.68.3"
-    "@tsed/platform-params": "npm:7.68.3"
-    "@tsed/schema": "npm:7.68.3"
+    "@tsed/core": "npm:7.68.5"
+    "@tsed/exceptions": "npm:7.68.5"
+    "@tsed/json-mapper": "npm:7.68.5"
+    "@tsed/platform-exceptions": "npm:7.68.5"
+    "@tsed/platform-params": "npm:7.68.5"
+    "@tsed/schema": "npm:7.68.5"
     encodeurl: "npm:^1.0.2"
     mime: "npm:^3.0.0"
     tslib: "npm:2.6.1"
     uuid: "npm:^9.0.1"
   peerDependencies:
-    "@tsed/di": 7.68.3
+    "@tsed/di": 7.68.5
     "@tsed/logger": ">=6.7.5"
   peerDependenciesMeta:
     "@tsed/di":
@@ -3057,23 +3057,23 @@ __metadata:
       optional: false
     find-my-way:
       optional: true
-  checksum: 10c0/d6666194fedb53b327356e58d5dc9af599bd84089419a129a3cb9584e663b8da45dd9a53b0b48d64db3b6774f170d1c08c2e6bb749f42db2351ce71c3821c134
+  checksum: 10c0/920a7bd9dd4f13e388ca81ba44da65bea6764d8e113e1c081831891d52e3ab5dfb544775be55e6475ed4e28d9434bcebaeb16a330188479bd17f75cf58c60d55
   languageName: node
   linkType: hard
 
-"@tsed/platform-views@npm:7.68.3, @tsed/platform-views@npm:^7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/platform-views@npm:7.68.3"
+"@tsed/platform-views@npm:7.68.5, @tsed/platform-views@npm:^7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/platform-views@npm:7.68.5"
   dependencies:
-    "@tsed/engines": "npm:7.68.3"
+    "@tsed/engines": "npm:7.68.5"
     ejs: "npm:^3.1.9"
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/core": 7.68.3
-    "@tsed/di": 7.68.3
-    "@tsed/engines": 7.68.3
-    "@tsed/exceptions": 7.68.3
-    "@tsed/schema": 7.68.3
+    "@tsed/core": 7.68.5
+    "@tsed/di": 7.68.5
+    "@tsed/engines": 7.68.5
+    "@tsed/exceptions": 7.68.5
+    "@tsed/schema": 7.68.5
   peerDependenciesMeta:
     "@tsed/core":
       optional: false
@@ -3083,15 +3083,15 @@ __metadata:
       optional: false
     "@tsed/schema":
       optional: false
-  checksum: 10c0/b8363c305ac59c0fcb6d15f7e446e088ffdbe46b75981071b702fd1a9ee45aa1939f04c2d60571747f738a0918aa048326fdb1b97687dc80532bb2b58351d15a
+  checksum: 10c0/6d2e72a98bb3b4f6fd7415f4c246d6fc611283d7fb1f059e77c60e6e5e92dafc1df1905ec4f078dd178f6d82ba872700bd316b5ca66f243b4c28a7d21baefc93
   languageName: node
   linkType: hard
 
-"@tsed/schema@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/schema@npm:7.68.3"
+"@tsed/schema@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/schema@npm:7.68.5"
   dependencies:
-    "@tsed/openspec": "npm:7.68.3"
+    "@tsed/openspec": "npm:7.68.5"
     change-case: "npm:^4.1.2"
     fs-extra: "npm:^11.2.0"
     json-schema: "npm:0.4.0"
@@ -3099,14 +3099,14 @@ __metadata:
     statuses: "npm:>=2.0.1"
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/core": 7.68.3
-    "@tsed/openspec": 7.68.3
+    "@tsed/core": 7.68.5
+    "@tsed/openspec": 7.68.5
   peerDependenciesMeta:
     "@tsed/core":
       optional: false
     "@tsed/openspec":
       optional: false
-  checksum: 10c0/e40ca3befe0c0d26553d5fc86c13e4a0076668fb75221c8a3ea0a4971cfd57a05556a12552bdb0760faa8bb2ad718f59fbe190c69eecab47edb18fc9fe58e781
+  checksum: 10c0/3707bc875458bdb33c08a2ffcadab61eff9d796063f5708006770f810c2e85d9abb74f6e366dbc1c6d3dfebb9e14840f802481251e68caaef24a3cdd5465ce95
   languageName: node
   linkType: hard
 
@@ -3133,23 +3133,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsed/swagger@npm:7.68.3":
-  version: 7.68.3
-  resolution: "@tsed/swagger@npm:7.68.3"
+"@tsed/swagger@npm:7.68.5":
+  version: 7.68.5
+  resolution: "@tsed/swagger@npm:7.68.5"
   dependencies:
-    "@tsed/normalize-path": "npm:7.68.3"
-    "@tsed/openspec": "npm:7.68.3"
+    "@tsed/normalize-path": "npm:7.68.5"
+    "@tsed/openspec": "npm:7.68.5"
     filedirname: "npm:^2.11.0"
     fs-extra: "npm:11.2.0"
     micromatch: "npm:4.0.5"
     swagger-ui-dist: "npm:>=5.17.1"
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/common": 7.68.3
+    "@tsed/common": 7.68.5
   peerDependenciesMeta:
     "@tsed/common":
       optional: false
-  checksum: 10c0/613fecc7f737784abc29493bd1b87b1f10becea7ed811ff72dd209c1fa2f7d3e2a89b9b59dcd89110f14b9721664a553d58ca795fbac3627e8e7416c988cf6cd
+  checksum: 10c0/9ed837ba29612ab89969a2ddb2176799df68cb379a79448f86e097712fa73fcc5428f0bedeab3ea60bc3fe666f61a1779a9c52abeace19ba5544b1943b89eb4f
   languageName: node
   linkType: hard
 
@@ -3657,57 +3657,57 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/expect@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@vitest/expect@npm:1.4.0"
+"@vitest/expect@npm:1.6.0":
+  version: 1.6.0
+  resolution: "@vitest/expect@npm:1.6.0"
   dependencies:
-    "@vitest/spy": "npm:1.4.0"
-    "@vitest/utils": "npm:1.4.0"
+    "@vitest/spy": "npm:1.6.0"
+    "@vitest/utils": "npm:1.6.0"
     chai: "npm:^4.3.10"
-  checksum: 10c0/2d6a657afc674adb78ad6609ecf61a94355b080cf90f922e05193b5b33b37d486c9b66a52270f1f367c16d626bcb8323368519dae096a992190898e03280b5e0
+  checksum: 10c0/a4351f912a70543e04960f5694f1f1ac95f71a856a46e87bba27d3eb72a08c5d11d35021cbdc6077452a152e7d93723fc804bba76c2cc53c8896b7789caadae3
   languageName: node
   linkType: hard
 
-"@vitest/runner@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@vitest/runner@npm:1.4.0"
+"@vitest/runner@npm:1.6.0":
+  version: 1.6.0
+  resolution: "@vitest/runner@npm:1.6.0"
   dependencies:
-    "@vitest/utils": "npm:1.4.0"
+    "@vitest/utils": "npm:1.6.0"
     p-limit: "npm:^5.0.0"
     pathe: "npm:^1.1.1"
-  checksum: 10c0/87a5bdde5c48e3258ecd2716994da20c8eec63acaf63a0db724513a42701bc644728009a7301d78b8775d8004c7ce1ddb8bde6495066d864c532bc117783aa91
+  checksum: 10c0/27d67fa51f40effe0e41ee5f26563c12c0ef9a96161f806036f02ea5eb9980c5cdf305a70673942e7a1e3d472d4d7feb40093ae93024ef1ccc40637fc65b1d2f
   languageName: node
   linkType: hard
 
-"@vitest/snapshot@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@vitest/snapshot@npm:1.4.0"
+"@vitest/snapshot@npm:1.6.0":
+  version: 1.6.0
+  resolution: "@vitest/snapshot@npm:1.6.0"
   dependencies:
     magic-string: "npm:^0.30.5"
     pathe: "npm:^1.1.1"
     pretty-format: "npm:^29.7.0"
-  checksum: 10c0/6f089d1dbe43556779479bc309b0a8fc7e0229843c40efb4dabcf99ccf9a6fa859dd38c13674616a955801442730aca55151cbd52bb22d41d9a335060e03759b
+  checksum: 10c0/be027fd268d524589ff50c5fad7b4faa1ac5742b59ac6c1dc6f5a3930aad553560e6d8775e90ac4dfae4be746fc732a6f134ba95606a1519707ce70db3a772a5
   languageName: node
   linkType: hard
 
-"@vitest/spy@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@vitest/spy@npm:1.4.0"
+"@vitest/spy@npm:1.6.0":
+  version: 1.6.0
+  resolution: "@vitest/spy@npm:1.6.0"
   dependencies:
     tinyspy: "npm:^2.2.0"
-  checksum: 10c0/847bc3085d0aa2e039aa42d803cf2dc94596aab3a63de7d364933d24ed9e0781b7d3d4bd222df202f92bae83e9c37b2893b9f24a2de7d83b6930b7b1acf43516
+  checksum: 10c0/df66ea6632b44fb76ef6a65c1abbace13d883703aff37cd6d062add6dcd1b883f19ce733af8e0f7feb185b61600c6eb4042a518e4fb66323d0690ec357f9401c
   languageName: node
   linkType: hard
 
-"@vitest/utils@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@vitest/utils@npm:1.4.0"
+"@vitest/utils@npm:1.6.0":
+  version: 1.6.0
+  resolution: "@vitest/utils@npm:1.6.0"
   dependencies:
     diff-sequences: "npm:^29.6.3"
     estree-walker: "npm:^3.0.3"
     loupe: "npm:^2.3.7"
     pretty-format: "npm:^29.7.0"
-  checksum: 10c0/cfa352484f0ea2614444a94fc35979bea94fac64e9756238c685ae74bcd027893a1798b9d6d92c1cdd454b1f7f08f453d0cca108274f0449b6f5efd345822a4c
+  checksum: 10c0/8b0d19835866455eb0b02b31c5ca3d8ad45f41a24e4c7e1f064b480f6b2804dc895a70af332f14c11ed89581011b92b179718523f55f5b14787285a0321b1301
   languageName: node
   linkType: hard
 
@@ -10457,10 +10457,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinypool@npm:^0.8.2":
-  version: 0.8.2
-  resolution: "tinypool@npm:0.8.2"
-  checksum: 10c0/8998626614172fc37c394e9a14e701dc437727fc6525488a4d4fd42044a4b2b59d6f076d750cbf5c699f79c58dd4e40599ab09e2f1ae0df4b23516b98c9c3055
+"tinypool@npm:^0.8.3":
+  version: 0.8.4
+  resolution: "tinypool@npm:0.8.4"
+  checksum: 10c0/779c790adcb0316a45359652f4b025958c1dff5a82460fe49f553c864309b12ad732c8288be52f852973bc76317f5e7b3598878aee0beb8a33322c0e72c4a66c
   languageName: node
   linkType: hard
 
@@ -11057,9 +11057,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-node@npm:1.4.0":
-  version: 1.4.0
-  resolution: "vite-node@npm:1.4.0"
+"vite-node@npm:1.6.0":
+  version: 1.6.0
+  resolution: "vite-node@npm:1.6.0"
   dependencies:
     cac: "npm:^6.7.14"
     debug: "npm:^4.3.4"
@@ -11068,7 +11068,7 @@ __metadata:
     vite: "npm:^5.0.0"
   bin:
     vite-node: vite-node.mjs
-  checksum: 10c0/bc8eb01dd03c2cc306be2bf35efe789d6a3e8ca1d89d635d3154a9af0213f7609c94ef849f30a01f04535b31e729aee49468275e267693a42c32845fbd2a6721
+  checksum: 10c0/0807e6501ac7763e0efa2b4bd484ce99fb207e92c98624c9f8999d1f6727ac026e457994260fa7fdb7060d87546d197081e46a705d05b0136a38b6f03715cbc2
   languageName: node
   linkType: hard
 
@@ -11112,15 +11112,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:1.4.0, vitest@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "vitest@npm:1.4.0"
+"vitest@npm:1.6.0, vitest@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "vitest@npm:1.6.0"
   dependencies:
-    "@vitest/expect": "npm:1.4.0"
-    "@vitest/runner": "npm:1.4.0"
-    "@vitest/snapshot": "npm:1.4.0"
-    "@vitest/spy": "npm:1.4.0"
-    "@vitest/utils": "npm:1.4.0"
+    "@vitest/expect": "npm:1.6.0"
+    "@vitest/runner": "npm:1.6.0"
+    "@vitest/snapshot": "npm:1.6.0"
+    "@vitest/spy": "npm:1.6.0"
+    "@vitest/utils": "npm:1.6.0"
     acorn-walk: "npm:^8.3.2"
     chai: "npm:^4.3.10"
     debug: "npm:^4.3.4"
@@ -11132,15 +11132,15 @@ __metadata:
     std-env: "npm:^3.5.0"
     strip-literal: "npm:^2.0.0"
     tinybench: "npm:^2.5.1"
-    tinypool: "npm:^0.8.2"
+    tinypool: "npm:^0.8.3"
     vite: "npm:^5.0.0"
-    vite-node: "npm:1.4.0"
+    vite-node: "npm:1.6.0"
     why-is-node-running: "npm:^2.2.2"
   peerDependencies:
     "@edge-runtime/vm": "*"
     "@types/node": ^18.0.0 || >=20.0.0
-    "@vitest/browser": 1.4.0
-    "@vitest/ui": 1.4.0
+    "@vitest/browser": 1.6.0
+    "@vitest/ui": 1.6.0
     happy-dom: "*"
     jsdom: "*"
   peerDependenciesMeta:
@@ -11158,7 +11158,7 @@ __metadata:
       optional: true
   bin:
     vitest: vitest.mjs
-  checksum: 10c0/732ce229341f6777350d36020dc00ccf5dd2ac0da39424cf5c9f6f4116ed1b6f7bb56de5a11270c693214d817b6d121d3d326e8f5a73437ec3f4c65aa07e1f52
+  checksum: 10c0/065da5b8ead51eb174d93dac0cd50042ca9539856dc25e340ea905d668c41961f7e00df3e388e6c76125b2c22091db2e8465f993d0f6944daf9598d549e562e7
   languageName: node
   linkType: hard
 

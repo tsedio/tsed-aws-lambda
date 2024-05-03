@@ -14,25 +14,25 @@
   },
   "dependencies": {
     "@project/controllers": "workspace:*",
-    "@tsed/ajv": "7.68.3",
-    "@tsed/core": "7.68.3",
-    "@tsed/di": "7.68.3",
-    "@tsed/engines": "7.68.3",
-    "@tsed/exceptions": "7.68.3",
-    "@tsed/json-mapper": "7.68.3",
+    "@tsed/ajv": "7.68.5",
+    "@tsed/core": "7.68.5",
+    "@tsed/di": "7.68.5",
+    "@tsed/engines": "7.68.5",
+    "@tsed/exceptions": "7.68.5",
+    "@tsed/json-mapper": "7.68.5",
     "@tsed/logger": "6.7.5",
     "@tsed/logger-file": "6.7.5",
-    "@tsed/openspec": "7.68.3",
-    "@tsed/platform-exceptions": "7.68.3",
-    "@tsed/platform-params": "7.68.3",
-    "@tsed/platform-response-filter": "7.68.3",
-    "@tsed/platform-serverless": "7.68.3",
+    "@tsed/openspec": "7.68.5",
+    "@tsed/platform-exceptions": "7.68.5",
+    "@tsed/platform-params": "7.68.5",
+    "@tsed/platform-response-filter": "7.68.5",
+    "@tsed/platform-serverless": "7.68.5",
     "ajv": "^8.12.0",
     "find-my-way": "8.1.0"
   },
   "devDependencies": {
     "@project/esbuild-lambda-plugin": "workspace:*",
-    "@tsed/platform-serverless-testing": "^7.68.3",
+    "@tsed/platform-serverless-testing": "^7.68.5",
     "@types/aws-lambda": "^8.10.136",
     "@types/supertest": "6.0.2",
     "concurrently": "8.2.2",
@@ -45,6 +45,6 @@
     "tslib": "2.6.2",
     "tsup": "8.0.2",
     "typescript": "5.4.3",
-    "vitest": "^1.4.0"
+    "vitest": "^1.6.0"
   }
 }

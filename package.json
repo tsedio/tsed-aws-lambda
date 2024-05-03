@@ -19,6 +19,7 @@
     "test:controllers": "yarn workspace @project/controllers run test",
     "test:domain": "yarn workspace @project/domain run test",
     "test:infra": "yarn workspace @project/infra run test",
+    "test:www": "yarn workspace @project/www run test",
     "test:e2e": "yarn workspace @project/lambda run test:e2e",
     "lint": "eslint '**/*.{ts,js}'",
     "lint:fix": "eslint '**/*.{ts,js}' --fix",
@@ -54,7 +55,7 @@
     "tsup": "8.0.2",
     "typescript": "^5.4.3",
     "unplugin-swc": "^1.4.4",
-    "vitest": "^1.4.0"
+    "vitest": "^1.6.0"
   },
   "tsed": {
     "convention": "conv_default",

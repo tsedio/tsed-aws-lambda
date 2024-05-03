@@ -105,6 +105,25 @@ jobs:
       - name: Run test 🔍
         run: yarn test:infra
 
+  test-www:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies 🚀
+        run: yarn install --immutable --network-timeout 500000
+      - name: Run test 🔍
+        run: yarn test:www
+
   test-e2e:
     strategy:
       matrix:
