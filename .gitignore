@@ -63,3 +63,5 @@ test/**/*.js.map
 !.yarn/releases
 
 **/*.tsbuildinfo
+
+.volume
