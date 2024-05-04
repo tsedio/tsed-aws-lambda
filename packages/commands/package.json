@@ -48,6 +48,7 @@
     "@tsed/cli-generate-swagger": "^5.1.2",
     "@tsed/cli-plugin-eslint": "5.1.2",
     "@tsed/cli-plugin-vitest": "5.1.2",
+    "@tsed/cli-testing": "5.1.2",
     "@tsed/platform-express": "^7.68.5",
     "@tsed/platform-views": "^7.68.5",
     "@types/compression": "^1.7.5",
