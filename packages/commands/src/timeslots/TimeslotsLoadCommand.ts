@@ -56,19 +56,7 @@ export class TimeslotsLoadCommand implements CommandProvider<CommandOptions> {
       {
         title: "Load timeslots",
         task: async () => {
-          const timeslots = new Array(ctx.numberOfTimeslots).fill(0).map(() => {
-            const start = faker.date.recent()
-
-            return deserialize<Timeslot>(
-              {
-                label: faker.lorem.sentence(),
-                description: faker.lorem.paragraph(),
-                startDate: start,
-                endDate: faker.date.future({ refDate: start })
-              },
-              { type: Timeslot, useAlias: false }
-            )
-          })
+          const timeslots = this.generateTimeslots(ctx)
 
           for (const timeslot of timeslots) {
             await this.timeslotsRepository.create(timeslot)
@@ -81,5 +69,21 @@ export class TimeslotsLoadCommand implements CommandProvider<CommandOptions> {
         }
       }
     ]
+  }
+
+  private generateTimeslots(ctx: CommandOptions) {
+    return new Array(ctx.numberOfTimeslots).fill(0).map(() => {
+      const start = faker.date.recent()
+
+      return deserialize<Timeslot>(
+        {
+          label: faker.lorem.sentence(),
+          description: faker.lorem.paragraph(),
+          startDate: start,
+          endDate: faker.date.future({ refDate: start })
+        },
+        { type: Timeslot, useAlias: false }
+      )
+    })
   }
 }
