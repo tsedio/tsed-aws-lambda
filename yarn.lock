@@ -1212,6 +1212,7 @@ __metadata:
     "@tsed/cli-generate-swagger": "npm:^5.1.2"
     "@tsed/cli-plugin-eslint": "npm:5.1.2"
     "@tsed/cli-plugin-vitest": "npm:5.1.2"
+    "@tsed/cli-testing": "npm:5.1.2"
     "@tsed/common": "npm:7.68.5"
     "@tsed/core": "npm:7.68.5"
     "@tsed/di": "npm:7.68.5"
@@ -2591,6 +2592,16 @@ __metadata:
   dependencies:
     tslib: "npm:2.3.1"
   checksum: 10c0/9556acee23ed7eeeec14015f2518c17d1a0e67a804ebd30091df7fca333159603c24b55af50445491f22b06826985ce0fd33555b2f6cff50ad8b9ca36adf5a68
+  languageName: node
+  linkType: hard
+
+"@tsed/cli-testing@npm:5.1.2":
+  version: 5.1.2
+  resolution: "@tsed/cli-testing@npm:5.1.2"
+  dependencies:
+    "@tsed/cli-core": "npm:5.1.2"
+    tslib: "npm:2.3.1"
+  checksum: 10c0/1ea40eb1376b1afc8d8286e277a513ed2b810c429290dd78ddb8b9204e283a93b4a99d968f424ab1929a6e0ebf84d2dbef3f944eae95e48f29fdb4e2e6a0100b
   languageName: node
   linkType: hard
 
