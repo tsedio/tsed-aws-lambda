@@ -36,8 +36,10 @@
   "devDependencies": {
     "@swc/core": "1.4.11",
     "@tsed/eslint-plugin": "1.1.11",
+    "@types/lodash": "^4.17.4",
     "@types/node": "^20.12.3",
     "@types/supertest": "^6.0.2",
+    "@types/url-parse": "1.4.11",
     "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",
