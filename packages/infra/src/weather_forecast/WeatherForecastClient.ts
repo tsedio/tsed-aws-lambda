@@ -15,7 +15,7 @@ export class WeatherForecastClient extends HttpClient {
   protected apiKey: string
 
   getWeeklyForecast(city: string) {
-    return this.get<WeatherForecast>("/forecast/weekly", {
+    return this.get<WeatherForecast>("/weather_forecast/weekly", {
       params: {
         city
       },

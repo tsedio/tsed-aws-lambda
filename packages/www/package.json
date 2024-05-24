@@ -57,6 +57,7 @@
     "@types/multer": "^1.4.11",
     "nodemon": "3.1.0",
     "supertest": "^6.3.4",
+    "testcontainers": "^10.9.0",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "5.4.5",
