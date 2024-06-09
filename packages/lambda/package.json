@@ -33,7 +33,7 @@
   "devDependencies": {
     "@project/esbuild-lambda-plugin": "workspace:*",
     "@tsed/platform-serverless-testing": "^7.71.1",
-    "@types/aws-lambda": "^8.10.136",
+    "@types/aws-lambda": "^8.10.138",
     "@types/supertest": "6.0.2",
     "concurrently": "8.2.2",
     "cross-env": "^7.0.3",
