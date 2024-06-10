@@ -26,7 +26,7 @@ describe("WeatherForecastClient", () => {
       const result = await client.getWeeklyForecast("PARIS")
 
       expect(client.raw).toHaveBeenCalledWith({
-        url: "/forecast/weekly",
+        url: "/weather_forecast/weekly",
         method: "GET",
         params: {
           city: "PARIS"

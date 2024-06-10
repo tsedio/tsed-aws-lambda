@@ -4,7 +4,10 @@ import {defineConfig} from "vitest/config";
 export default defineConfig({
   test: {
     globals: true,
-    root: "./"
+    root: "./",
+    globalSetup: [
+      "./vitest.setup.mts"
+    ]
   },
   plugins: [
     // This is required to build the test files with SWC

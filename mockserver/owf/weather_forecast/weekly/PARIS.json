@@ -1,0 +1,39 @@
+[
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/owf/weather_forecast/weekly",
+      "queryStringParameters": {
+        "city": "PARIS"
+      },
+      "headers": {
+        "x-api-key": "an-api-key"
+      }
+    },
+    "httpResponse": {
+      "body": {
+        "type": "JSON",
+        "json": [
+          {
+            "id": "20240523",
+            "date": "2024-05-23",
+            "unit": "CELSIUS",
+            "temperature": {
+              "min": 14.07,
+              "max": 20.69,
+              "morning": 15.26,
+              "afternoon": 17.92,
+              "evening": 19.92,
+              "night": 14.96
+            },
+            "weather": {
+              "code": "RAIN",
+              "description": "lluvia moderada"
+            }
+          }
+        ],
+        "contentType": "application/json"
+      }
+    }
+  }
+]

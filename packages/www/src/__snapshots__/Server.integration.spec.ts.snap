@@ -63,6 +63,43 @@ exports[`Server > should generate swagger.json 1`] = `
         ],
         "type": "object",
       },
+      "Temperature": {
+        "properties": {
+          "afternoon": {
+            "multipleOf": 1,
+            "type": "integer",
+          },
+          "evening": {
+            "multipleOf": 1,
+            "type": "integer",
+          },
+          "max": {
+            "multipleOf": 1,
+            "type": "integer",
+          },
+          "min": {
+            "multipleOf": 1,
+            "type": "integer",
+          },
+          "morning": {
+            "multipleOf": 1,
+            "type": "integer",
+          },
+          "night": {
+            "multipleOf": 1,
+            "type": "integer",
+          },
+        },
+        "required": [
+          "min",
+          "max",
+          "morning",
+          "afternoon",
+          "evening",
+          "night",
+        ],
+        "type": "object",
+      },
       "Timeslot": {
         "properties": {
           "created_at": {
@@ -188,6 +225,61 @@ exports[`Server > should generate swagger.json 1`] = `
           "end_date",
           "label",
           "description",
+        ],
+        "type": "object",
+      },
+      "Weather": {
+        "properties": {
+          "code": {
+            "enum": [
+              "CLEAR_SKY",
+              "BROKEN_CLOUDS",
+              "FEW_CLOUDS",
+              "SCATERRED_CLOUDS",
+              "RAIN",
+            ],
+            "minLength": 1,
+            "type": "string",
+          },
+          "description": {
+            "minLength": 1,
+            "type": "string",
+          },
+        },
+        "required": [
+          "code",
+          "description",
+        ],
+        "type": "object",
+      },
+      "WeatherForecast": {
+        "properties": {
+          "date": {
+            "format": "date",
+            "minLength": 1,
+            "type": "string",
+          },
+          "id": {
+            "minLength": 1,
+            "type": "string",
+          },
+          "temperature": {
+            "$ref": "#/components/schemas/Temperature",
+          },
+          "unit": {
+            "minLength": 1,
+            "type": "string",
+          },
+          "weather": {
+            "$ref": "#/components/schemas/Weather",
+          },
+        },
+        "required": [
+          "id",
+          "date",
+          "unit",
+          "temperature",
+          "weather",
         ],
         "type": "object",
       },
@@ -342,10 +434,48 @@ exports[`Server > should generate swagger.json 1`] = `
         ],
       },
     },
+    "/weather_forecast": {
+      "get": {
+        "operationId": "weatherForecastControllerGetWeaklyForecast",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "city",
+            "required": true,
+            "schema": {
+              "maximum": 100,
+              "minimum": 2,
+              "type": "string",
+            },
+          },
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast",
+                  },
+                  "type": "array",
+                },
+              },
+            },
+            "description": "Success",
+          },
+        },
+        "tags": [
+          "WeatherForecastController",
+        ],
+      },
+    },
   },
   "tags": [
     {
       "name": "TimeslotsController",
+    },
+    {
+      "name": "WeatherForecastController",
     },
   ],
 }

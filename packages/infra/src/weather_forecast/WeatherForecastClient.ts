@@ -9,13 +9,13 @@ export class WeatherForecastClient extends HttpClient {
   callee = "WEATHER_FORECAST"
 
   @Constant("envs.WEATHER_FORECAST_API_URL")
-  url: string
+  protected declare baseURL: string
 
   @Constant("envs.WEATHER_FORECAST_API_KEY")
   protected apiKey: string
 
   getWeeklyForecast(city: string) {
-    return this.get<WeatherForecast>("/forecast/weekly", {
+    return this.get<WeatherForecast>("/weather_forecast/weekly", {
       params: {
         city
       },

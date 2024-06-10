@@ -55,7 +55,6 @@ test/**/*.js.map
 **/.esbuild
 #env
 .env.local
-.env.development
 !/.hypothesis/
 
 # yarn
