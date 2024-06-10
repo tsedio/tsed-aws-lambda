@@ -9,7 +9,7 @@ export class WeatherForecastClient extends HttpClient {
   callee = "WEATHER_FORECAST"
 
   @Constant("envs.WEATHER_FORECAST_API_URL")
-  url: string
+  protected declare baseURL: string
 
   @Constant("envs.WEATHER_FORECAST_API_KEY")
   protected apiKey: string

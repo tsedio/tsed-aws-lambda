@@ -11,16 +11,18 @@ import axios, {
   Method,
   RawAxiosRequestHeaders
 } from "axios"
-import { omit } from "lodash"
+import omit from "lodash/omit.js"
 
 import { HttpClientOptions } from "./HttpClientOptions.js"
-import { HttpLogClient } from "./HttpLogClient"
+import { HttpLogClient } from "./HttpLogClient.js"
 import { getParamsSerializer } from "./utils/getParamsSerializer.js"
 import { interpolate } from "./utils/interpolate.js"
 
 @Injectable()
 export class HttpClient<Options extends HttpClientOptions = HttpClientOptions> extends HttpLogClient {
   #raw: AxiosInstance
+
+  protected baseURL: string
 
   $onInit() {
     this.#raw = this.create()
@@ -78,6 +80,7 @@ export class HttpClient<Options extends HttpClientOptions = HttpClientOptions> e
   protected create(opts?: CreateAxiosDefaults) {
     return axios.create({
       ...opts,
+      baseURL: this.baseURL,
       paramsSerializer: getParamsSerializer,
       headers: {
         "Content-Type": "application/json",
