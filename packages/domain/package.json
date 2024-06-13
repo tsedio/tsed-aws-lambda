@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "exports": {
-    "./*.js": {
-      "types": "./dist/*.d.ts",
-      "source": "./src/*.ts",
-      "default": "./dist/*.js"
-    }
+    "./*.js": "./src/*.ts",
+    "./*.ts": "./src/*.ts"
   },
   "scripts": {
     "test": "vitest run",

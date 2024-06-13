@@ -15,9 +15,6 @@
       "vitest"
     ]
   },
-  "include": [
-    "vitest.workspace.mts",
-    "src/**/*.spec.ts"
-  ],
+  "include": ["vitest.workspace.mts", "vitest.shared.mts", "src/**/*.spec.ts"],
   "exclude": ["dist"]
 }

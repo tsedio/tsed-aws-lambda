@@ -8,7 +8,8 @@
     "test:watch": "vitest",
     "build": "tsc --project tsconfig.node.json",
     "build:swagger": "yarn build && yarn tsed run generate-swagger --production --output ./specs",
-    "start": "nodemon src/index.ts"
+    "start": "nodemon src/index.ts",
+    "start:production": "node --import @swc-node/register/esm-register src/index.ts"
   },
   "dependencies": {
     "@project/controllers": "workspace:*",
