@@ -2,15 +2,7 @@
   "name": "@project/controllers",
   "version": "1.0.0",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./src/index.ts",
-      "source": "./src/index.ts",
-      "default": "./src/index.ts"
-    },
-    "./*.js": "./src/*.ts",
-    "./*.ts": "./src/*.ts"
-  },
+  "main": "index.ts",
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",

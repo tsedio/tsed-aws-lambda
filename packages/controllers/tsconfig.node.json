@@ -7,6 +7,6 @@
     "noEmit": true,
     "types": ["node", "vitest", "vitest/globals", "vitest/importMeta"]
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.spec.ts"]
+  "include": ["**/*.ts"],
+  "exclude": ["**/*.spec.ts"]
 }

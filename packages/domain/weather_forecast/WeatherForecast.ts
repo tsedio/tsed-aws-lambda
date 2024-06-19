@@ -1,20 +1,3 @@
-/**
- *  "id": "20240523",
- *         "date": "20240523",
- *         "unit": "CELSIUS",
- *         "temperature": {
- *             "min": 14.07,
- *             "max": 20.69,
- *             "morning": 15.26,
- *             "afternoon": 17.92,
- *             "evening": 19.92,
- *             "night": 14.96
- *         },
- *         "weather": {
- *             "code": "RAIN",
- *             "description": "lluvia moderada"
- *         }
- */
 import { Enum, Format, Integer, Required } from "@tsed/schema"
 
 export enum WeatherTypes {
