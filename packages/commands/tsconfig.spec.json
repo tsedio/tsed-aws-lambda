@@ -15,6 +15,6 @@
       "vitest"
     ]
   },
-  "include": ["vitest.config.mts", "src/**/*.ts", "src/**/*.spec.ts"],
+  "include": ["vitest.config.mts", "**/*.ts", "**/*.spec.ts"],
   "exclude": ["dist"]
 }

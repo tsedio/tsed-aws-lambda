@@ -2,7 +2,7 @@ import { join } from "node:path"
 
 import { readFileSync } from "fs"
 
-import { envs } from "./envs/index.js"
+import { envs } from "../config/envs/index.js"
 
 const pkg = JSON.parse(readFileSync("./package.json", { encoding: "utf8" }))
 

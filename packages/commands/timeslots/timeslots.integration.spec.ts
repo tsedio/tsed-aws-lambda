@@ -2,8 +2,8 @@ import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepositor
 import { Logger } from "@tsed/cli-core"
 import { CliPlatformTest } from "@tsed/cli-testing"
 
-import { TimeslotsCommand } from "./TimeslotsCommand.js"
-import { TimeslotsLoadCommand } from "./TimeslotsLoadCommand.js"
+import { TimeslotsCommand } from "../timeslots/TimeslotsCommand.js"
+import { TimeslotsLoadCommand } from "../timeslots/TimeslotsLoadCommand.js"
 
 describe("Timeslots: integration", () => {
   beforeEach(() => {

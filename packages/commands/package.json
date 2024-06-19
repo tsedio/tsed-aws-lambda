@@ -7,8 +7,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "build": "tsc --project tsconfig.node.json",
-    "timeslots": "yarn build && CI=1 yarn tsed run timeslots --production --limit 5 ",
-    "timeslots:load": "yarn build && CI=1 yarn tsed run timeslots-load --production"
+    "run-cmd": "CI=1 node --import @swc-node/register/esm-register bin/index.ts",
+    "timeslots": "yarn run-cmd timeslots --limit 5",
+    "timeslots:load": "yarn run-cmd timeslots-load"
   },
   "dependencies": {
     "@faker-js/faker": "8.4.1",
