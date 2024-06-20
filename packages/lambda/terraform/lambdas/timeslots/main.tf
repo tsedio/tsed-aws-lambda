@@ -10,7 +10,7 @@ resource "aws_lambda_function" "get_timeslots" {
   handler       = "handler.getTimeslots"
   filename      = data.archive_file.lambda.output_path
   role          = var.role
-  runtime       = var.lambda_runtime
+  runtime       = var.runtime
   timeout       = 30
 
   environment {
@@ -25,7 +25,7 @@ resource "aws_lambda_function" "get_timeslot_by_id" {
   handler       = "handler.getTimeslotById"
   filename      = data.archive_file.lambda.output_path
   role          = var.role
-  runtime       = var.lambda_runtime
+  runtime       = var.runtime
   timeout       = 30
 
   environment {

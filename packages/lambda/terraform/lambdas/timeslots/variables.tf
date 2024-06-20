@@ -3,7 +3,7 @@ variable "role" {
   description = "the lambda role"
 }
 
-variable "lambda_runtime" {
+variable "runtime" {
   description = "The runtime to use for the lambda function"
   default     = "nodejs20.x"
 }
