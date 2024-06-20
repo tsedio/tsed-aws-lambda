@@ -4,7 +4,7 @@ import { Injectable } from "@tsed/di"
 import { Exception } from "@tsed/exceptions"
 import { Property, Required } from "@tsed/schema"
 
-import { HttpClient } from "./HttpClient"
+import { HttpClient } from "./HttpClient.js"
 
 @Injectable()
 class CustomHttpClient extends HttpClient {

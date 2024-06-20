@@ -2,13 +2,6 @@
   "name": "@project/domain",
   "version": "1.0.0",
   "type": "module",
-  "exports": {
-    "./*.js": {
-      "types": "./dist/*.d.ts",
-      "source": "./src/*.ts",
-      "default": "./dist/*.js"
-    }
-  },
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",

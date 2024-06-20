@@ -2,8 +2,9 @@ import "@tsed/platform-express" // /!\ keep this import
 import "@tsed/ajv"
 import "@tsed/swagger"
 
-import * as controllers from "@project/controllers"
-import { Configuration } from "@tsed/di"
+import * as controllers from "@project/controllers/index.js"
+import { HttpClient } from "@project/infra/http/HttpClient.js"
+import { Configuration, Inject } from "@tsed/di"
 import { join } from "path"
 
 import { config } from "./config/index.js"
@@ -44,4 +45,7 @@ import * as pages from "./controllers/pages/index.js"
   },
   exclude: ["**/*.spec.ts"]
 })
-export class Server {}
+export class Server {
+  @Inject()
+  client: HttpClient
+}

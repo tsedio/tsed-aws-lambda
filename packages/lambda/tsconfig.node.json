@@ -1,13 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "Bundler",
+    "noEmit": true,
     "types": ["node", "vitest", "vitest/globals", "vitest/importMeta"]
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["dist", "src/**/*.spec.ts", ".esbuild"]
+  "exclude": ["src/**/*.spec.ts"]
 }
