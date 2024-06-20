@@ -1,5 +1,6 @@
-import { $log, Inject, InjectContext, Logger, Opts, PlatformContext } from "@tsed/common"
+import { DIContext, Inject, InjectContext, Opts } from "@tsed/di"
 import { Constant } from "@tsed/di"
+import { $log, Logger } from "@tsed/logger"
 import { stringify } from "querystring"
 
 import { HttpRequestConfig, HttpRequestErrorConfig } from "./HttpClientOptions.js"
@@ -15,7 +16,7 @@ export class HttpLogClient {
   callee: string
 
   @InjectContext()
-  $ctx?: PlatformContext
+  $ctx?: DIContext
 
   @Constant("logger.httpLevel")
   protected level: string
