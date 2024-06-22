@@ -1,14 +1,19 @@
 resource "aws_api_gateway_rest_api" "api_gateway" {
   name        = "APIGateway"
   description = "API Gateway for Lambda"
+  tags = {
+    environment = "local"
+    _custom_id_ = "api"
+  }
 }
 
 resource "aws_api_gateway_authorizer" "lambda_authorizer" {
-  rest_api_id     = aws_api_gateway_rest_api.api_gateway.id
-  name            = "LambdaAuthorizer"
-  type            = "TOKEN"
-  authorizer_uri  = "arn:aws:apigateway:${var.region}:lambda:path/2015-03-31/functions/${module.lambda_auth.arn}/invocations"
-  identity_source = "method.request.header.Authorization"
+  rest_api_id            = aws_api_gateway_rest_api.api_gateway.id
+  name                   = "LambdaAuthorizer"
+  type                   = "TOKEN"
+  authorizer_uri         = module.lambda_auth.invoke_arn
+  authorizer_credentials = aws_iam_role.iam_for_lambda_tf.arn
+  identity_source        = "method.request.header.Authorization"
 }
 
 resource "aws_lambda_permission" "authorizer_permission" {
@@ -74,7 +79,7 @@ resource "aws_api_gateway_integration" "get_timeslots_integration" {
   http_method             = aws_api_gateway_method.get_timeslots_method.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = "arn:aws:apigateway:${var.region}:lambda:path/2015-03-31/functions/${module.lambda_timeslots.get_timeslots_arn}/invocations"
+  uri                     = module.lambda_timeslots.get_timeslots_invoke_arn
 }
 
 resource "aws_api_gateway_integration" "get_timeslots_by_id_integration" {
@@ -83,7 +88,7 @@ resource "aws_api_gateway_integration" "get_timeslots_by_id_integration" {
   http_method             = aws_api_gateway_method.get_timeslots_by_id_method.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = "arn:aws:apigateway:${var.region}:lambda:path/2015-03-31/functions/${module.lambda_timeslots.get_timeslot_by_id_arn}/invocations"
+  uri                     = module.lambda_timeslots.get_timeslot_by_id_invoke_arn
 }
 
 // API - deployment
