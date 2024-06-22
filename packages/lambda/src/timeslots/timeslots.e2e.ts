@@ -1,14 +1,29 @@
-import { invokeLambda } from "@project/vitest"
+import { createRequest, getAuthTokenFixture } from "@project/vitest"
 
 describe("Timeslots", () => {
   describe("GET /timeslots", () => {
     it("should return all timeslots", async () => {
-      const functionName = "get_timeslots"
+      const request = await createRequest()
+      const token = await getAuthTokenFixture({
+        scopes: ["timeslots"]
+      })
 
-      const { statusCode, data } = await invokeLambda(functionName, {})
+      const response = await request.get("/timeslots").set("Authorization", `Bearer ${token}`).expect(200)
 
-      expect(statusCode).toEqual(200)
-      expect(data).toEqual([])
+      expect(response.body).toEqual([])
+    })
+
+    it("should throw error if token is missing", async () => {
+      const request = await createRequest()
+
+      const response = await request.get("/timeslots").expect(401)
+
+      expect(response.body).toEqual({
+        errors: [],
+        message: "Unauthorized",
+        name: "UNAUTHORIZED",
+        status: 401
+      })
     })
   })
 })

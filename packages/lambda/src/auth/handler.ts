@@ -1,4 +1,5 @@
 import "@tsed/ajv" // enable validation
+import "@project/infra/aws/log-request/ServerlessLogRequest.js"
 
 import { LambdaAuthorizerController } from "@project/controllers/auth/LambdaAuthorizerController.js"
 import { PlatformServerless } from "@tsed/platform-serverless"
