@@ -4,6 +4,45 @@ exports[`Server > should generate swagger.json 1`] = `
 {
   "components": {
     "schemas": {
+      "Forbidden": {
+        "properties": {
+          "errors": {
+            "description": "A list of related errors",
+            "items": {
+              "$ref": "#/components/schemas/GenericError",
+            },
+            "type": "array",
+          },
+          "message": {
+            "description": "An error message",
+            "minLength": 1,
+            "type": "string",
+          },
+          "name": {
+            "default": "FORBIDDEN",
+            "description": "The error name",
+            "example": "FORBIDDEN",
+            "minLength": 1,
+            "type": "string",
+          },
+          "stack": {
+            "description": "The stack trace (only in development mode)",
+            "type": "string",
+          },
+          "status": {
+            "default": 403,
+            "description": "The status code of the exception",
+            "example": 403,
+            "type": "number",
+          },
+        },
+        "required": [
+          "name",
+          "message",
+          "status",
+        ],
+        "type": "object",
+      },
       "GenericError": {
         "additionalProperties": true,
         "properties": {
@@ -228,6 +267,45 @@ exports[`Server > should generate swagger.json 1`] = `
         ],
         "type": "object",
       },
+      "Unauthorized": {
+        "properties": {
+          "errors": {
+            "description": "A list of related errors",
+            "items": {
+              "$ref": "#/components/schemas/GenericError",
+            },
+            "type": "array",
+          },
+          "message": {
+            "description": "An error message",
+            "minLength": 1,
+            "type": "string",
+          },
+          "name": {
+            "default": "UNAUTHORIZED",
+            "description": "The error name",
+            "example": "UNAUTHORIZED",
+            "minLength": 1,
+            "type": "string",
+          },
+          "stack": {
+            "description": "The stack trace (only in development mode)",
+            "type": "string",
+          },
+          "status": {
+            "default": 401,
+            "description": "The status code of the exception",
+            "example": 401,
+            "type": "number",
+          },
+        },
+        "required": [
+          "name",
+          "message",
+          "status",
+        ],
+        "type": "object",
+      },
       "Weather": {
         "properties": {
           "code": {
@@ -284,6 +362,13 @@ exports[`Server > should generate swagger.json 1`] = `
         "type": "object",
       },
     },
+    "securitySchemes": {
+      "BearerJWT": {
+        "description": "Use a valid JWT token to access the endpoints with appropriate scope.",
+        "scheme": "bearer",
+        "type": "http",
+      },
+    },
   },
   "info": {
     "title": "Api documentation",
@@ -309,7 +394,34 @@ exports[`Server > should generate swagger.json 1`] = `
             },
             "description": "Success",
           },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized",
+                },
+              },
+            },
+            "description": "Unauthorized",
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden",
+                },
+              },
+            },
+            "description": "Forbidden",
+          },
         },
+        "security": [
+          {
+            "BearerJWT": [
+              "timeslots",
+            ],
+          },
+        ],
         "tags": [
           "TimeslotsController",
         ],
@@ -338,7 +450,34 @@ exports[`Server > should generate swagger.json 1`] = `
             },
             "description": "Created",
           },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized",
+                },
+              },
+            },
+            "description": "Unauthorized",
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden",
+                },
+              },
+            },
+            "description": "Forbidden",
+          },
         },
+        "security": [
+          {
+            "BearerJWT": [
+              "timeslots",
+            ],
+          },
+        ],
         "tags": [
           "TimeslotsController",
         ],
@@ -369,6 +508,26 @@ exports[`Server > should generate swagger.json 1`] = `
             },
             "description": "Success",
           },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized",
+                },
+              },
+            },
+            "description": "Unauthorized",
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden",
+                },
+              },
+            },
+            "description": "Forbidden",
+          },
           "404": {
             "content": {
               "application/json": {
@@ -380,6 +539,13 @@ exports[`Server > should generate swagger.json 1`] = `
             "description": "Timeslot not found",
           },
         },
+        "security": [
+          {
+            "BearerJWT": [
+              "timeslots",
+            ],
+          },
+        ],
         "tags": [
           "TimeslotsController",
         ],
@@ -418,6 +584,26 @@ exports[`Server > should generate swagger.json 1`] = `
             },
             "description": "Success",
           },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized",
+                },
+              },
+            },
+            "description": "Unauthorized",
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden",
+                },
+              },
+            },
+            "description": "Forbidden",
+          },
           "404": {
             "content": {
               "application/json": {
@@ -429,6 +615,13 @@ exports[`Server > should generate swagger.json 1`] = `
             "description": "Timeslot not found",
           },
         },
+        "security": [
+          {
+            "BearerJWT": [
+              "timeslots",
+            ],
+          },
+        ],
         "tags": [
           "TimeslotsController",
         ],
