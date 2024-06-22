@@ -17,3 +17,7 @@ variable "zip_name" {
   default     = "handler.zip"
   description = "Name of the lambda zip"
 }
+
+variable "env_vars" {
+  type = any
+}
