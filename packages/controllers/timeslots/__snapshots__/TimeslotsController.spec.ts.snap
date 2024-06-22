@@ -4,6 +4,104 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
 {
   "components": {
     "schemas": {
+      "Forbidden": {
+        "properties": {
+          "errors": {
+            "description": "A list of related errors",
+            "items": {
+              "$ref": "#/components/schemas/GenericError",
+            },
+            "type": "array",
+          },
+          "message": {
+            "description": "An error message",
+            "minLength": 1,
+            "type": "string",
+          },
+          "name": {
+            "default": "FORBIDDEN",
+            "description": "The error name",
+            "example": "FORBIDDEN",
+            "minLength": 1,
+            "type": "string",
+          },
+          "stack": {
+            "description": "The stack trace (only in development mode)",
+            "type": "string",
+          },
+          "status": {
+            "default": 403,
+            "description": "The status code of the exception",
+            "example": 403,
+            "type": "number",
+          },
+        },
+        "required": [
+          "name",
+          "message",
+          "status",
+        ],
+        "type": "object",
+      },
+      "GenericError": {
+        "additionalProperties": true,
+        "properties": {
+          "message": {
+            "description": "An error message",
+            "minLength": 1,
+            "type": "string",
+          },
+          "name": {
+            "description": "The error name",
+            "minLength": 1,
+            "type": "string",
+          },
+        },
+        "required": [
+          "name",
+          "message",
+        ],
+        "type": "object",
+      },
+      "NotFound": {
+        "properties": {
+          "errors": {
+            "description": "A list of related errors",
+            "items": {
+              "$ref": "#/components/schemas/GenericError",
+            },
+            "type": "array",
+          },
+          "message": {
+            "description": "An error message",
+            "minLength": 1,
+            "type": "string",
+          },
+          "name": {
+            "default": "NOT_FOUND",
+            "description": "The error name",
+            "example": "NOT_FOUND",
+            "minLength": 1,
+            "type": "string",
+          },
+          "stack": {
+            "description": "The stack trace (only in development mode)",
+            "type": "string",
+          },
+          "status": {
+            "default": 404,
+            "description": "The status code of the exception",
+            "example": 404,
+            "type": "number",
+          },
+        },
+        "required": [
+          "name",
+          "message",
+          "status",
+        ],
+        "type": "object",
+      },
       "Timeslot": {
         "properties": {
           "created_at": {
@@ -132,6 +230,45 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
         ],
         "type": "object",
       },
+      "Unauthorized": {
+        "properties": {
+          "errors": {
+            "description": "A list of related errors",
+            "items": {
+              "$ref": "#/components/schemas/GenericError",
+            },
+            "type": "array",
+          },
+          "message": {
+            "description": "An error message",
+            "minLength": 1,
+            "type": "string",
+          },
+          "name": {
+            "default": "UNAUTHORIZED",
+            "description": "The error name",
+            "example": "UNAUTHORIZED",
+            "minLength": 1,
+            "type": "string",
+          },
+          "stack": {
+            "description": "The stack trace (only in development mode)",
+            "type": "string",
+          },
+          "status": {
+            "default": 401,
+            "description": "The status code of the exception",
+            "example": 401,
+            "type": "number",
+          },
+        },
+        "required": [
+          "name",
+          "message",
+          "status",
+        ],
+        "type": "object",
+      },
     },
   },
   "paths": {
@@ -153,7 +290,34 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
             },
             "description": "Success",
           },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized",
+                },
+              },
+            },
+            "description": "Unauthorized",
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden",
+                },
+              },
+            },
+            "description": "Forbidden",
+          },
         },
+        "security": [
+          {
+            "BearerJWT": [
+              "timeslots",
+            ],
+          },
+        ],
         "tags": [
           "TimeslotsController",
         ],
@@ -182,7 +346,34 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
             },
             "description": "Created",
           },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized",
+                },
+              },
+            },
+            "description": "Unauthorized",
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden",
+                },
+              },
+            },
+            "description": "Forbidden",
+          },
         },
+        "security": [
+          {
+            "BearerJWT": [
+              "timeslots",
+            ],
+          },
+        ],
         "tags": [
           "TimeslotsController",
         ],
@@ -213,17 +404,44 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
             },
             "description": "Success",
           },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized",
+                },
+              },
+            },
+            "description": "Unauthorized",
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden",
+                },
+              },
+            },
+            "description": "Forbidden",
+          },
           "404": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
-                  "type": "object",
+                  "$ref": "#/components/schemas/NotFound",
                 },
               },
             },
             "description": "Timeslot not found",
           },
         },
+        "security": [
+          {
+            "BearerJWT": [
+              "timeslots",
+            ],
+          },
+        ],
         "tags": [
           "TimeslotsController",
         ],
@@ -262,17 +480,44 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
             },
             "description": "Success",
           },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized",
+                },
+              },
+            },
+            "description": "Unauthorized",
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden",
+                },
+              },
+            },
+            "description": "Forbidden",
+          },
           "404": {
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
-                  "type": "object",
+                  "$ref": "#/components/schemas/NotFound",
                 },
               },
             },
             "description": "Timeslot not found",
           },
         },
+        "security": [
+          {
+            "BearerJWT": [
+              "timeslots",
+            ],
+          },
+        ],
         "tags": [
           "TimeslotsController",
         ],
