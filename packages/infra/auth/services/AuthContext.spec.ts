@@ -77,6 +77,7 @@ describe("AuthContext", () => {
           logger: DITest.injector.logger,
           endpoint: {} as never,
           event: {
+            headers: {},
             requestContext: {
               accountId: "accountId",
               requestId: "",
@@ -135,6 +136,7 @@ describe("AuthContext", () => {
           logger: DITest.injector.logger,
           endpoint: {} as never,
           event: {
+            headers: {},
             requestContext: {
               accountId: "accountId",
               requestId: ""

@@ -22,6 +22,7 @@ async function getControllerFixture({ scopes }: { scopes: string[] }) {
     injector: DITest.injector,
     logger: DITest.injector.logger,
     event: {
+      headers: {},
       authorizationToken
     } as never,
     context: {} as never,
