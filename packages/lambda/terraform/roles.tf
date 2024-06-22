@@ -18,28 +18,24 @@ resource "aws_iam_role" "iam_for_lambda_tf" {
 EOF
 }
 
-# resource "aws_iam_policy_attachment" "lambda_policy" {
-#   name       = "attach-lambda-policy"
-#   roles      = [aws_iam_role.iam_for_lambda_tf.name]
-#   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-# }
-
-resource "aws_iam_role_policy" "lambda_exec_policy" {
-  name = "lambda_exec_policy"
-  role = aws_iam_role.iam_for_lambda_tf.id
-
+resource "aws_iam_policy" "function_logging_policy" {
+  name = "function-logging-policy"
   policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
+    "Version" : "2012-10-17",
+    "Statement" : [
       {
-        Effect = "Allow",
-        Action = [
-          "logs:CreateLogGroup",
+        Action : [
           "logs:CreateLogStream",
           "logs:PutLogEvents"
         ],
-        Resource = "arn:aws:logs:*:*:*"
+        Effect : "Allow",
+        Resource : "arn:aws:logs:*:*:*"
       }
     ]
   })
+}
+
+resource "aws_iam_role_policy_attachment" "function_logging_policy_attachment" {
+  role       = aws_iam_role.iam_for_lambda_tf.id
+  policy_arn = aws_iam_policy.function_logging_policy.arn
 }
