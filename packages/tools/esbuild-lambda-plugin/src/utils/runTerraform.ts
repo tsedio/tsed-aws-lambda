@@ -1,22 +1,24 @@
+import path from "node:path"
+
+import fs from "fs-extra"
 import { Listr } from "listr2"
 
-import { apply, deploy, init, plan } from "../clients/TerraformCli.js"
+import { apply, init, plan } from "../clients/TerraformCli.js"
 
 export interface RunTerraformOptions {
   cwd?: string
   contexts: { functionNames: string[] }[]
 }
 
-export async function runTerraform({ cwd, contexts }: RunTerraformOptions) {
+export async function runTerraform({ cwd }: RunTerraformOptions) {
   // get all changed functions
-  const functionNames = contexts.flatMap(({ functionNames }) => functionNames, [])
-
   console.log("⚡️Running terraform for functions: ")
 
   await new Listr(
     [
       {
-        title: "Initialize Terraform",
+        title: "Terraform init",
+        skip: fs.existsSync(path.join(cwd!, "terraform.tfstate")),
         task: () => init(cwd)
       },
       {
@@ -24,26 +26,8 @@ export async function runTerraform({ cwd, contexts }: RunTerraformOptions) {
         task: () => plan(cwd)
       },
       {
-        title: "Deploy all functions",
-        task: (_, task) => {
-          return process.env.CI !== "true"
-            ? task.newListr(
-                functionNames.map((functionName) => {
-                  return {
-                    title: `Deploy function ${functionName}`,
-                    task: async () => deploy(functionName, cwd),
-                    exitOnError: false
-                  }
-                }),
-                {
-                  concurrent: true,
-                  rendererOptions: {
-                    collapseSubtasks: true
-                  }
-                }
-              )
-            : apply(cwd)
-        }
+        title: "Terraform apply",
+        task: () => apply(cwd)
       }
     ],
     { concurrent: false }

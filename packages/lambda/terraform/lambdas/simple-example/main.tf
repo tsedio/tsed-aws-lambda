@@ -11,7 +11,7 @@ resource "aws_lambda_function" "handler" {
   filename      = data.archive_file.lambda.output_path
   role          = var.role
   handler       = "handler.handler"
-  runtime       = "nodejs20.x"
+  runtime       = var.runtime
   timeout       = 30
 
   environment {

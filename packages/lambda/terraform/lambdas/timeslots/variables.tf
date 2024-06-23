@@ -3,7 +3,7 @@ variable "role" {
   description = "the lambda role"
 }
 
-variable "lambda_runtime" {
+variable "runtime" {
   description = "The runtime to use for the lambda function"
   default     = "nodejs20.x"
 }
@@ -16,4 +16,8 @@ variable "dist_dir" {
 variable "zip_name" {
   default     = "handler.zip"
   description = "Name of the lambda zip"
+}
+
+variable "env_vars" {
+  type = any
 }

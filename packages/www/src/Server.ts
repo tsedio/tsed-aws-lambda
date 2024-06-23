@@ -23,12 +23,7 @@ import * as pages from "./controllers/pages/index.js"
     "/": [...Object.values(controllers)],
     "/pages": [...Object.values(pages)]
   },
-  swagger: [
-    {
-      path: "/doc",
-      specVersion: "3.1.0"
-    }
-  ],
+
   middlewares: [
     "cors",
     "cookie-parser",

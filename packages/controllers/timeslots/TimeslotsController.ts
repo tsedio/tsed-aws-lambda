@@ -1,4 +1,5 @@
 import { Timeslot } from "@project/domain/timeslots/Timeslot.js"
+import { Authorize } from "@project/infra/auth/decorators/Authorize.js"
 import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
 import { Controller, Inject } from "@tsed/di"
 import { NotFound } from "@tsed/exceptions"
@@ -12,6 +13,7 @@ export class TimeslotsController {
 
   @Get("/")
   @Returns(200, Array).Of(Timeslot)
+  @Authorize({ scopes: ["timeslots"] })
   getTimeslots() {
     return this.repository.getAll()
   }
@@ -19,6 +21,7 @@ export class TimeslotsController {
   @Get("/:id")
   @Returns(200, Timeslot)
   @Returns(404).Description("Timeslot not found")
+  @Authorize({ scopes: ["timeslots"] })
   async getTimeslotById(@PathParams("id") @Format(JsonFormatTypes.UUID) id: string) {
     const result = await this.repository.getById(id)
 
@@ -31,6 +34,7 @@ export class TimeslotsController {
 
   @Post("/")
   @Returns(201, Timeslot)
+  @Authorize({ scopes: ["timeslots"] })
   async createTimeslot(@BodyParams() @Groups("create") payload: Timeslot) {
     return this.repository.create(payload)
   }
@@ -38,6 +42,7 @@ export class TimeslotsController {
   @Put("/:id")
   @Returns(200, Timeslot)
   @Returns(404).Description("Timeslot not found")
+  @Authorize({ scopes: ["timeslots"] })
   async updateTimeslot(@PathParams("id") @Format(JsonFormatTypes.UUID) id: string, @BodyParams() @Groups("update") payload: Timeslot) {
     // check if the timeslot exists
     await this.getTimeslotById(id)
