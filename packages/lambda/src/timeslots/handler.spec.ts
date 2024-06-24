@@ -1,6 +1,8 @@
 import { TimeslotsController } from "@project/controllers/timeslots/TimeslotsController.js"
 import { UserInfo } from "@project/domain/users/UserInfo.js"
 import { JwtService } from "@project/infra/auth/services/JwtService.js"
+import { FsTimeslotsRepository } from "@project/infra/timeslots/FsTimeslotsRepository.js"
+import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
 import { PlatformServerless } from "@tsed/platform-serverless"
 import { PlatformServerlessTest } from "@tsed/platform-serverless-testing"
 
@@ -23,7 +25,14 @@ describe("Timeslots Handler", () => {
         JWT_ISSUER: "https://egain.com",
         JWT_AUDIENCE: "537d714c-d062-45ef-957d-6beac6490233"
       },
-      lambda: [TimeslotsController]
+      lambda: [TimeslotsController],
+      imports: [
+        {
+          token: TimeslotsRepository,
+          // for the integration test we use the FsTimeslotsRepository
+          useClass: FsTimeslotsRepository
+        }
+      ]
     })
   )
   afterEach(() => PlatformServerlessTest.reset())
