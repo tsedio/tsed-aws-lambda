@@ -7,6 +7,7 @@ import { PlatformServerless } from "@tsed/platform-serverless"
 // shared configuration
 const config = {
   envs: process.env,
+  lambda: [TimeslotsController],
   timeslots: {
     // Not applicable here because lambda are packaged and deployed on AWS.
     // For this reason, we can't use the file system to store data (prefer S3, DynamoDB, etc.)
@@ -14,5 +15,6 @@ const config = {
   }
 }
 
-export const getTimeslots = PlatformServerless.callback(TimeslotsController, "getTimeslots", config)
-export const getTimeslotById = PlatformServerless.callback(TimeslotsController, "getTimeslotById", config)
+const platform = PlatformServerless.bootstrap(config)
+
+export const timeslots = platform.handler()
