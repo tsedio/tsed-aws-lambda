@@ -32,70 +32,44 @@ resource "aws_api_gateway_resource" "timeslots_resource" {
   path_part   = "timeslots"
 }
 
-resource "aws_api_gateway_resource" "timeslots_id_resource" {
+resource "aws_api_gateway_resource" "timeslots_proxy" {
   rest_api_id = aws_api_gateway_rest_api.api_gateway.id
   parent_id   = aws_api_gateway_resource.timeslots_resource.id
-  path_part   = "{id}"
+  path_part   = "{proxy+}"
 }
 
 // API - Methods
-resource "aws_api_gateway_method" "get_timeslots_method" {
+resource "aws_api_gateway_method" "timeslots_any_proxy_methods" {
   rest_api_id   = aws_api_gateway_rest_api.api_gateway.id
   resource_id   = aws_api_gateway_resource.timeslots_resource.id
-  http_method   = "GET"
+  http_method   = "ANY"
   authorization = "CUSTOM"
   authorizer_id = aws_api_gateway_authorizer.lambda_authorizer.id
-}
-
-resource "aws_api_gateway_method" "get_timeslots_by_id_method" {
-  rest_api_id   = aws_api_gateway_rest_api.api_gateway.id
-  resource_id   = aws_api_gateway_resource.timeslots_id_resource.id
-  http_method   = "GET"
-  authorization = "CUSTOM"
-  authorizer_id = aws_api_gateway_authorizer.lambda_authorizer.id
-}
-
-// API - Permissions
-resource "aws_lambda_permission" "api_gateway_permission_get_timeslot_by_id" {
-  statement_id  = "AllowAPIGatewayInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = module.lambda_timeslots.get_timeslot_by_id_name
-  principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.api_gateway.execution_arn}/*/*"
-}
-
-resource "aws_lambda_permission" "api_gateway_permission_get_timeslots" {
-  statement_id  = "AllowAPIGatewayInvokeGetTimeslots"
-  action        = "lambda:InvokeFunction"
-  function_name = module.lambda_timeslots.get_timeslots_name
-  principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.api_gateway.execution_arn}/*/*"
 }
 
 // API - Integrations
-resource "aws_api_gateway_integration" "get_timeslots_integration" {
+resource "aws_api_gateway_integration" "timeslots_proxy_integration" {
   rest_api_id             = aws_api_gateway_rest_api.api_gateway.id
   resource_id             = aws_api_gateway_resource.timeslots_resource.id
-  http_method             = aws_api_gateway_method.get_timeslots_method.http_method
+  http_method             = aws_api_gateway_method.timeslots_any_proxy_methods.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = module.lambda_timeslots.get_timeslots_invoke_arn
+  uri                     = module.lambda_timeslots.timeslots_invoke_arn
 }
 
-resource "aws_api_gateway_integration" "get_timeslots_by_id_integration" {
-  rest_api_id             = aws_api_gateway_rest_api.api_gateway.id
-  resource_id             = aws_api_gateway_resource.timeslots_id_resource.id
-  http_method             = aws_api_gateway_method.get_timeslots_by_id_method.http_method
-  integration_http_method = "POST"
-  type                    = "AWS_PROXY"
-  uri                     = module.lambda_timeslots.get_timeslot_by_id_invoke_arn
+// API - Permissions
+resource "aws_lambda_permission" "api_gateway_permission_timeslots" {
+  statement_id  = "AllowAPIGatewayInvokeGetTimeslots"
+  action        = "lambda:InvokeFunction"
+  function_name = module.lambda_timeslots.timeslots_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.api_gateway.execution_arn}/*/*"
 }
 
 // API - deployment
 resource "aws_api_gateway_deployment" "api_deployment" {
   depends_on = [
-    aws_api_gateway_integration.get_timeslots_by_id_integration,
-    aws_api_gateway_integration.get_timeslots_integration
+    aws_api_gateway_integration.timeslots_proxy_integration
   ]
 
   rest_api_id = aws_api_gateway_rest_api.api_gateway.id
