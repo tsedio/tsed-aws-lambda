@@ -4,8 +4,8 @@ import { DeleteItemCommand, GetItemCommand, PutItemCommand, ScanCommand } from "
 import { DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb"
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb"
 import { BaseDocument } from "@project/domain/document/BaseDocument.js"
-import { Type } from "@tsed/core"
-import { Inject } from "@tsed/di"
+import { isArray, Type } from "@tsed/core"
+import { DIContext, Inject, InjectContext } from "@tsed/di"
 import { deserialize, serialize } from "@tsed/json-mapper"
 import { v4 } from "uuid"
 
@@ -17,6 +17,9 @@ export abstract class DynamoDBRepository<Model extends BaseDocument> implements 
 
   @Inject(DynamoDBDocumentClient)
   protected doc: DynamoDBDocumentClient
+
+  @InjectContext()
+  protected $ctx: DIContext
 
   clear(): Promise<void> {
     return Promise.resolve(undefined)
@@ -38,14 +41,24 @@ export abstract class DynamoDBRepository<Model extends BaseDocument> implements 
   }
 
   async getAll(opts?: Partial<{ limit: number }>): Promise<Model[]> {
-    const result = await this.doc.send(
-      new ScanCommand({
-        TableName: this.tableName,
-        Limit: opts?.limit
-      })
-    )
+    try {
+      const result = await this.doc.send(
+        new ScanCommand({
+          TableName: this.tableName,
+          Limit: opts?.limit
+        })
+      )
 
-    return this.deserialize(result.Items || [])
+      return this.deserialize((result.Items || []).map((item) => unmarshall(item)))
+    } catch (er) {
+      this.$ctx.logger.error({
+        event: "DYNAMODB_QUERY_ERROR",
+        error: er,
+        options: opts,
+        table_name: this.tableName
+      })
+      throw er
+    }
   }
 
   async create(document: Model): Promise<Model> {
@@ -93,6 +106,7 @@ export abstract class DynamoDBRepository<Model extends BaseDocument> implements 
   protected serialize<Data>(data: Data | Data[]): Record<string, unknown> | Record<string, unknown>[] {
     return serialize(data, {
       type: this.model,
+      collectionType: isArray(data) ? Array : undefined,
       useAlias: true
     })
   }

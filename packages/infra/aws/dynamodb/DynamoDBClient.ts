@@ -1,6 +1,6 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb"
 import { Configuration, registerProvider } from "@tsed/di"
-console.log(DynamoDB)
+
 registerProvider({
   provide: DynamoDB,
   deps: [Configuration],

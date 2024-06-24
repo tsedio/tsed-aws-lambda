@@ -5,17 +5,17 @@ import { DITest } from "@tsed/di"
 import fs from "fs-extra"
 import { beforeEach } from "vitest"
 
-import { TimeslotsRepository } from "./TimeslotsRepository.js"
+import { FsTimeslotsRepository } from "./FsTimeslotsRepository.js"
 
 vi.mock("fs-extra")
 
 async function getServiceFixture() {
-  const service = await DITest.invoke<TimeslotsRepository>(TimeslotsRepository, [])
+  const service = await DITest.invoke<FsTimeslotsRepository>(FsTimeslotsRepository, [])
 
   return { service }
 }
 
-describe("TimeslotsRepository", () => {
+describe("DynamoDBTimeslotsRepository", () => {
   describe("$onInit", () => {
     beforeEach(async () => {
       vi.mocked(fs.readJson as unknown as () => Promise<unknown[]>).mockResolvedValue([
@@ -44,7 +44,7 @@ describe("TimeslotsRepository", () => {
     })
 
     it("should check if the file exists and create it", async () => {
-      const repository = await DITest.get(TimeslotsRepository, [])
+      const repository = await DITest.get(FsTimeslotsRepository, [])
 
       expect(fs.existsSync).toHaveBeenCalledWith("./dir/timeslots.json")
       expect(fs.ensureDir).toHaveBeenCalledWith(dirname("./dir/timeslots.json"))
@@ -113,7 +113,7 @@ describe("TimeslotsRepository", () => {
 
         const result = await service.getById("id")
 
-        expect(result).toEqual(undefined)
+        expect(result).toEqual(null)
       })
     })
   })
