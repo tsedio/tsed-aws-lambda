@@ -180,12 +180,12 @@ exports[`Server > should generate swagger.json 1`] = `
           },
         },
         "required": [
+          "created_at",
+          "updated_at",
           "start_date",
           "end_date",
           "label",
           "description",
-          "created_at",
-          "updated_at",
         ],
         "type": "object",
       },
@@ -484,6 +484,65 @@ exports[`Server > should generate swagger.json 1`] = `
       },
     },
     "/timeslots/{id}": {
+      "delete": {
+        "operationId": "timeslotsControllerDeleteTimeslot",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string",
+            },
+          },
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized",
+                },
+              },
+            },
+            "description": "Unauthorized",
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden",
+                },
+              },
+            },
+            "description": "Forbidden",
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFound",
+                },
+              },
+            },
+            "description": "Timeslot not found",
+          },
+        },
+        "security": [
+          {
+            "BearerJWT": [
+              "timeslots",
+            ],
+          },
+        ],
+        "tags": [
+          "TimeslotsController",
+        ],
+      },
       "get": {
         "operationId": "timeslotsControllerGetTimeslotById",
         "parameters": [

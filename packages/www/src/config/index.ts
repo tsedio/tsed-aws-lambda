@@ -1,3 +1,5 @@
+import { FsTimeslotsRepository } from "@project/infra/timeslots/FsTimeslotsRepository.js"
+import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
 import { readFileSync } from "fs"
 import { join } from "path"
 
@@ -15,5 +17,11 @@ export const config: Partial<TsED.Configuration> = {
   // additional shared configuration
   timeslots: {
     dbFilePath: join(import.meta.dirname, "../../../../.tmp/timeslots.json")
-  }
+  },
+  imports: [
+    {
+      token: TimeslotsRepository,
+      useClass: FsTimeslotsRepository
+    }
+  ]
 }
