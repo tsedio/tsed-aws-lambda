@@ -18,6 +18,8 @@ resource "aws_iam_role" "iam_for_lambda_tf" {
 EOF
 }
 
+data "aws_caller_identity" "current" {}
+
 resource "aws_iam_policy" "function_logging_policy" {
   name = "function-logging-policy"
   policy = jsonencode({
@@ -30,6 +32,18 @@ resource "aws_iam_policy" "function_logging_policy" {
         ],
         Effect : "Allow",
         Resource : "arn:aws:logs:*:*:*"
+      },
+      {
+        Effect = "Allow",
+        Action = [
+          "dynamodb:PutItem",
+          "dynamodb:GetItem",
+          "dynamodb:UpdateItem",
+          "dynamodb:DeleteItem",
+          "dynamodb:Scan",
+          "dynamodb:Query"
+        ],
+        Resource = "arn:aws:dynamodb:${var.region}:${data.aws_caller_identity.current.account_id}:table/${aws_dynamodb_table.timeslots_table.name}"
       }
     ]
   })
