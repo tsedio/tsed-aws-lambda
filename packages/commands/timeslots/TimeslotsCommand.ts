@@ -17,7 +17,7 @@ interface CommandOptions {
   }
 })
 export class TimeslotsCommand implements CommandProvider<CommandOptions> {
-  @Inject()
+  @Inject(TimeslotsRepository)
   protected timeslotsRepository: TimeslotsRepository
 
   @Inject()
