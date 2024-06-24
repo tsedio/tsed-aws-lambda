@@ -4,17 +4,17 @@ import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepositor
 import { Controller, Inject } from "@tsed/di"
 import { NotFound } from "@tsed/exceptions"
 import { BodyParams, PathParams } from "@tsed/platform-params"
-import { Format, Get, Groups, JsonFormatTypes, Post, Put, Returns } from "@tsed/schema"
+import { Delete, Format, Get, Groups, JsonFormatTypes, Post, Put, Returns } from "@tsed/schema"
 
 @Controller("/timeslots")
 export class TimeslotsController {
-  @Inject()
+  @Inject(TimeslotsRepository)
   protected repository: TimeslotsRepository
 
   @Get("/")
   @Returns(200, Array).Of(Timeslot)
   @Authorize({ scopes: ["timeslots"] })
-  getTimeslots() {
+  async getTimeslots() {
     return this.repository.getAll()
   }
 
@@ -50,5 +50,15 @@ export class TimeslotsController {
     payload.id = id
 
     return this.repository.save(payload)
+  }
+
+  @Delete("/:id")
+  @Returns(204)
+  @Returns(404).Description("Timeslot not found")
+  @Authorize({ scopes: ["timeslots"] })
+  async deleteTimeslot(@PathParams("id") @Format(JsonFormatTypes.UUID) id: string) {
+    // check if the timeslot exists
+    await this.repository.getById(id)
+    await this.repository.delete(id)
   }
 }
