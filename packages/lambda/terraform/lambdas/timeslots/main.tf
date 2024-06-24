@@ -4,49 +4,25 @@ data "archive_file" "lambda" {
   output_path = "${var.dist_dir}/${var.zip_name}"
 }
 
-resource "aws_cloudwatch_log_group" "get_timeslots_log_group" {
-  name              = "/aws/lambda/get_timeslots"
+resource "aws_cloudwatch_log_group" "timeslots_log_group" {
+  name              = "/aws/lambda/timeslots"
   retention_in_days = 7
   lifecycle {
     prevent_destroy = false
   }
 }
 
-resource "aws_lambda_function" "get_timeslots" {
-  function_name    = "get_timeslots"
-  handler          = "handler.getTimeslots"
+resource "aws_lambda_function" "timeslots" {
+  function_name    = "timeslots"
+  handler          = "handler.timeslots"
   filename         = data.archive_file.lambda.output_path
   role             = var.role
   runtime          = var.runtime
   timeout          = 30
-  depends_on       = [aws_cloudwatch_log_group.get_timeslots_log_group]
+  depends_on       = [aws_cloudwatch_log_group.timeslots_log_group]
   source_code_hash = filebase64sha256(data.archive_file.lambda.output_path)
 
   environment {
     variables = var.env_vars
-  }
-}
-
-
-resource "aws_lambda_function" "get_timeslot_by_id" {
-  function_name    = "get_timeslot_by_id"
-  handler          = "handler.getTimeslotById"
-  filename         = data.archive_file.lambda.output_path
-  role             = var.role
-  runtime          = var.runtime
-  timeout          = 30
-  depends_on       = [aws_cloudwatch_log_group.get_timeslot_by_id_log_group]
-  source_code_hash = filebase64sha256(data.archive_file.lambda.output_path)
-
-  environment {
-    variables = var.env_vars
-  }
-}
-
-resource "aws_cloudwatch_log_group" "get_timeslot_by_id_log_group" {
-  name              = "/aws/lambda/get_timeslot_by_id"
-  retention_in_days = 7
-  lifecycle {
-    prevent_destroy = false
   }
 }
