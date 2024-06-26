@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 import { CliCore } from "@tsed/cli-core"
-
-import { config } from "../config"
-import { TimeslotsCommand } from "../timeslots/TimeslotsCommand"
-import { TimeslotsLoadCommand } from "../timeslots/TimeslotsLoadCommand"
+import { config } from "packages/commands/config/index.js"
+import { TimeslotsCommand } from "packages/commands/timeslots/TimeslotsCommand.js"
+import { TimeslotsLoadCommand } from "packages/commands/timeslots/TimeslotsLoadCommand.js"
 
 CliCore.bootstrap({
   ...config,
