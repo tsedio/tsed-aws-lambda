@@ -26,32 +26,32 @@ resource "aws_lambda_permission" "authorizer_permission" {
 
 // API
 // API - Resources
-resource "aws_api_gateway_resource" "timeslots_resource" {
-  rest_api_id = aws_api_gateway_rest_api.api_gateway.id
-  parent_id   = aws_api_gateway_rest_api.api_gateway.root_resource_id
-  path_part   = "timeslots"
-}
+# resource "aws_api_gateway_resource" "timeslots_root" {
+#   rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+#   parent_id   = aws_api_gateway_rest_api.api_gateway.root_resource_id
+#   path_part   = "timeslots"
+# }
 
 resource "aws_api_gateway_resource" "timeslots_proxy" {
   rest_api_id = aws_api_gateway_rest_api.api_gateway.id
-  parent_id   = aws_api_gateway_resource.timeslots_resource.id
+  parent_id   = aws_api_gateway_rest_api.api_gateway.root_resource_id
   path_part   = "{proxy+}"
 }
 
 // API - Methods
-resource "aws_api_gateway_method" "timeslots_any_proxy_methods" {
+resource "aws_api_gateway_method" "any_timeslots_proxy_methods" {
   rest_api_id   = aws_api_gateway_rest_api.api_gateway.id
-  resource_id   = aws_api_gateway_resource.timeslots_resource.id
+  resource_id   = aws_api_gateway_resource.timeslots_proxy.id
   http_method   = "ANY"
   authorization = "CUSTOM"
   authorizer_id = aws_api_gateway_authorizer.lambda_authorizer.id
 }
 
 // API - Integrations
-resource "aws_api_gateway_integration" "timeslots_proxy_integration" {
+resource "aws_api_gateway_integration" "any_timeslots_proxy_integration" {
   rest_api_id             = aws_api_gateway_rest_api.api_gateway.id
-  resource_id             = aws_api_gateway_resource.timeslots_resource.id
-  http_method             = aws_api_gateway_method.timeslots_any_proxy_methods.http_method
+  resource_id             = aws_api_gateway_resource.timeslots_proxy.id
+  http_method             = aws_api_gateway_method.any_timeslots_proxy_methods.http_method
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
   uri                     = module.lambda_timeslots.timeslots_invoke_arn
@@ -69,7 +69,7 @@ resource "aws_lambda_permission" "api_gateway_permission_timeslots" {
 // API - deployment
 resource "aws_api_gateway_deployment" "api_deployment" {
   depends_on = [
-    aws_api_gateway_integration.timeslots_proxy_integration
+    aws_api_gateway_integration.any_timeslots_proxy_integration
   ]
 
   rest_api_id = aws_api_gateway_rest_api.api_gateway.id

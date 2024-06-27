@@ -3,8 +3,7 @@ import "@tsed/ajv"
 import "@tsed/swagger"
 
 import * as controllers from "@project/controllers/index.js"
-import { HttpClient } from "@project/infra/http/HttpClient.js"
-import { Configuration, Inject } from "@tsed/di"
+import { Configuration, Inject, InjectorService } from "@tsed/di"
 import { join } from "path"
 
 import { config } from "./config/index.js"
@@ -23,7 +22,6 @@ import * as pages from "./controllers/pages/index.js"
     "/": [...Object.values(controllers)],
     "/pages": [...Object.values(pages)]
   },
-
   middlewares: [
     "cors",
     "cookie-parser",
@@ -37,10 +35,9 @@ import * as pages from "./controllers/pages/index.js"
     extensions: {
       ejs: "ejs"
     }
-  },
-  exclude: ["**/*.spec.ts"]
+  }
 })
 export class Server {
   @Inject()
-  client: HttpClient
+  injector: InjectorService
 }

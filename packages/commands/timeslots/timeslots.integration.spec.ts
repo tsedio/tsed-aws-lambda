@@ -1,3 +1,4 @@
+import { FsTimeslotsRepository } from "@project/infra/timeslots/FsTimeslotsRepository.js"
 import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
 import { Logger } from "@tsed/cli-core"
 import { CliPlatformTest } from "@tsed/cli-testing"
@@ -9,7 +10,13 @@ describe("Timeslots: integration", () => {
   beforeEach(() => {
     return CliPlatformTest.bootstrap({
       commands: [TimeslotsLoadCommand, TimeslotsCommand],
-      argv: []
+      argv: [],
+      imports: [
+        {
+          token: TimeslotsRepository,
+          useClass: FsTimeslotsRepository
+        }
+      ]
     })
   })
   afterEach(() => CliPlatformTest.reset())

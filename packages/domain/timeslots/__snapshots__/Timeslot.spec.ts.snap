@@ -45,12 +45,12 @@ exports[`Timeslot > json schema > should return the expected json schema 1`] = `
     },
   },
   "required": [
+    "created_at",
+    "updated_at",
     "start_date",
     "end_date",
     "label",
     "description",
-    "created_at",
-    "updated_at",
   ],
   "type": "object",
 }

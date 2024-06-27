@@ -50,6 +50,7 @@ export class ServerlessLogRequest {
 
     if (logEnd) {
       if ($ctx.response.statusCode >= 400) {
+        console.log("===>", $ctx.error)
         $ctx.logger.error({
           event: "request.end",
           status: $ctx.response.statusCode,

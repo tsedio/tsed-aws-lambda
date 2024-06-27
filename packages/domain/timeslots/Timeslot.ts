@@ -1,13 +1,9 @@
-import { Description, Example, Format, Groups, JsonFormatTypes, MaxLength, MinLength, Name, Required, RequiredGroups } from "@tsed/schema"
+import { Description, Example, Format, MaxLength, MinLength, Name, Required } from "@tsed/schema"
 
 import { AllowEmpty } from "../decorators/AllowEmpty.js"
+import { BaseDocument } from "../document/BaseDocument.js"
 
-export class Timeslot {
-  @Format(JsonFormatTypes.UUID)
-  @Required()
-  @RequiredGroups("update")
-  id: string
-
+export class Timeslot extends BaseDocument {
   @Required()
   @Name("start_date")
   @Format("date-time")
@@ -30,16 +26,4 @@ export class Timeslot {
   @MinLength(3)
   @MaxLength(500)
   description: string = ""
-
-  @Required()
-  @Name("created_at")
-  @Format("date-time")
-  @Groups("!update", "!create")
-  createdAt: Date = new Date()
-
-  @Required()
-  @Name("updated_at")
-  @Format("date-time")
-  @Groups("!update", "!create")
-  updatedAt: Date = new Date()
 }
