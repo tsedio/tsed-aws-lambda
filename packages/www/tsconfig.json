@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "module": "NodeNext",
     "composite": true,
     "noEmit": false,
@@ -8,7 +9,12 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "types": ["vite/client", "vitest"]
+    "types": ["vite/client", "vitest"],
+    "paths": {
+      "@project/domain/*": ["../domain/*"],
+      "@project/infra/*": ["../infra/*"],
+      "@project/controllers/*": ["../controllers/*"]
+    }
   },
   "files": [],
   "include": [],
