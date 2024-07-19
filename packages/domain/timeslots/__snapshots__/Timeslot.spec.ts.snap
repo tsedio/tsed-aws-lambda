@@ -2,29 +2,27 @@
 
 exports[`Timeslot > json schema > should return the expected json schema 1`] = `
 {
-  "definitions": {
-    "Date": {
-      "type": "object",
-    },
-  },
   "properties": {
     "created_at": {
-      "$ref": "#/definitions/Date",
+      "format": "date-time",
       "minLength": 1,
+      "type": "string",
     },
     "description": {
       "default": "",
       "description": "Activity or Dresscode in HTML format",
       "maxLength": 500,
-      "minLength": 3,
+      "minLength": undefined,
       "type": "string",
     },
     "end_date": {
-      "$ref": "#/definitions/Date",
+      "format": "date-time",
       "minLength": 1,
+      "type": "string",
     },
     "id": {
       "format": "uuid",
+      "minLength": 1,
       "type": "string",
     },
     "label": {
@@ -36,12 +34,14 @@ exports[`Timeslot > json schema > should return the expected json schema 1`] = `
       "type": "string",
     },
     "start_date": {
-      "$ref": "#/definitions/Date",
+      "format": "date-time",
       "minLength": 1,
+      "type": "string",
     },
     "updated_at": {
-      "$ref": "#/definitions/Date",
+      "format": "date-time",
       "minLength": 1,
+      "type": "string",
     },
   },
   "required": [
