@@ -694,9 +694,8 @@ exports[`Server > should generate swagger.json 1`] = `
             "name": "city",
             "required": true,
             "schema": {
-              "maximum": 100,
-              "minLength": 1,
-              "minimum": 2,
+              "maxLength": 10,
+              "minLength": 2,
               "type": "string",
             },
           },
