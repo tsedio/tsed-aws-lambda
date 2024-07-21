@@ -150,7 +150,6 @@ exports[`Server > should generate swagger.json 1`] = `
             "default": "",
             "description": "Activity or Dresscode in HTML format",
             "maxLength": 500,
-            "minLength": 3,
             "type": "string",
           },
           "end_date": {
@@ -160,6 +159,7 @@ exports[`Server > should generate swagger.json 1`] = `
           },
           "id": {
             "format": "uuid",
+            "minLength": 1,
             "type": "string",
           },
           "label": {
@@ -195,7 +195,6 @@ exports[`Server > should generate swagger.json 1`] = `
             "default": "",
             "description": "Activity or Dresscode in HTML format",
             "maxLength": 500,
-            "minLength": 3,
             "type": "string",
           },
           "end_date": {
@@ -205,6 +204,7 @@ exports[`Server > should generate swagger.json 1`] = `
           },
           "id": {
             "format": "uuid",
+            "minLength": 1,
             "type": "string",
           },
           "label": {
@@ -233,7 +233,6 @@ exports[`Server > should generate swagger.json 1`] = `
             "default": "",
             "description": "Activity or Dresscode in HTML format",
             "maxLength": 500,
-            "minLength": 3,
             "type": "string",
           },
           "end_date": {
@@ -696,6 +695,7 @@ exports[`Server > should generate swagger.json 1`] = `
             "required": true,
             "schema": {
               "maximum": 100,
+              "minLength": 1,
               "minimum": 2,
               "type": "string",
             },

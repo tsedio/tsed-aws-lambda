@@ -113,7 +113,7 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
             "default": "",
             "description": "Activity or Dresscode in HTML format",
             "maxLength": 500,
-            "minLength": 3,
+            "minLength": undefined,
             "type": "string",
           },
           "end_date": {
@@ -123,6 +123,7 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
           },
           "id": {
             "format": "uuid",
+            "minLength": 1,
             "type": "string",
           },
           "label": {
@@ -158,7 +159,7 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
             "default": "",
             "description": "Activity or Dresscode in HTML format",
             "maxLength": 500,
-            "minLength": 3,
+            "minLength": undefined,
             "type": "string",
           },
           "end_date": {
@@ -168,6 +169,7 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
           },
           "id": {
             "format": "uuid",
+            "minLength": 1,
             "type": "string",
           },
           "label": {
@@ -196,7 +198,7 @@ exports[`TimeslotsController > OAS3 > should generate the expected OpenAPI docum
             "default": "",
             "description": "Activity or Dresscode in HTML format",
             "maxLength": 500,
-            "minLength": 3,
+            "minLength": undefined,
             "type": "string",
           },
           "end_date": {

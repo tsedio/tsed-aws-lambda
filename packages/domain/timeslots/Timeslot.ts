@@ -23,7 +23,6 @@ export class Timeslot extends BaseDocument {
   @Required()
   @AllowEmpty()
   @Description("Activity or Dresscode in HTML format")
-  @MinLength(3)
   @MaxLength(500)
   description: string = ""
 }

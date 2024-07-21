@@ -14,4 +14,20 @@ const config = {
   }
 }
 
-export const authorizer = PlatformServerless.callback(LambdaAuthorizerController, "authorizer", config)
+const handler = PlatformServerless.callback(LambdaAuthorizerController, "authorizer", config)
+
+export const authorizer = async (event: never, context: never, callback: never) => {
+  console.log("=>event", event)
+  console.log("=>context", context)
+
+  try {
+    const response = await handler(event, context, callback)
+
+    console.log("response", response)
+
+    return response
+  } catch (er) {
+    console.error(er)
+    throw er
+  }
+}
