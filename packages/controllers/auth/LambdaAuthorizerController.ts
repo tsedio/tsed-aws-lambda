@@ -4,10 +4,9 @@ import { Controller, Inject } from "@tsed/di"
 import { Context } from "@tsed/platform-params"
 import { ServerlessContext } from "@tsed/platform-serverless"
 import { Description, Get } from "@tsed/schema"
+import type { APIGatewayTokenAuthorizerEvent } from "aws-lambda"
 
-export type AuthorizeServerlessContext = ServerlessContext & {
-  event: { authorizationToken: string; methodArn: string }
-}
+export type AuthorizeServerlessContext = ServerlessContext<APIGatewayTokenAuthorizerEvent>
 
 @Controller("/")
 export class LambdaAuthorizerController {
@@ -20,7 +19,7 @@ export class LambdaAuthorizerController {
   @Get("/authorizer")
   @Description("this endpoint is used to authorize the request using Lambda aws")
   async authorizer(@Context() $ctx: AuthorizeServerlessContext) {
-    const decodedToken = await this.jwtService.decode($ctx.event.authorizationToken)
+    const decodedToken = await this.jwtService.decode($ctx.event.authorizationToken.replace("Bearer ", ""))
     const { user } = decodedToken.payload
 
     // example on how to manage auth and format the response depending on the user scope

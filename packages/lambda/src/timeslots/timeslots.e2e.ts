@@ -5,10 +5,10 @@ describe("Timeslots", () => {
     it("should return all timeslots", async () => {
       const request = await createRequest()
       const token = await getAuthTokenFixture({
-        scopes: ["timeslots"]
+        scopes: ["timeslots", "api"]
       })
 
-      const response = await request.get("/timeslots").set("Authorization", `Bearer ${token}`) // .expect(200)
+      const response = await request.get("/timeslots").set("Authorization", `Bearer ${token}`).expect(200)
 
       expect(response.body).toEqual([])
     })
@@ -17,12 +17,7 @@ describe("Timeslots", () => {
 
       const response = await request.get("/timeslots").expect(401)
 
-      expect(response.body).toEqual({
-        errors: [],
-        message: "Unauthorized",
-        name: "UNAUTHORIZED",
-        status: 401
-      })
+      expect(response.text).toEqual('{"message": "Unauthorized"}')
     })
   })
 
@@ -30,7 +25,7 @@ describe("Timeslots", () => {
     it("should create a new timeslot, update it and delete and delete it", async () => {
       const request = await createRequest()
       const token = await getAuthTokenFixture({
-        scopes: ["timeslots"]
+        scopes: ["timeslots", "api"]
       })
 
       const response = await request
