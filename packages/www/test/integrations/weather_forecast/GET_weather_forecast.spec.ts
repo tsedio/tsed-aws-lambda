@@ -46,5 +46,17 @@ describe("WeatherForecast", () => {
         ]
       `)
     })
+    it("should get not found if the city is not in the database", async () => {
+      const request = SuperTest(PlatformTest.callback())
+      await request.get("/weather_forecast").query({ city: "Foo" }).expect(404)
+    })
+   it("should get bad request if city is less than 2 characters", async () => {
+      const request = SuperTest(PlatformTest.callback())
+      await request.get("/weather_forecast").query({ city: "F" }).expect(400)
+    })
+  it("should get bad request if city is less more 10 characters", async () => {
+      const request = SuperTest(PlatformTest.callback())
+      await request.get("/weather_forecast").query({ city: "Ffhsajkfhsajkfhjsakdjflda" }).expect(400)
+    })
   })
 })
