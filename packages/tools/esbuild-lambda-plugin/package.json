@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@types/cross-zip": "4.0.2",
-    "@types/node": "20.14.2",
+    "@types/node": "20.14.11",
     "change-case": "^5.4.3",
     "esbuild": "0.20.2",
     "execa": "8.0.1",
