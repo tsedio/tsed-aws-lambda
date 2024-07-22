@@ -88,6 +88,12 @@ yarn test:controllers
 
 ### Run E2E tests (dev)
 
+Add the following environment variables to your `.env.local` file:
+
+```sh
+LOCALSTACK_AUTH_TOKEN=<YOUR_LOCALSTACK_AUTH_TOKEN>
+```
+
 To run E2E tests:
 
 ```sh
