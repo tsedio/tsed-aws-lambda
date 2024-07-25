@@ -2,9 +2,9 @@ name: Build & Release
 
 on:
   push:
-    branches: [master, alpha, beta, rc]
+    branches: [master, main, alpha, beta, rc]
   pull_request:
-    branches: [master]
+    branches: [master, main]
     types: [opened, synchronize, closed]
 
 concurrency:
@@ -169,7 +169,7 @@ jobs:
         run: yarn install --immutable --network-timeout 500000
       - uses: hashicorp/setup-terraform@v3
       - name: Start localstack 🚧
-        run: yarn run start:docker -d
+        run: yarn run start:docker
       - name: Build & Deploy lambda 🚧
         run: yarn deploy:lambda
       - name: Run test 🔍
