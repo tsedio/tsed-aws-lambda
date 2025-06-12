@@ -1,4 +1,4 @@
-import { SwaggerOS3Settings } from "@tsed/swagger"
+import {SwaggerOS3Settings} from "@tsed/swagger";
 
 export const swaggerConfig = [
   {
@@ -16,4 +16,4 @@ export const swaggerConfig = [
       }
     }
   } as SwaggerOS3Settings
-]
+];

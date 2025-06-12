@@ -1,32 +1,28 @@
-import { join } from "path"
-import { GenericContainer, StartedDockerComposeEnvironment, Wait } from "testcontainers"
-import { StartedGenericContainer } from "testcontainers/build/generic-container/started-generic-container.js"
+import {join} from "path";
+import {GenericContainer, StartedDockerComposeEnvironment, Wait} from "testcontainers";
+import {StartedGenericContainer} from "testcontainers/build/generic-container/started-generic-container.js";
 
-const ROOT_DIR = join(import.meta.dirname, "../../../../..")
+const ROOT_DIR = join(import.meta.dirname, "../../../../..");
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
     interface Global {
-      TEST_CONTAINER_MOCKSERVER: StartedDockerComposeEnvironment | null
+      TEST_CONTAINER_MOCKSERVER: StartedDockerComposeEnvironment | null;
     }
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-global["TEST_CONTAINER_MOCKSERVER"] = null
+global["TEST_CONTAINER_MOCKSERVER"] = null;
 
 function getEnvironment<T>(key: string): T | null {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  return global[key]
+  return global[key];
 }
 
 function setEnvironment(key: string, environment: unknown) {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  global[key] = environment
+  global[key] = environment;
 }
 
 function createMockContainer() {
@@ -45,31 +41,31 @@ function createMockContainer() {
       }
     ])
     .withWaitStrategy(Wait.forLogMessage("started on port: 1080", 1))
-    .start()
+    .start();
 }
 
 export async function startMockServer() {
   // await stopMockServer()
-  const container = getEnvironment<StartedGenericContainer>("TEST_CONTAINER_MOCKSERVER") || (await createMockContainer())
+  const container = getEnvironment<StartedGenericContainer>("TEST_CONTAINER_MOCKSERVER") || (await createMockContainer());
 
-  setEnvironment("TEST_CONTAINER_MOCKSERVER", container)
+  setEnvironment("TEST_CONTAINER_MOCKSERVER", container);
 
-  process.env.MOCKSERVER_URL = "http://" + container.getHost() + ":" + container.getFirstMappedPort()
+  process.env.MOCKSERVER_URL = "http://" + container.getHost() + ":" + container.getFirstMappedPort();
 
   return {
     container,
     url: process.env.MOCKSERVER_URL
-  }
+  };
 }
 
 export async function stopMockServer() {
-  const container = getEnvironment<StartedGenericContainer>("TEST_CONTAINERS_MOCKSERVER")
+  const container = getEnvironment<StartedGenericContainer>("TEST_CONTAINERS_MOCKSERVER");
 
   if (container) {
-    await container.stop()
+    await container.stop();
   }
 }
 
 export function getMockServerUrl() {
-  return process.env.MOCKSERVER_URL
+  return process.env.MOCKSERVER_URL;
 }

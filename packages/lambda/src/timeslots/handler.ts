@@ -1,10 +1,10 @@
-import "@tsed/ajv" // enable validation
-import "@project/infra/aws/log-request/ServerlessLogRequest.js"
+import "@tsed/ajv"; // enable validation
+import "@project/infra/aws/log-request/ServerlessLogRequest.js";
 
-import { TimeslotsController } from "@project/controllers/timeslots/TimeslotsController.js"
-import { DynamoDBTimeslotsRepository } from "@project/infra/timeslots/DynamoDBTimeslotsRepository.js"
-import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
-import { PlatformServerless } from "@tsed/platform-serverless"
+import {TimeslotsController} from "@project/controllers/timeslots/TimeslotsController.js";
+import {DynamoDBTimeslotsRepository} from "@project/infra/timeslots/DynamoDBTimeslotsRepository.js";
+import {TimeslotsRepository} from "@project/infra/timeslots/TimeslotsRepository.js";
+import {PlatformServerless} from "@tsed/platform-serverless";
 
 // shared configuration
 const config = {
@@ -25,8 +25,8 @@ const config = {
       useClass: DynamoDBTimeslotsRepository
     }
   ]
-}
+};
 
-const platform = PlatformServerless.bootstrap(config)
+const platform = PlatformServerless.bootstrap(config);
 
-export const timeslots = platform.handler()
+export const timeslots = platform.handler();

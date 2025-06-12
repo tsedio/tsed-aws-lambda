@@ -1,13 +1,13 @@
-import { FsTimeslotsRepository } from "@project/infra/timeslots/FsTimeslotsRepository.js"
-import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
-import { readFileSync } from "fs"
-import { join } from "path"
+import {FsTimeslotsRepository} from "@project/infra/timeslots/FsTimeslotsRepository.js";
+import {TimeslotsRepository} from "@project/infra/timeslots/TimeslotsRepository.js";
+import {readFileSync} from "fs";
+import {join} from "path";
 
-import { envs } from "./envs/index.js"
-import loggerConfig from "./logger/index.js"
-import { swaggerConfig } from "./swagger/index.js"
+import {envs} from "./envs/index.js";
+import loggerConfig from "./logger/index.js";
+import {swaggerConfig} from "./swagger/index.js";
 
-const pkg = JSON.parse(readFileSync("./package.json", { encoding: "utf8" }))
+const pkg = JSON.parse(readFileSync("./package.json", {encoding: "utf8"}));
 
 export const config: Partial<TsED.Configuration> = {
   version: pkg.version,
@@ -24,4 +24,4 @@ export const config: Partial<TsED.Configuration> = {
       useClass: FsTimeslotsRepository
     }
   ]
-}
+};

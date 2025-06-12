@@ -1,10 +1,10 @@
-import { FsTimeslotsRepository } from "@project/infra/timeslots/FsTimeslotsRepository.js"
-import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
-import { logger } from "@tsed/cli-core"
-import { CliPlatformTest } from "@tsed/cli-testing"
+import {FsTimeslotsRepository} from "@project/infra/timeslots/FsTimeslotsRepository.js";
+import {TimeslotsRepository} from "@project/infra/timeslots/TimeslotsRepository.js";
+import {logger} from "@tsed/cli-core";
+import {CliPlatformTest} from "@tsed/cli-testing";
 
-import { TimeslotsCommand } from "../timeslots/TimeslotsCommand.js"
-import { TimeslotsLoadCommand } from "../timeslots/TimeslotsLoadCommand.js"
+import {TimeslotsCommand} from "../timeslots/TimeslotsCommand.js";
+import {TimeslotsLoadCommand} from "../timeslots/TimeslotsLoadCommand.js";
 
 describe("Timeslots: integration", () => {
   beforeEach(() => {
@@ -17,33 +17,33 @@ describe("Timeslots: integration", () => {
           useClass: FsTimeslotsRepository
         }
       ]
-    })
-  })
-  afterEach(() => CliPlatformTest.reset())
+    });
+  });
+  afterEach(() => CliPlatformTest.reset());
 
   it("should load timeslots and return loaded timeslots", async () => {
-    vi.spyOn(logger(), "info").mockReturnValue(undefined as never)
+    vi.spyOn(logger(), "info").mockReturnValue(undefined as never);
 
     await CliPlatformTest.exec("timeslots-load", {
       clear: false,
       numberOfTimeslots: 10
-    })
+    });
 
     expect(logger().info).toHaveBeenCalledWith({
       count: 10,
       event: "TIMESLOTS_CREATION"
-    })
+    });
 
     await CliPlatformTest.exec("timeslots", {
       limit: 5
-    })
+    });
 
-    const timeslots = CliPlatformTest.get<TimeslotsRepository>(TimeslotsRepository)
+    const timeslots = CliPlatformTest.get<TimeslotsRepository>(TimeslotsRepository);
 
     expect(logger().info).toHaveBeenCalledWith({
       event: "TIMESLOTS",
       limit: 5,
-      timeslots: await timeslots.getAll({ limit: 5 })
-    })
-  })
-})
+      timeslots: await timeslots.getAll({limit: 5})
+    });
+  });
+});

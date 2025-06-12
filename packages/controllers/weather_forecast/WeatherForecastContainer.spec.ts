@@ -1,38 +1,38 @@
-import { envs } from "@project/commands/config/envs"
-import { WeatherForecastClient } from "@project/infra/weather_forecast/WeatherForecastClient.js"
-import { getMockServerUrl, startMockServer, stopMockServer } from "@project/www/test/integrations/utils/mockServerTestContainer.js"
-import { DITest } from "@tsed/di"
-import { PlatformTest } from "@tsed/platform-http/testing"
-import { afterAll, beforeAll } from "vitest"
+import {envs} from "@project/commands/config/envs";
+import {WeatherForecastClient} from "@project/infra/weather_forecast/WeatherForecastClient.js";
+import {getMockServerUrl, startMockServer, stopMockServer} from "@project/www/test/integrations/utils/mockServerTestContainer.js";
+import {DITest} from "@tsed/di";
+import {PlatformTest} from "@tsed/platform-http/testing";
+import {afterAll, beforeAll} from "vitest";
 
-import { WeatherForecastController } from "./WeatherForecastController.js"
+import {WeatherForecastController} from "./WeatherForecastController.js";
 
 async function getControllerFixture() {
-  await PlatformTest.create({ envs })
-  const weatherForecastClient = await PlatformTest.invoke<WeatherForecastClient>(WeatherForecastClient, [])
+  await PlatformTest.create({envs});
+  const weatherForecastClient = await PlatformTest.invoke<WeatherForecastClient>(WeatherForecastClient, []);
   return await PlatformTest.invoke<WeatherForecastController>(WeatherForecastController, [
     {
       token: WeatherForecastClient,
       use: weatherForecastClient
     }
-  ])
+  ]);
 }
 
 describe("WeatherForecastControllerWithTestcontainer", () => {
   beforeAll(async () => {
-    await startMockServer()
-    envs.WEATHER_FORECAST_API_URL = `${getMockServerUrl()}/owf`
-    envs.WEATHER_FORECAST_API_KEY = "an-api-key"
-  }, 60000)
+    await startMockServer();
+    envs.WEATHER_FORECAST_API_URL = `${getMockServerUrl()}/owf`;
+    envs.WEATHER_FORECAST_API_KEY = "an-api-key";
+  }, 60000);
   afterAll(async () => {
-    await stopMockServer()
-  })
-  beforeEach(() => DITest.create())
-  afterEach(() => DITest.reset())
+    await stopMockServer();
+  });
+  beforeEach(() => DITest.create());
+  afterEach(() => DITest.reset());
   it("getWeaklyForecast()", async () => {
-    const controller = await getControllerFixture()
+    const controller = await getControllerFixture();
 
-    const result = await controller.getWeaklyForecast("PARIS")
+    const result = await controller.getWeaklyForecast("PARIS");
     expect(result).toMatchInlineSnapshot(`
         [
           WeatherForecast {
@@ -53,6 +53,6 @@ describe("WeatherForecastControllerWithTestcontainer", () => {
             },
           },
         ]
-        `)
-  })
-})
+        `);
+  });
+});

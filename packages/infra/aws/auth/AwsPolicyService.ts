@@ -1,20 +1,20 @@
-import { UserInfo } from "@project/domain/users/UserInfo.js"
-import { Injectable } from "@tsed/di"
-import { serialize } from "@tsed/json-mapper"
+import {UserInfo} from "@project/domain/users/UserInfo.js";
+import {Injectable} from "@tsed/di";
+import {serialize} from "@tsed/json-mapper";
 
 export interface AwsAuthResponse {
-  principalId: string
+  principalId: string;
   policyDocument?: {
-    Version: string
+    Version: string;
     Statement: {
-      Action: string
-      Effect: string
-      Resource: string
-    }[]
-  }
+      Action: string;
+      Effect: string;
+      Resource: string;
+    }[];
+  };
   context: {
-    user?: UserInfo
-  }
+    user?: UserInfo;
+  };
 }
 
 @Injectable()
@@ -29,7 +29,7 @@ export class AwsPolicyService {
         ...context,
         user: serialize(context.user)
       }
-    }
+    };
 
     if (effect && resource) {
       authResponse.policyDocument = {
@@ -41,17 +41,17 @@ export class AwsPolicyService {
             Resource: resource
           }
         ]
-      }
+      };
     }
 
-    return authResponse
+    return authResponse;
   }
 
   generateAllow(principalId: string, resource: string, context: AwsAuthResponse["context"]) {
-    return this.generatePolicy(principalId, "Allow", resource, context)
+    return this.generatePolicy(principalId, "Allow", resource, context);
   }
 
   generateDeny(principalId: string, resource: string, context: AwsAuthResponse["context"] = {}) {
-    return this.generatePolicy(principalId, "Deny", resource, context)
+    return this.generatePolicy(principalId, "Deny", resource, context);
   }
 }

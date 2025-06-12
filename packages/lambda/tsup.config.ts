@@ -1,7 +1,7 @@
 // import eslintPluginTsc from "esbuild-plugin-tsc"
-import { esbuildLambdaPlugin } from "@project/esbuild-lambda-plugin"
-import * as path from "path"
-import { defineConfig } from "tsup"
+import {esbuildLambdaPlugin} from "@project/esbuild-lambda-plugin";
+import * as path from "path";
+import {defineConfig} from "tsup";
 
 export default defineConfig((options) => ({
   entry: ["src/**/handler.ts"],
@@ -20,31 +20,31 @@ export default defineConfig((options) => ({
   incremental: options.watch,
   mainFields: ["source", "main"],
   swc: {
-    "sourceMaps": "inline",
-    "jsc": {
-      "parser": {
-        "syntax": "typescript",
-        "tsx": true
+    sourceMaps: "inline",
+    jsc: {
+      parser: {
+        syntax: "typescript",
+        tsx: true
       },
-      "target": "es2022",
-      "externalHelpers": true,
-      "keepClassNames": true,
-      "transform": {
-        "useDefineForClassFields": false,
-        "legacyDecorator": true,
-        "decoratorMetadata": true,
-        "react": {
-          "pragma": "React.createElement",
-          "pragmaFrag": "React.Fragment",
-          "throwIfNamespace": true,
-          "development": false,
-          "useBuiltins": false,
-          "runtime": "automatic"
+      target: "es2022",
+      externalHelpers: true,
+      keepClassNames: true,
+      transform: {
+        useDefineForClassFields: false,
+        legacyDecorator: true,
+        decoratorMetadata: true,
+        react: {
+          pragma: "React.createElement",
+          pragmaFrag: "React.Fragment",
+          throwIfNamespace: true,
+          development: false,
+          useBuiltins: false,
+          runtime: "automatic"
         }
       }
     },
-    "module": {
-      "type": "es6"
+    module: {
+      type: "es6"
     }
   },
   esbuildPlugins: [
@@ -56,4 +56,4 @@ export default defineConfig((options) => ({
       terraformDir: path.join(process.cwd(), "terraform")
     }) as never
   ]
-}))
+}));

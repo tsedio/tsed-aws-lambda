@@ -1,10 +1,10 @@
-import { join } from "node:path"
+import {join} from "node:path";
 
-import fs, { ensureDir } from "fs-extra"
+import fs, {ensureDir} from "fs-extra";
 
-import { BuildHandlerContext } from "./buildHandler.js"
+import {BuildHandlerContext} from "./buildHandler.js";
 
-export async function writePackageJson({ outDir, name }: BuildHandlerContext) {
+export async function writePackageJson({outDir, name}: BuildHandlerContext) {
   const packageJson = {
     name,
     version: "1.0.0",
@@ -14,7 +14,7 @@ export async function writePackageJson({ outDir, name }: BuildHandlerContext) {
     exports: {
       ".": `./${name}.js`
     }
-  }
-  await ensureDir(outDir)
-  await fs.writeJSON(join(outDir, "package.json"), packageJson, { spaces: 2 })
+  };
+  await ensureDir(outDir);
+  await fs.writeJSON(join(outDir, "package.json"), packageJson, {spaces: 2});
 }

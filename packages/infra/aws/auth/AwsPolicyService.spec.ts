@@ -1,18 +1,18 @@
-import { UserInfo } from "@project/domain/users/UserInfo.js"
-import { DITest } from "@tsed/di"
+import {UserInfo} from "@project/domain/users/UserInfo.js";
+import {DITest} from "@tsed/di";
 
-import { AwsPolicyService } from "./AwsPolicyService.js"
+import {AwsPolicyService} from "./AwsPolicyService.js";
 
 describe("AwsPolicyService", () => {
-  beforeEach(() => DITest.create())
-  afterEach(() => DITest.reset())
+  beforeEach(() => DITest.create());
+  afterEach(() => DITest.reset());
 
   describe("generatePolicy", () => {
     it("should generate a policy (allowed)", async () => {
-      const service = await DITest.invoke<AwsPolicyService>(AwsPolicyService)
+      const service = await DITest.invoke<AwsPolicyService>(AwsPolicyService);
       const policy = service.generateAllow("me", "Allow", {
         user: new UserInfo()
-      })
+      });
 
       expect(policy).toEqual({
         context: {
@@ -32,11 +32,11 @@ describe("AwsPolicyService", () => {
           Version: "2012-10-17"
         },
         principalId: "me"
-      })
-    })
+      });
+    });
     it("should generate a policy (deny)", async () => {
-      const service = await DITest.invoke<AwsPolicyService>(AwsPolicyService)
-      const policy = service.generateDeny("me", "Allow", {})
+      const service = await DITest.invoke<AwsPolicyService>(AwsPolicyService);
+      const policy = service.generateDeny("me", "Allow", {});
 
       expect(policy).toEqual({
         context: {
@@ -53,7 +53,7 @@ describe("AwsPolicyService", () => {
           Version: "2012-10-17"
         },
         principalId: "me"
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});

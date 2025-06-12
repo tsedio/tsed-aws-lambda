@@ -1,18 +1,18 @@
-import path from "node:path"
+import path from "node:path";
 
-import fs from "fs-extra"
-import { Listr } from "listr2"
+import fs from "fs-extra";
+import {Listr} from "listr2";
 
-import { apply, init, plan } from "../clients/TerraformCli.js"
+import {apply, init, plan} from "../clients/TerraformCli.js";
 
 export interface RunTerraformOptions {
-  cwd?: string
-  contexts: { functionNames: string[] }[]
+  cwd?: string;
+  contexts: {functionNames: string[]}[];
 }
 
-export async function runTerraform({ cwd }: RunTerraformOptions) {
+export async function runTerraform({cwd}: RunTerraformOptions) {
   // get all changed functions
-  console.log("⚡️Running terraform for functions: ")
+  console.log("⚡️Running terraform for functions: ");
 
   await new Listr(
     [
@@ -30,12 +30,12 @@ export async function runTerraform({ cwd }: RunTerraformOptions) {
         task: () => apply(cwd)
       }
     ],
-    { concurrent: false }
-  ).run()
+    {concurrent: false}
+  ).run();
 
   if (process.env.CI === "true") {
-    console.log("🚀 Terraform deployment complete!")
+    console.log("🚀 Terraform deployment complete!");
   } else {
-    console.log("🚀 Terraform deployment complete! Waiting changes to propagate...")
+    console.log("🚀 Terraform deployment complete! Waiting changes to propagate...");
   }
 }

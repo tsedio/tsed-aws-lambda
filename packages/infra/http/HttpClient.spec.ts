@@ -1,36 +1,36 @@
-import { catchAsyncError } from "@tsed/core"
-import { Injectable, runInContext } from "@tsed/di"
-import { Exception } from "@tsed/exceptions"
-import { PlatformTest } from "@tsed/platform-http/testing"
-import { Property, Required } from "@tsed/schema"
+import {catchAsyncError} from "@tsed/core";
+import {Injectable, runInContext} from "@tsed/di";
+import {Exception} from "@tsed/exceptions";
+import {PlatformTest} from "@tsed/platform-http/testing";
+import {Property, Required} from "@tsed/schema";
 
-import { HttpClient } from "./HttpClient.js"
+import {HttpClient} from "./HttpClient.js";
 
 @Injectable()
 class CustomHttpClient extends HttpClient {
-  callee = "CUSTOM_HTTP_CLIENT"
+  callee = "CUSTOM_HTTP_CLIENT";
 }
 
 vi.mock("axios", () => {
-  const axiosMock = vi.fn()
+  const axiosMock = vi.fn();
 
   return {
     default: {
       create: vi.fn().mockReturnValue(axiosMock)
     },
     create: vi.fn().mockReturnValue(axiosMock)
-  }
-})
+  };
+});
 
 class Model {
   @Required()
   @Property()
   id: string;
 
-  [key: string]: never | string
+  [key: string]: never | string;
 
   constructor(props: Partial<Model> = {}) {
-    Object.assign(this, props)
+    Object.assign(this, props);
   }
 }
 
@@ -39,10 +39,10 @@ class Payload {
   @Property()
   id: string;
 
-  [key: string]: never | string
+  [key: string]: never | string;
 
   constructor(props: Partial<Model> = {}) {
-    Object.assign(this, props)
+    Object.assign(this, props);
   }
 }
 
@@ -50,37 +50,37 @@ class Model2 {
   @Required()
   @Required()
   @Property()
-  id: string
+  id: string;
 
   constructor(props: Partial<Model> = {}) {
-    Object.assign(this, props)
+    Object.assign(this, props);
   }
 }
 
 async function createServiceFixture() {
-  const client = await PlatformTest.invoke<CustomHttpClient>(CustomHttpClient)
-  const ctx = PlatformTest.createRequestContext()
+  const client = await PlatformTest.invoke<CustomHttpClient>(CustomHttpClient);
+  const ctx = PlatformTest.createRequestContext();
 
-  vi.spyOn(ctx.logger, "info")
-  vi.spyOn(ctx.logger, "warn")
+  vi.spyOn(ctx.logger, "info");
+  vi.spyOn(ctx.logger, "warn");
 
-  return { client, ctx }
+  return {client, ctx};
 }
 
 describe("HttpClient", () => {
-  beforeEach(() => PlatformTest.create())
-  afterEach(() => PlatformTest.reset())
+  beforeEach(() => PlatformTest.create());
+  afterEach(() => PlatformTest.reset());
 
   describe("head()", () => {
     it("should call send method", async () => {
       // GIVEN
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
 
       vi.mocked(client.raw).mockResolvedValue({
         headers: {
           "x-test": "test"
         }
-      })
+      });
       // WHEN
       const result = await runInContext(ctx, () =>
         client.head("/test", {
@@ -88,16 +88,16 @@ describe("HttpClient", () => {
             "x-api": "x-api"
           }
         })
-      )
+      );
 
       expect(result).toEqual({
         "x-test": "test"
-      })
-    })
-  })
+      });
+    });
+  });
   describe("get()", () => {
     it("should make a request", async () => {
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
 
       vi.spyOn(client as never, "raw").mockReturnValue(
         Promise.resolve({
@@ -109,7 +109,7 @@ describe("HttpClient", () => {
             additionalProperties: "hello"
           }
         })
-      )
+      );
 
       // WHEN
       const result = await runInContext(ctx, () =>
@@ -123,13 +123,13 @@ describe("HttpClient", () => {
           },
           type: Model2
         })
-      )
+      );
 
       expect(result).toEqual(
         new Model({
           id: "id"
         })
-      )
+      );
       expect(ctx.logger.info).toHaveBeenCalledWith({
         callee: "CUSTOM_HTTP_CLIENT",
         callee_request_body: undefined,
@@ -144,7 +144,7 @@ describe("HttpClient", () => {
         request_id: "id",
         state: "OK",
         url: "/test"
-      })
+      });
       expect(client.raw).toHaveBeenCalledWith({
         url: "/test",
         method: "GET",
@@ -156,10 +156,10 @@ describe("HttpClient", () => {
         headers: {
           "x-api": "x-api"
         }
-      })
-    })
+      });
+    });
     it("should make a request (with additionalProperties)", async () => {
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
 
       vi.spyOn(client as never, "raw").mockReturnValue(
         Promise.resolve({
@@ -169,7 +169,7 @@ describe("HttpClient", () => {
             hello: "hello"
           }
         })
-      )
+      );
 
       // WHEN
       const result = await runInContext(ctx, () =>
@@ -180,26 +180,26 @@ describe("HttpClient", () => {
           type: Model,
           additionalProperties: true
         })
-      )
+      );
 
       expect(result).toEqual(
         new Model({
           hello: "hello",
           id: "id"
         })
-      )
+      );
       expect(client.raw).toHaveBeenCalledWith({
         url: "/test",
         method: "GET",
         headers: {
           "x-api": "x-api"
         }
-      })
-    })
+      });
+    });
     it("should make a request and return a stream", async () => {
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
 
-      vi.spyOn(client as never, "raw").mockReturnValue(Promise.resolve({ data: "stream" }))
+      vi.spyOn(client as never, "raw").mockReturnValue(Promise.resolve({data: "stream"}));
 
       // WHEN
       const result = await runInContext(ctx, () =>
@@ -211,9 +211,9 @@ describe("HttpClient", () => {
           additionalProperties: true,
           responseType: "stream"
         })
-      )
+      );
 
-      expect(result).toEqual({ data: "stream" })
+      expect(result).toEqual({data: "stream"});
       expect(client.raw).toHaveBeenCalledWith({
         url: "/test",
         method: "GET",
@@ -221,15 +221,15 @@ describe("HttpClient", () => {
         headers: {
           "x-api": "x-api"
         }
-      })
-    })
+      });
+    });
     it("should throw error (without response information)", async () => {
       // GIVEN
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
 
       vi.spyOn(client as never, "raw").mockRejectedValue({
         message: "message"
-      })
+      });
 
       // WHEN
       const error = await catchAsyncError<Exception>(() =>
@@ -246,17 +246,17 @@ describe("HttpClient", () => {
             additionalProperties: true
           })
         )
-      )
+      );
 
-      expect(error?.message).toEqual("Internal Server Error")
-      expect(error?.status).toEqual(500)
-      expect(error?.headers).toEqual({})
-      expect(error?.body).toEqual(undefined)
-      expect(!!error?.stack).toEqual(true)
-    })
+      expect(error?.message).toEqual("Internal Server Error");
+      expect(error?.status).toEqual(500);
+      expect(error?.headers).toEqual({});
+      expect(error?.body).toEqual(undefined);
+      expect(!!error?.stack).toEqual(true);
+    });
     it("should throw error (with response information)", async () => {
       // GIVEN
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
 
       vi.spyOn(client as never, "raw").mockRejectedValue({
         message: "message",
@@ -269,7 +269,7 @@ describe("HttpClient", () => {
             message: "Validation error"
           }
         }
-      })
+      });
 
       // WHEN
       const error = await catchAsyncError<Exception>(() =>
@@ -286,15 +286,15 @@ describe("HttpClient", () => {
             additionalProperties: true
           })
         )
-      )
+      );
 
-      expect(error?.message).toEqual("Validation error")
-      expect(error?.status).toEqual(400)
+      expect(error?.message).toEqual("Validation error");
+      expect(error?.status).toEqual(400);
       expect(error?.headers).toEqual({
         "x-test": "test"
-      })
-      expect(error?.body).toEqual({ message: "Validation error" })
-      expect(!!error?.stack).toEqual(true)
+      });
+      expect(error?.body).toEqual({message: "Validation error"});
+      expect(!!error?.stack).toEqual(true);
       expect(ctx.logger.warn).toHaveBeenCalledWith({
         callee: "CUSTOM_HTTP_CLIENT",
         callee_error: "message",
@@ -310,11 +310,11 @@ describe("HttpClient", () => {
         request_id: "id",
         state: "KO",
         url: "/test"
-      })
-    })
+      });
+    });
     it("should throw error (with partial response information)", async () => {
       // GIVEN
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
 
       vi.spyOn(client as never, "raw").mockRejectedValue({
         message: "message",
@@ -326,7 +326,7 @@ describe("HttpClient", () => {
           statusText: "BAD_REQUEST",
           data: {}
         }
-      })
+      });
 
       // WHEN
       const error = await catchAsyncError<Exception>(() =>
@@ -343,25 +343,25 @@ describe("HttpClient", () => {
             additionalProperties: true
           })
         )
-      )
+      );
 
-      expect(error?.message).toEqual("BAD_REQUEST")
-      expect(error?.status).toEqual(400)
+      expect(error?.message).toEqual("BAD_REQUEST");
+      expect(error?.status).toEqual(400);
       expect(error?.headers).toEqual({
         "x-test": "test"
-      })
-      expect(error?.body).toEqual({})
-      expect(!!error?.stack).toEqual(true)
-    })
-  })
+      });
+      expect(error?.body).toEqual({});
+      expect(!!error?.stack).toEqual(true);
+    });
+  });
   describe("post()", () => {
     it("should call send (without additionalProperties)", async () => {
       // GIVEN
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
       const payload = new Payload({
         id: "id",
         additionalProperties: "hello"
-      })
+      });
 
       vi.spyOn(client as never, "raw").mockReturnValue(
         Promise.resolve({
@@ -371,7 +371,7 @@ describe("HttpClient", () => {
             additionalProperties: "hello"
           }
         })
-      )
+      );
 
       // WHEN
       const result = await runInContext(ctx, () =>
@@ -382,13 +382,13 @@ describe("HttpClient", () => {
           },
           type: Model2
         })
-      )
+      );
 
       expect(result).toEqual(
         new Model({
           id: "id"
         })
-      )
+      );
       expect(client.raw).toHaveBeenCalledWith({
         url: "/test",
         method: "POST",
@@ -399,16 +399,16 @@ describe("HttpClient", () => {
         headers: {
           "x-api": "x-api"
         }
-      })
-    })
+      });
+    });
     it("should call send (with additionalProperties)", async () => {
       // GIVEN
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
 
       const payload = new Payload({
         id: "id",
         additionalProperties: "hello"
-      })
+      });
 
       vi.spyOn(client as never, "raw").mockReturnValue(
         Promise.resolve({
@@ -418,7 +418,7 @@ describe("HttpClient", () => {
             hello: "hello"
           }
         })
-      )
+      );
 
       // WHEN
       const result = await runInContext(ctx, () =>
@@ -430,14 +430,14 @@ describe("HttpClient", () => {
           type: Model,
           additionalProperties: true
         })
-      )
+      );
 
       expect(result).toEqual(
         new Model({
           hello: "hello",
           id: "id"
         })
-      )
+      );
       expect(client.raw).toHaveBeenCalledWith({
         url: "/test",
         method: "POST",
@@ -448,11 +448,11 @@ describe("HttpClient", () => {
         headers: {
           "x-api": "x-api"
         }
-      })
-    })
+      });
+    });
     it("should throw error (with response information)", async () => {
       // GIVEN
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
 
       vi.spyOn(client as never, "raw").mockRejectedValue({
         message: "message",
@@ -465,7 +465,7 @@ describe("HttpClient", () => {
             message: "Validation error"
           }
         }
-      })
+      });
 
       // WHEN
       const error = await catchAsyncError<Exception>(() =>
@@ -485,15 +485,15 @@ describe("HttpClient", () => {
             additionalProperties: true
           })
         )
-      )
+      );
 
-      expect(error?.message).toEqual("Validation error")
-      expect(error?.status).toEqual(400)
+      expect(error?.message).toEqual("Validation error");
+      expect(error?.status).toEqual(400);
       expect(error?.headers).toEqual({
         "x-test": "test"
-      })
-      expect(error?.body).toEqual({ message: "Validation error" })
-      expect(!!error?.stack).toEqual(true)
+      });
+      expect(error?.body).toEqual({message: "Validation error"});
+      expect(!!error?.stack).toEqual(true);
       expect(ctx.logger.warn).toHaveBeenCalledWith({
         callee: "CUSTOM_HTTP_CLIENT",
         callee_error: "message",
@@ -509,16 +509,16 @@ describe("HttpClient", () => {
         request_id: "id",
         state: "KO",
         url: "/test"
-      })
-    })
-  })
+      });
+    });
+  });
   describe("put()", () => {
     it("should make a request", async () => {
       // GIVEN
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
       const payload = new Payload({
         id: "id"
-      })
+      });
 
       vi.spyOn(client as never, "raw").mockReturnValue(
         Promise.resolve({
@@ -527,7 +527,7 @@ describe("HttpClient", () => {
             id: "id"
           }
         })
-      )
+      );
 
       // WHEN
       const result = await runInContext(ctx, () =>
@@ -538,13 +538,13 @@ describe("HttpClient", () => {
           },
           type: Model2
         })
-      )
+      );
 
       expect(result).toEqual(
         new Model({
           id: "id"
         })
-      )
+      );
       expect(client.raw).toHaveBeenCalledWith({
         url: "/test",
         method: "PUT",
@@ -555,17 +555,17 @@ describe("HttpClient", () => {
         headers: {
           "x-api": "x-api"
         }
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe("patch()", () => {
     it("should make a request", async () => {
       // GIVEN
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
       const payload = new Payload({
         id: "id"
-      })
+      });
 
       vi.spyOn(client as never, "raw").mockReturnValue(
         Promise.resolve({
@@ -574,7 +574,7 @@ describe("HttpClient", () => {
             id: "id"
           }
         })
-      )
+      );
 
       // WHEN
       const result = await runInContext(ctx, () =>
@@ -585,13 +585,13 @@ describe("HttpClient", () => {
           },
           type: Model2
         })
-      )
+      );
 
       expect(result).toEqual(
         new Model({
           id: "id"
         })
-      )
+      );
       expect(client.raw).toHaveBeenCalledWith({
         url: "/test",
         method: "PATCH",
@@ -602,18 +602,18 @@ describe("HttpClient", () => {
         headers: {
           "x-api": "x-api"
         }
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe("delete()", () => {
     it("should make a request", async () => {
       // GIVEN
-      const { client, ctx } = await createServiceFixture()
+      const {client, ctx} = await createServiceFixture();
       const payload = new Payload({
         id: "id",
         additionalProperties: "hello"
-      })
+      });
 
       vi.spyOn(client as never, "raw").mockReturnValue(
         Promise.resolve({
@@ -623,7 +623,7 @@ describe("HttpClient", () => {
             additionalProperties: "hello"
           }
         })
-      )
+      );
 
       // WHEN
       const result = await runInContext(ctx, () =>
@@ -634,13 +634,13 @@ describe("HttpClient", () => {
           },
           type: Model2
         })
-      )
+      );
 
       expect(result).toEqual(
         new Model({
           id: "id"
         })
-      )
+      );
       expect(client.raw).toHaveBeenCalledWith({
         url: "/test",
         method: "DELETE",
@@ -650,7 +650,7 @@ describe("HttpClient", () => {
         headers: {
           "x-api": "x-api"
         }
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});
