@@ -1,6 +1,6 @@
-import { getJsonSchema } from "@tsed/schema"
+import {getJsonSchema} from "@tsed/schema";
 
-import { UserInfo } from "./UserInfo.js"
+import {UserInfo} from "./UserInfo.js";
 
 describe("UserInfo", () => {
   it("should create user info instance", () => {
@@ -16,8 +16,8 @@ describe("UserInfo", () => {
       firstname: undefined,
       lastname: undefined,
       scopes: []
-    })
-  })
+    });
+  });
   it("should generate the json schema", () => {
     expect(getJsonSchema(UserInfo)).toMatchInlineSnapshot(`
       {
@@ -72,6 +72,6 @@ describe("UserInfo", () => {
         ],
         "type": "object",
       }
-    `)
-  })
-})
+    `);
+  });
+});

@@ -1,14 +1,14 @@
-import { Controller } from "@tsed/di"
-import { Get, getSpec } from "@tsed/schema"
+import {Controller} from "@tsed/di";
+import {Get, getSpec} from "@tsed/schema";
 
-import { Authorize } from "./Authorize.js"
+import {Authorize} from "./Authorize.js";
 
 describe("@Authorize", () => {
   it("should return the correct swagger schema", () => {
     @Controller("/")
     class MyController {
       @Get("/")
-      @Authorize({ scopes: ["admin"] })
+      @Authorize({scopes: ["admin"]})
       get() {}
     }
 
@@ -63,6 +63,6 @@ describe("@Authorize", () => {
         ],
       }
     `
-    )
-  })
-})
+    );
+  });
+});

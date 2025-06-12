@@ -1,0 +1,13 @@
+{
+  "extends": "../../old/tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "nodeNext",
+    "types": ["node", "vitest", "vitest/globals", "vitest/importMeta"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["dist", "src/**/*.spec.ts", ".esbuild"]
+}

@@ -1,23 +1,23 @@
-import { deserialize } from "@tsed/json-mapper"
-import { getJsonSchema } from "@tsed/schema"
-import { afterEach, beforeEach } from "vitest"
+import {deserialize} from "@tsed/json-mapper";
+import {getJsonSchema} from "@tsed/schema";
+import {afterEach, beforeEach} from "vitest";
 
-import { Timeslot } from "./Timeslot.js"
+import {Timeslot} from "./Timeslot.js";
 
 describe("Timeslot", () => {
   describe("json schema", () => {
     it("should return the expected json schema", () => {
-      expect(getJsonSchema(Timeslot)).toMatchSnapshot()
-    })
-  })
+      expect(getJsonSchema(Timeslot)).toMatchSnapshot();
+    });
+  });
 
   describe("deserialize()", () => {
     beforeEach(() => {
-      vi.useFakeTimers({ now: new Date("2024-04-02T07:03:28.388Z") })
-    })
+      vi.useFakeTimers({now: new Date("2024-04-02T07:03:28.388Z")});
+    });
     afterEach(() => {
-      vi.useRealTimers()
-    })
+      vi.useRealTimers();
+    });
     it("should deserialize the given data", () => {
       const result = deserialize<Timeslot>(
         {
@@ -29,9 +29,9 @@ describe("Timeslot", () => {
         {
           type: Timeslot
         }
-      )
+      );
 
-      expect(result).toBeInstanceOf(Timeslot)
+      expect(result).toBeInstanceOf(Timeslot);
       expect(result).toEqual({
         description: "",
         id: "id",
@@ -40,7 +40,7 @@ describe("Timeslot", () => {
         endDate: new Date("2021-01-01T11:00:00.000Z"),
         createdAt: new Date("2024-04-02T07:03:28.388Z"),
         updatedAt: new Date("2024-04-02T07:03:28.388Z")
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});

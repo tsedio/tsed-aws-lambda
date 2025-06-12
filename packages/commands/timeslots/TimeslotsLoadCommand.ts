@@ -1,12 +1,12 @@
-import { faker } from "@faker-js/faker"
-import { Timeslot } from "@project/domain/timeslots/Timeslot.js"
-import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
-import { Command, CommandProvider, Inject, Logger, QuestionOptions } from "@tsed/cli-core"
-import { deserialize } from "@tsed/json-mapper"
+import {faker} from "@faker-js/faker";
+import {Timeslot} from "@project/domain/timeslots/Timeslot.js";
+import {TimeslotsRepository} from "@project/infra/timeslots/TimeslotsRepository.js";
+import {Command, CommandProvider, Inject, logger, QuestionOptions} from "@tsed/cli-core";
+import {deserialize} from "@tsed/json-mapper";
 
 interface CommandOptions {
-  clear?: boolean
-  numberOfTimeslots?: number
+  clear?: boolean;
+  numberOfTimeslots?: number;
 }
 
 @Command({
@@ -27,10 +27,7 @@ interface CommandOptions {
 })
 export class TimeslotsLoadCommand implements CommandProvider<CommandOptions> {
   @Inject(TimeslotsRepository)
-  protected timeslotsRepository: TimeslotsRepository
-
-  @Inject()
-  protected logger: Logger
+  protected timeslotsRepository: TimeslotsRepository;
 
   $prompt(initialOptions: Partial<CommandOptions>): QuestionOptions<CommandOptions> {
     return [
@@ -41,7 +38,7 @@ export class TimeslotsLoadCommand implements CommandProvider<CommandOptions> {
         initial: initialOptions.clear,
         when: !!initialOptions.clear
       }
-    ]
+    ];
   }
 
   $exec(ctx: CommandOptions) {
@@ -50,40 +47,40 @@ export class TimeslotsLoadCommand implements CommandProvider<CommandOptions> {
         title: "Clear all timeslots",
         enabled: ctx.clear,
         task: async () => {
-          await this.timeslotsRepository.clear()
+          await this.timeslotsRepository.clear();
         }
       },
       {
         title: "Load timeslots",
         task: async () => {
-          const timeslots = this.generateTimeslots(ctx)
+          const timeslots = this.generateTimeslots(ctx);
 
           for (const timeslot of timeslots) {
-            await this.timeslotsRepository.create(timeslot)
+            await this.timeslotsRepository.create(timeslot);
           }
 
-          this.logger.info({
+          logger().info({
             event: "TIMESLOTS_CREATION",
             count: timeslots.length
-          })
+          });
         }
       }
-    ]
+    ];
   }
 
   private generateTimeslots(ctx: CommandOptions) {
     return new Array(ctx.numberOfTimeslots).fill(0).map(() => {
-      const start = faker.date.recent()
+      const start = faker.date.recent();
 
       return deserialize<Timeslot>(
         {
           label: faker.lorem.sentence(),
           description: faker.lorem.paragraph(),
           startDate: start,
-          endDate: faker.date.future({ refDate: start })
+          endDate: faker.date.future({refDate: start})
         },
-        { type: Timeslot, useAlias: false }
-      )
-    })
+        {type: Timeslot, useAlias: false}
+      );
+    });
   }
 }

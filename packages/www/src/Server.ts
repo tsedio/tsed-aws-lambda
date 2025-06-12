@@ -1,13 +1,14 @@
-import "@tsed/platform-express" // /!\ keep this import
-import "@tsed/ajv"
-import "@tsed/swagger"
+import "@tsed/platform-express"; // /!\ keep this import
+import "@tsed/ajv";
+import "@tsed/swagger";
+import "@tsed/platform-log-request";
 
-import * as controllers from "@project/controllers/index.js"
-import { Configuration, Inject, InjectorService } from "@tsed/di"
-import { join } from "path"
+import * as controllers from "@project/controllers/index.js";
+import {Configuration} from "@tsed/di";
+import {join} from "path";
 
-import { config } from "./config/index.js"
-import * as pages from "./controllers/pages/index.js"
+import {config} from "./config/index.js";
+import * as pages from "./controllers/pages/index.js";
 
 @Configuration({
   ...config,
@@ -28,7 +29,7 @@ import * as pages from "./controllers/pages/index.js"
     "compression",
     "method-override",
     "json-parser",
-    { use: "urlencoded-parser", options: { extended: true } }
+    {use: "urlencoded-parser", options: {extended: true}}
   ],
   views: {
     root: join(process.cwd(), "../views"),
@@ -37,7 +38,4 @@ import * as pages from "./controllers/pages/index.js"
     }
   }
 })
-export class Server {
-  @Inject()
-  injector: InjectorService
-}
+export class Server {}

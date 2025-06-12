@@ -1,8 +1,8 @@
-import { UserInfo } from "@project/domain/users/UserInfo.js"
-import { DITest } from "@tsed/di"
-import { beforeEach } from "vitest"
+import {UserInfo} from "@project/domain/users/UserInfo.js";
+import {DITest} from "@tsed/di";
+import {beforeEach} from "vitest";
 
-import { JwtService } from "./JwtService.js"
+import {JwtService} from "./JwtService.js";
 
 describe("JwtService", () => {
   beforeEach(() =>
@@ -13,23 +13,23 @@ describe("JwtService", () => {
         JWT_AUDIENCE: "537d714c-d062-45ef-957d-6beac6490233"
       }
     })
-  )
-  afterEach(() => DITest.reset())
+  );
+  afterEach(() => DITest.reset());
   describe("encode()", () => {
     it("should return a JWT", async () => {
-      const jwtService = await DITest.invoke<JwtService>(JwtService)
+      const jwtService = await DITest.invoke<JwtService>(JwtService);
 
       const user = new UserInfo({
         _id: "123",
         email: "hello@egain.com",
         scopes: ["user:read"]
-      })
+      });
 
-      const result = await jwtService.encode({ user })
+      const result = await jwtService.encode({user});
 
-      expect(result).toEqual(expect.any(String))
+      expect(result).toEqual(expect.any(String));
 
-      const decoded = await jwtService.decode(result)
+      const decoded = await jwtService.decode(result);
 
       expect(decoded).toEqual({
         payload: {
@@ -48,7 +48,7 @@ describe("JwtService", () => {
           alg: "dir",
           enc: "A128CBC-HS256"
         }
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});

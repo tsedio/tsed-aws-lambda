@@ -1,18 +1,18 @@
-import { WeatherForecast } from "@project/domain/weather_forecast/WeatherForecast.js"
-import { Constant, Injectable } from "@tsed/di"
-import { CreateAxiosDefaults } from "axios"
+import {WeatherForecast} from "@project/domain/weather_forecast/WeatherForecast.js";
+import {Constant, Injectable} from "@tsed/di";
+import {CreateAxiosDefaults} from "axios";
 
-import { HttpClient } from "../http/HttpClient.js"
+import {HttpClient} from "../http/HttpClient.js";
 
 @Injectable()
 export class WeatherForecastClient extends HttpClient {
-  callee = "WEATHER_FORECAST"
+  callee = "WEATHER_FORECAST";
 
   @Constant("envs.WEATHER_FORECAST_API_URL")
-  protected declare baseURL: string
+  protected declare baseURL: string;
 
   @Constant("envs.WEATHER_FORECAST_API_KEY")
-  protected apiKey: string
+  protected apiKey: string;
 
   getWeeklyForecast(city: string) {
     return this.get<WeatherForecast>("/weather_forecast/weekly", {
@@ -21,7 +21,7 @@ export class WeatherForecastClient extends HttpClient {
       },
       type: WeatherForecast,
       collectionType: Array
-    })
+    });
   }
 
   protected create(opts?: CreateAxiosDefaults) {
@@ -31,6 +31,6 @@ export class WeatherForecastClient extends HttpClient {
         ...(opts?.headers || {}),
         "x-api-key": this.apiKey
       }
-    })
+    });
   }
 }

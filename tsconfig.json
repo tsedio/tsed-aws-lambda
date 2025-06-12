@@ -1,25 +1,15 @@
 {
-  "extends": ["./tsconfig.base.json"],
-  "files": [],
+  "compilerOptions": {
+    "baseUrl": "."
+  },
   "include": [],
   "references": [
     {
-      "path": "./packages/domain/tsconfig.json"
-    },
-    {
-      "path": "./packages/infra/tsconfig.json"
-    },
-    {
-      "path": "./packages/controllers/tsconfig.json"
-    },
-    {
-      "path": "./packages/www/tsconfig.json"
-    },
-    {
-      "path": "./packages/commands/tsconfig.json"
+      "path": "./tsconfig.node.json"
     },
     {
       "path": "./tsconfig.spec.json"
     }
-  ]
+  ],
+  "exclude": ["node_modules"]
 }

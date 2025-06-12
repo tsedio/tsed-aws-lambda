@@ -1,20 +1,20 @@
-import { TimeslotsController } from "@project/controllers/timeslots/TimeslotsController.js"
-import { UserInfo } from "@project/domain/users/UserInfo.js"
-import { JwtService } from "@project/infra/auth/services/JwtService.js"
-import { FsTimeslotsRepository } from "@project/infra/timeslots/FsTimeslotsRepository.js"
-import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
-import { PlatformServerless } from "@tsed/platform-serverless"
-import { PlatformServerlessTest } from "@tsed/platform-serverless-testing"
+import {TimeslotsController} from "@project/controllers/timeslots/TimeslotsController.js";
+import {UserInfo} from "@project/domain/users/UserInfo.js";
+import {JwtService} from "@project/infra/auth/services/JwtService.js";
+import {FsTimeslotsRepository} from "@project/infra/timeslots/FsTimeslotsRepository.js";
+import {TimeslotsRepository} from "@project/infra/timeslots/TimeslotsRepository.js";
+import {PlatformServerless} from "@tsed/platform-serverless";
+import {PlatformServerlessTest} from "@tsed/platform-serverless-testing";
 
 async function getTokenFixture() {
-  const jwtService = await PlatformServerlessTest.invoke<JwtService>(JwtService)
+  const jwtService = await PlatformServerlessTest.invoke<JwtService>(JwtService);
   const user = new UserInfo({
     scopes: ["timeslots"]
-  })
+  });
 
   return jwtService.encode({
     user
-  })
+  });
 }
 
 describe("Timeslots Handler", () => {
@@ -34,12 +34,12 @@ describe("Timeslots Handler", () => {
         }
       ]
     })
-  )
-  afterEach(() => PlatformServerlessTest.reset())
+  );
+  afterEach(() => PlatformServerlessTest.reset());
 
   describe("getTimeslots()", () => {
     it("should get timeslots", async () => {
-      const token = await getTokenFixture()
+      const token = await getTokenFixture();
 
       await PlatformServerlessTest.request
         .call("createTimeslot")
@@ -51,17 +51,17 @@ describe("Timeslots Handler", () => {
         })
         .headers({
           authorization: `Bearer ${token}`
-        })
+        });
 
       const response = await PlatformServerlessTest.request.call("getTimeslots").headers({
         authorization: `Bearer ${token}`
-      })
+      });
 
-      expect(response.statusCode).toEqual(200)
+      expect(response.statusCode).toEqual(200);
       expect(response.headers).toEqual({
         "x-request-id": "requestId",
         "content-type": "application/json"
-      })
+      });
       expect(JSON.parse(response.body)).toEqual([
         {
           id: expect.any(String),
@@ -71,29 +71,29 @@ describe("Timeslots Handler", () => {
           updated_at: expect.any(String),
           created_at: expect.any(String)
         }
-      ])
-    })
+      ]);
+    });
     it("should throw a 401 error if user isn't granted", async () => {
       await PlatformServerlessTest.request.call("createTimeslot").body({
         name: "Timeslot 1",
         start_date: "2021-01-01T00:00:00.000Z",
         end_date: "2021-01-01T00:00:00.000Z",
         description: "Description"
-      })
+      });
 
-      const response = await PlatformServerlessTest.request.call("getTimeslots")
+      const response = await PlatformServerlessTest.request.call("getTimeslots");
 
-      expect(response.statusCode).toEqual(401)
+      expect(response.statusCode).toEqual(401);
       expect(response.headers).toEqual({
         "x-request-id": "requestId",
         "content-type": "application/json"
-      })
+      });
       expect(JSON.parse(response.body)).toEqual({
         errors: [],
         message: "Unauthorized",
         name: "UNAUTHORIZED",
         status: 401
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});

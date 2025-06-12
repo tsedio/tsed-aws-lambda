@@ -1,4 +1,4 @@
-import { Enum, Format, Integer, Required } from "@tsed/schema"
+import {Enum, Format, Integer, Required} from "@tsed/schema";
 
 export enum WeatherTypes {
   CLEAR_SKY = "CLEAR_SKY",
@@ -11,52 +11,52 @@ export enum WeatherTypes {
 export class Temperature {
   @Required()
   @Integer()
-  min: number
+  min: number;
 
   @Required()
   @Integer()
-  max: number
+  max: number;
 
   @Required()
   @Integer()
-  morning: number
+  morning: number;
 
   @Required()
   @Integer()
-  afternoon: number
+  afternoon: number;
 
   @Required()
   @Integer()
-  evening: number
+  evening: number;
 
   @Required()
   @Integer()
-  night: number
+  night: number;
 }
 
 export class Weather {
   @Enum(WeatherTypes)
   @Required()
-  code: string
+  code: string;
 
   @Required()
-  description: string
+  description: string;
 }
 
 export class WeatherForecast {
   @Required()
-  id: string
+  id: string;
 
   @Required()
   @Format("date")
-  date: Date
+  date: Date;
 
   @Required()
-  unit: string
+  unit: string;
 
   @Required()
-  temperature: Temperature
+  temperature: Temperature;
 
   @Required()
-  weather: Weather
+  weather: Weather;
 }
