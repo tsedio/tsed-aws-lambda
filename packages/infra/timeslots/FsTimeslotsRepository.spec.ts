@@ -57,7 +57,7 @@ describe("FsTimeslotsRepository", () => {
 
       const timeslot = repository.cache.get("id")
 
-      repository.save(timeslot)
+      await repository.save(timeslot!)
 
       expect(fs.writeJson).toHaveBeenCalledWith(
         "./dir/timeslots.json",

@@ -1,29 +1,11 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.node.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "module": "NodeNext",
-    "composite": true,
-    "noEmit": false,
-    "allowJs": false,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "types": ["vite/client", "vitest"],
+    "baseUrl": "..",
     "paths": {
-      "@project/domain/*": ["../domain/*"],
-      "@project/infra/*": ["../infra/*"],
-      "@project/controllers/*": ["../controllers/*"]
+      "@project/domain/*": ["./domain/*"],
+      "@project/infra/*": ["./infra/*"],
+      "@project/controllers/*": ["./controllers/*"]
     }
-  },
-  "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    }
-  ]
+  }
 }

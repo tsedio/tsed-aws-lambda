@@ -1,35 +1,66 @@
-import swc from "unplugin-swc";
-import {defineConfig} from "vitest/config";
+import { join } from "node:path"
 
-function resolveWorkspaceFiles() {
-  return {
-    name: "resolve-workspace-files",
-    resolveId(id: string) {
-      if (id.includes("@project")) {
-        return id.replace(".js", ".ts")
-      }
-    }
-  }
-}
+import swc from "unplugin-swc"
+import tsconfigPaths from "vite-tsconfig-paths"
+import { defineConfig } from "vitest/config"
+
+export const root = import.meta.dirname
 
 export default defineConfig({
   test: {
     globals: true,
-    root: "./"
+    environment: "node",
+    coverage: {
+      enabled: true,
+      reporter: ["text", "json", "html"],
+      include: ["src/**/*.{tsx,ts}"],
+      exclude: [
+        "**/node_modules/**",
+        "**/@tsed/**",
+        "**/exports.ts",
+        "**/interfaces/**",
+        "**/*fixtures.ts",
+        "**/fixtures/**",
+        "**/__fixtures__/**",
+        "**/*.spec.{ts,tsx}",
+        "**/*.stories.{ts,tsx}",
+        "**/*.d.ts",
+        "**/__mocks__/**",
+        "**/__mock__/**",
+        "**/tests/**",
+        "**/index.ts"
+      ]
+    }
   },
   plugins: [
-    resolveWorkspaceFiles(),
-
-    // This is required to build the test files with SWC
+    tsconfigPaths({
+      projects: [join(root, "tsconfig.json"), join(root, "tsconfig.spec.json")]
+    }),
     swc.vite({
-      //tsconfigFile: "./tsconfig.spec.json",
-      // Explicitly set the module type to avoid inheriting this value from a `.swcrc` config file
-      module: {type: "es6"},
+      sourceMaps: true,
+      inlineSourcesContent: true,
       jsc: {
+        target: "esnext",
+        externalHelpers: true,
+        keepClassNames: true,
+        parser: {
+          syntax: "typescript",
+          tsx: true,
+          decorators: true
+        },
         transform: {
-          useDefineForClassFields: false
+          useDefineForClassFields: false,
+          legacyDecorator: true,
+          decoratorMetadata: true
         }
-      }
+      },
+      module: {
+        type: "es6",
+        strictMode: true,
+        lazy: false
+      },
+      minify: false,
+      isModule: true
     })
   ]
-});
+})

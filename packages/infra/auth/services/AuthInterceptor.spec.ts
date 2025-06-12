@@ -36,7 +36,7 @@ describe("AuthInterceptor", () => {
       scopes: ["timeslots"]
     })
 
-    const result = await interceptor.intercept(context as any)
+    const result = await interceptor.intercept(context as never)
 
     expect(result).toEqual([])
     expect(context.next).toHaveBeenCalledWith()
@@ -49,7 +49,7 @@ describe("AuthInterceptor", () => {
 
     authContext.getUserInfo.mockResolvedValue(undefined)
 
-    const result = await catchAsyncError<Exception>(() => interceptor.intercept(context as ay))
+    const result = await catchAsyncError<Exception>(() => interceptor.intercept(context as never))
 
     expect(result?.status).toEqual(401)
     expect(result?.message).toEqual("Unauthorized")
@@ -59,7 +59,7 @@ describe("AuthInterceptor", () => {
       scopes: ["hello"]
     })
 
-    const result = await catchAsyncError<Exception>(() => interceptor.intercept(context as any))
+    const result = await catchAsyncError<Exception>(() => interceptor.intercept(context as never))
 
     expect(result?.status).toEqual(403)
     expect(result?.message).toEqual("Insufficient scope")

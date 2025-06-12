@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker"
 import { Timeslot } from "@project/domain/timeslots/Timeslot.js"
 import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
-import { Command, CommandProvider, Inject, Logger, QuestionOptions } from "@tsed/cli-core"
+import { Command, CommandProvider, Inject, logger, QuestionOptions } from "@tsed/cli-core"
 import { deserialize } from "@tsed/json-mapper"
 
 interface CommandOptions {
@@ -28,9 +28,6 @@ interface CommandOptions {
 export class TimeslotsLoadCommand implements CommandProvider<CommandOptions> {
   @Inject(TimeslotsRepository)
   protected timeslotsRepository: TimeslotsRepository
-
-  @Inject()
-  protected logger: Logger
 
   $prompt(initialOptions: Partial<CommandOptions>): QuestionOptions<CommandOptions> {
     return [
@@ -62,7 +59,7 @@ export class TimeslotsLoadCommand implements CommandProvider<CommandOptions> {
             await this.timeslotsRepository.create(timeslot)
           }
 
-          this.logger.info({
+          logger().info({
             event: "TIMESLOTS_CREATION",
             count: timeslots.length
           })

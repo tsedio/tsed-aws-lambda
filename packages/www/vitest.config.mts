@@ -1,13 +1,9 @@
-import { mergeConfig } from "vitest/config";
-import sharedConfig from "../../vitest.shared.mjs";
+import { mergeConfig } from "vitest/config"
 
-export default mergeConfig(
-  sharedConfig,
-  {
-    test: {
-      globalSetup: [
-        "./vitest.setup.mts"
-      ]
-    }
+import sharedConfig from "../../vitest.shared.mjs"
+
+export default mergeConfig(sharedConfig, {
+  test: {
+    globalSetup: ["./vitest.setup.mts"]
   }
-);
+})

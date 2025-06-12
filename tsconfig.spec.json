@@ -1,20 +1,39 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "./tsconfig.node.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "dist",
-    "moduleResolution": "nodeNext",
-    "module": "nodeNext",
-    "noEmit": true,
-    "declaration": false,
+    "composite": false,
+    "declarationMap": false,
     "types": [
       "vitest/globals",
       "vitest/importMeta",
       "vite/client",
       "node",
       "vitest"
-    ]
+    ],
+    "paths": {
+      "@project/domain/*": [
+        "./packages/domain/*"
+      ],
+      "@project/infra/*": [
+        "./packages/domain/*"
+      ],
+      "@project/controllers/*": [
+        "./packages/controllers/*"
+      ]
+    }
   },
-  "include": ["vitest.workspace.mts", "vitest.shared.mts", "src/**/*.spec.ts"],
-  "exclude": ["dist"]
+  "include": [
+    "vitest.*.mts",
+    "**/vitest.*.mts",
+    "**/tsup.*.ts",
+    "**/*.ts"
+  ],
+  "exclude": [
+    "dist",
+    "**/lib/**",
+    "**/templates/**",
+    "**/barrels/**",
+    "./packages/**/project-name/**/*.ts"
+  ]
 }

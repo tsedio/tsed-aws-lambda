@@ -6,7 +6,7 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "build": "tsc --project tsconfig.node.json",
+    "build": "tsc --project tsconfig.json",
     "run-cmd": "CI=1 node --import @swc-node/register/esm-register bin/index.ts",
     "timeslots": "yarn run-cmd timeslots --limit 5",
     "timeslots:load": "yarn run-cmd timeslots-load",
@@ -46,11 +46,11 @@
     "@swc/cli": "^0.5.0",
     "@swc/core": "^1.7.42",
     "@swc/helpers": "^0.5.13",
-    "@tsed/cli": "^6.0.3",
-    "@tsed/cli-generate-swagger": "^6.0.3",
-    "@tsed/cli-plugin-eslint": "6.0.3",
-    "@tsed/cli-plugin-vitest": "6.0.3",
-    "@tsed/cli-testing": "6.0.3",
+    "@tsed/cli": "6.4.3",
+    "@tsed/cli-generate-swagger": "6.4.3",
+    "@tsed/cli-plugin-eslint": "6.4.3",
+    "@tsed/cli-plugin-vitest": "6.4.3",
+    "@tsed/cli-testing": "6.4.3",
     "@tsed/platform-express": "^8.12.3",
     "@tsed/platform-views": "^8.12.3",
     "@types/compression": "^1.7.5",
@@ -64,6 +64,6 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "5.6.3",
-    "vitest": "2.1.4"
+    "vitest": "3.2.3"
   }
 }

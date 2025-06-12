@@ -14,7 +14,7 @@ export class FsTimeslotsRepository implements Repository<Timeslot> {
   @Constant("timeslots.dbFilePath", "")
   private timeslotsFilePath: string
 
-  private cache = new Map<string, Timeslot>()
+  readonly cache = new Map<string, Timeslot>()
 
   @Inject()
   private logger: Logger

@@ -1,4 +1,4 @@
-import { interpolate } from "./interpolate"
+import { interpolate } from "./interpolate.js"
 
 describe("interpolate", () => {
   it("should interpolate", () => {

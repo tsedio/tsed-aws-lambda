@@ -20,16 +20,16 @@ import { interpolate } from "./utils/interpolate.js"
 
 @Injectable()
 export class HttpClient<Options extends HttpClientOptions = HttpClientOptions> extends HttpLogClient {
-  #raw: AxiosInstance
+  protected _raw: AxiosInstance
 
   protected baseURL: string
 
   $onInit() {
-    this.#raw = this.create()
+    this._raw = this.create()
   }
 
   get raw() {
-    return this.#raw
+    return this._raw
   }
 
   async head(endpoint: string, options?: Options): Promise<RawAxiosRequestHeaders | AxiosHeaders> {

@@ -1,5 +1,5 @@
 import { TimeslotsRepository } from "@project/infra/timeslots/TimeslotsRepository.js"
-import { Command, CommandProvider, Constant, Inject, Logger } from "@tsed/cli-core"
+import { Command, CommandProvider, Constant, Inject, logger } from "@tsed/cli-core"
 
 interface CommandOptions {
   limit?: number
@@ -19,9 +19,6 @@ interface CommandOptions {
 export class TimeslotsCommand implements CommandProvider<CommandOptions> {
   @Inject(TimeslotsRepository)
   protected timeslotsRepository: TimeslotsRepository
-
-  @Inject()
-  protected logger: Logger
 
   @Constant("envs.MAX_TIMESLOTS", 5)
   protected maxTimeslots: number
@@ -43,7 +40,7 @@ export class TimeslotsCommand implements CommandProvider<CommandOptions> {
           })
 
           // display result in the terminal
-          this.logger.info({
+          logger().info({
             event: "TIMESLOTS",
             limit: ctx.limit,
             timeslots

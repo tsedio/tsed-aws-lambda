@@ -1,6 +1,6 @@
 import { envs } from "@project/commands/config/envs"
 import { WeatherForecastClient } from "@project/infra/weather_forecast/WeatherForecastClient.js"
-import { getMockServerUrl, startMockServer, stopMockServer } from "@project/www/test/integrations/utils/mockServerTestContainer"
+import { getMockServerUrl, startMockServer, stopMockServer } from "@project/www/test/integrations/utils/mockServerTestContainer.js"
 import { DITest } from "@tsed/di"
 import { PlatformTest } from "@tsed/platform-http/testing"
 import { afterAll, beforeAll } from "vitest"
