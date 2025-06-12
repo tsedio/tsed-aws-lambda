@@ -1,7 +1,7 @@
 import "@tsed/platform-express" // /!\ keep this import
 import "@tsed/ajv"
 import "@tsed/swagger"
-import "@tsed/platform-log-middleware"
+import "@tsed/platform-log-request"
 
 import * as controllers from "@project/controllers/index.js"
 import { Configuration } from "@tsed/di"

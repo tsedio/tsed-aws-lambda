@@ -12,18 +12,5 @@
     "tslib": "2.8.0",
     "typescript": "5.6.3",
     "vitest": "^2.1.4"
-  },
-  "peerDependencies": {
-    "@tsed/ajv": "^7.67.0",
-    "@tsed/core": "^7.67.0",
-    "@tsed/di": "^7.67.0",
-    "@tsed/engines": "^7.67.0",
-    "@tsed/exceptions": "^7.67.0",
-    "@tsed/json-mapper": "^7.67.0",
-    "@tsed/logger": "^7.0.1",
-    "@tsed/openspec": "^7.67.0",
-    "@tsed/platform-params": "^7.67.0",
-    "@tsed/schema": "^7.67.0",
-    "@tsed/swagger": "^7.67.0"
   }
 }

@@ -1,7 +1,7 @@
 import { dirname } from "node:path"
 
 import { Timeslot } from "@project/domain/timeslots/Timeslot.js"
-import { DITest } from "@tsed/di"
+import { DITest, inject } from "@tsed/di"
 import fs from "fs-extra"
 import { beforeEach } from "vitest"
 
@@ -44,7 +44,7 @@ describe("FsTimeslotsRepository", () => {
     })
 
     it("should check if the file exists and create it", async () => {
-      const repository = await DITest.get(FsTimeslotsRepository, [])
+      const repository = inject(FsTimeslotsRepository)
 
       expect(fs.existsSync).toHaveBeenCalledWith("./dir/timeslots.json")
       expect(fs.ensureDir).toHaveBeenCalledWith(dirname("./dir/timeslots.json"))
